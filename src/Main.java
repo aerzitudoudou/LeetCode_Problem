@@ -110,9 +110,21 @@ public class Main {
 //            System.out.println(a);
 //        }
 
-        AllSubSetII allSubSetII = new AllSubSetII();
-        int[] nums = new int[]{1,1};
-        allSubSetII.subsetsWithDup(nums);
+//        AllSubSetII allSubSetII = new AllSubSetII();
+//        int[] nums = new int[]{1,1};
+//        allSubSetII.subsetsWithDup(nums);
+        AllValidParenthesesII allValidParenthesesII = new AllValidParenthesesII();
+        List<String> list = allValidParenthesesII.validParentheses(1, 1, 1);
+        System.out.println(list);
+
+
+
+
+
+
+
+        // A utility function to find factorial of n
+
 
 
 
