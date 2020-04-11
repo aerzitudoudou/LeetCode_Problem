@@ -25,7 +25,7 @@ public class AllValidParenthesesII {
         for(int i = 0; i < p.length; i++){
             //create branch with (, <, or {
             if(i % 2 == 0 ){
-                if(remain[i] > 0){
+                if(remain[i] > 0){ //第一次做错了， 这个条件一定要写在已经判断完了奇数偶数index之后
                     sb.append(p[i]);
                     remain[i]--;
                     stack.offerFirst(p[i]);
