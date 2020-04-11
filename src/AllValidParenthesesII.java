@@ -28,7 +28,7 @@ public class AllValidParenthesesII {
                 if(remain[i] > 0){ //第一次做错了， 这个条件一定要写在已经判断完了奇数偶数index之后
                     sb.append(p[i]);
                     remain[i]--;
-                    stack.offerFirst(p[i]);
+                    stack.offerFirst(p[i]); //第一次做错了，奇数别忘了加到stack里
                     dfs(res, sb, p, remain, level, stack, index + 1);
                     stack.pollFirst();
                     remain[i]++;
