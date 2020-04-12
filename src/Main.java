@@ -113,9 +113,14 @@ public class Main {
 //        AllSubSetII allSubSetII = new AllSubSetII();
 //        int[] nums = new int[]{1,1};
 //        allSubSetII.subsetsWithDup(nums);
-        AllValidParenthesesII allValidParenthesesII = new AllValidParenthesesII();
-        List<String> list = allValidParenthesesII.validParentheses(1, 1, 1);
-        System.out.println(list);
+//        AllValidParenthesesII allValidParenthesesII = new AllValidParenthesesII();
+//        List<String> list = allValidParenthesesII.validParentheses(1, 1, 1);
+//        System.out.println(list);
+
+        int[] queries = new int[]{3,1,2,1};
+
+        ProcessQueries processQueries = new ProcessQueries();
+        processQueries.processQueries(queries, 5);
 
 
 
