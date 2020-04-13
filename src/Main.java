@@ -117,10 +117,16 @@ public class Main {
 //        List<String> list = allValidParenthesesII.validParentheses(1, 1, 1);
 //        System.out.println(list);
 
-        int[] queries = new int[]{3,1,2,1};
+//        int[] queries = new int[]{3,1,2,1};
+//
+//        ProcessQueries processQueries = new ProcessQueries();
+//        processQueries.processQueries(queries, 5);
 
-        ProcessQueries processQueries = new ProcessQueries();
-        processQueries.processQueries(queries, 5);
+
+        int n = 5;
+        int[][] edges = {{0,1},{0,2},{0,3},{1,4}};
+        ValidTree validTree = new ValidTree();
+        System.out.println(validTree.validTree(n, edges));
 
 
 
