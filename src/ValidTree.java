@@ -1,5 +1,5 @@
 import java.util.*;
-
+/*lint code 178*/
 public class ValidTree {
     //2. bfs can traverse every node
     public boolean validTree(int n, int[][] edges) {
