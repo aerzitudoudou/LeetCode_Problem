@@ -123,10 +123,14 @@ public class Main {
 //        processQueries.processQueries(queries, 5);
 
 
-        int n = 5;
-        int[][] edges = {{0,1},{0,2},{0,3},{1,4}};
-        ValidTree validTree = new ValidTree();
-        System.out.println(validTree.validTree(n, edges));
+//        int n = 5;
+//        int[][] edges = {{0,1},{0,2},{0,3},{1,4}};
+//        ValidTree validTree = new ValidTree();
+//        System.out.println(validTree.validTree(n, edges));
+
+        int[] array = new int[]{0,1,0};
+        ContiguousArray contiguousArray = new ContiguousArray();
+        contiguousArray.findMaxLength(array);
 
 
 
