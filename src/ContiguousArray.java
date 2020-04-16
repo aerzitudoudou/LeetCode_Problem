@@ -7,7 +7,7 @@ public class ContiguousArray {
     public int findMaxLength(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(0, -1);
-        int gm = Integer.MIN_VALUE;
+        int gm = 0; //初始化是0: 不存在的时候，长度是0， 不能初始化成Integer.min
         //用Pre-sum 思想 count 记录到当前值的presum
         //presum在这里并不是说真正的"和"。而是，如果是1， 再原来presum基础上加一。如果是0， 再原来基础上减一。presum在这个程序中用count 表示。
         int count = 0;

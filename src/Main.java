@@ -128,9 +128,16 @@ public class Main {
 //        ValidTree validTree = new ValidTree();
 //        System.out.println(validTree.validTree(n, edges));
 
-        int[] array = new int[]{0,1,0};
-        ContiguousArray contiguousArray = new ContiguousArray();
-        contiguousArray.findMaxLength(array);
+//        int[] array = new int[]{1,1,1,1,1,1,1,1};
+//        ContiguousArray contiguousArray = new ContiguousArray();
+//        contiguousArray.findMaxLength(array);
+
+        int a = 131;
+        int b = 64;
+        int c = a % b;
+        System.out.println(c);
+
+
 
 
 
