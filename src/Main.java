@@ -132,10 +132,18 @@ public class Main {
 //        ContiguousArray contiguousArray = new ContiguousArray();
 //        contiguousArray.findMaxLength(array);
 
-        int a = 131;
-        int b = 64;
-        int c = a % b;
-        System.out.println(c);
+//        int a = 131;
+//        int b = 64;
+//        int c = a % b;
+//        System.out.println(c);
+
+        ListNode a = new ListNode(1);
+        ListNode b = new ListNode(2);
+        a.next = b;
+        RotateLinkedList rotateLinkedList = new RotateLinkedList();
+        ListNode res= rotateLinkedList.rotateRight(a, 0);
+        System.out.println(res);
+
 
 
 
