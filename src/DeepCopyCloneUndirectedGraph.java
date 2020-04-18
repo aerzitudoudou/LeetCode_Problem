@@ -3,6 +3,8 @@ import java.util.*;
 public class DeepCopyCloneUndirectedGraph {
 
 //bfs
+    //T: O(V + E) 即要copy node 又要copy edge
+    //S: O(V )
  public List<GraphNode> copy1(List<GraphNode> graph) {
     //corner case check:
     if(graph == null){
@@ -10,7 +12,7 @@ public class DeepCopyCloneUndirectedGraph {
     }
     List<GraphNode> res = new ArrayList<>();
     Deque<GraphNode> queue = new LinkedList<>();
-    Map<GraphNode, GraphNode> map = new HashMap<>();
+    Map<GraphNode, GraphNode> map = new HashMap<>(); //空间 既有点又有边 所以V + E 但是因为是结果
     //initialization
     //这里要注意为什么每一个list 都要过一遍： 确定没有孤岛 e.g. 1-->, 2--->3 , 3---> 2
     //第二遍做的时候这里错了
