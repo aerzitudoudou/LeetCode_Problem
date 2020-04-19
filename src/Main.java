@@ -143,7 +143,9 @@ public class Main {
 //        RotateLinkedList rotateLinkedList = new RotateLinkedList();
 //        ListNode res= rotateLinkedList.rotateRight(a, 0);
 //        System.out.println(res);
-
+          int[][] grid = new int[][]{{0, 0, 0},{0, 0, 0},{0, 0 , 1}};
+          ZombieInMatrix zombieInMatrix = new ZombieInMatrix();
+          zombieInMatrix.zombie(grid);
 
 
 

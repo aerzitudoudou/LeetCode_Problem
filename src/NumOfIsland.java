@@ -43,7 +43,7 @@ public class NumOfIsland {
 
         while(!queue.isEmpty()){
             //expand
-            Point point = queue.pollFirst();
+            Point point = queue.pollLast();
             //generate 4个方向
             for(int a = 0; a < 4; a++){
                 int x = point.x + dirX[a];
