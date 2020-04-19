@@ -57,11 +57,11 @@ public class KnightShortestPath {
      */
     public int shortestPath(boolean[][] grid, Point source, Point destination) {
         int level = -1;
-        //corner case check: 第一次做的时候忘了查这个
+        //corner case check
         if(grid == null || grid.length == 0 || grid[0] == null){
             return level;
         }
-        //corner case check2
+        //corner case check2: : 第一次做的时候忘了查这个
         if(source.x == destination.x && source.y == destination.y){
             return 0;
         }
