@@ -143,9 +143,18 @@ public class Main {
 //        RotateLinkedList rotateLinkedList = new RotateLinkedList();
 //        ListNode res= rotateLinkedList.rotateRight(a, 0);
 //        System.out.println(res);
-          int[][] grid = new int[][]{{0, 0, 0},{0, 0, 0},{0, 0 , 1}};
-          ZombieInMatrix zombieInMatrix = new ZombieInMatrix();
-          zombieInMatrix.zombie(grid);
+//          int[][] grid = new int[][]{{0, 0, 0},{0, 0, 0},{0, 0 , 1}};
+//          ZombieInMatrix zombieInMatrix = new ZombieInMatrix();
+//          zombieInMatrix.zombie(grid);
+
+          String a = "[a,asdfqwe)";
+          String b = "[asdfqwea,c]";
+          IntervalMergeString intervalMergeString = new IntervalMergeString();
+          boolean flag = intervalMergeString.MergeJudge(a, b);
+          System.out.println(flag);
+
+
+
 
 
 
