@@ -69,7 +69,7 @@ public class MergeIntervals {
         return res;
 
     }
-
+     //注意！！自己写comparator的时候class name 是没有type 的
      class IntervalComparator implements Comparator<Interval> { //在class里面的类可以是public的， 也可以是Private的
         @Override
         public int compare(Interval i1, Interval i2){
