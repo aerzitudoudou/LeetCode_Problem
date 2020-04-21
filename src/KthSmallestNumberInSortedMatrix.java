@@ -83,7 +83,6 @@ public class KthSmallestNumberInSortedMatrix {
 
 
 
-
    //way 2:
     public int kthSmallest2(int[][] matrix, int k) {
         PriorityQueue<int[]> pq = new PriorityQueue<>(new ArrayComparator());
@@ -91,8 +90,6 @@ public class KthSmallestNumberInSortedMatrix {
         pq.offer(new int[]{0, 0, matrix[0][0]});
         visited[0][0] =true;
         return bfs(pq, visited, matrix, k);
-
-
     }
 
     private int bfs(PriorityQueue<int[]> pq, boolean[][] visited, int[][] matrix, int k){
