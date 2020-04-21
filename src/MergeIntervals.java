@@ -57,7 +57,7 @@ public class MergeIntervals {
         * ? extends E: some type which is an ancestor of E
         *
         * 有comparator的sort:
-        *list.sort(Comparator<? super E> c)
+        *list.sort(Comparator<? super E> c) or Collections.sort(List<T> list, Comparator<? super T> c)
         *Arryas.sort(T[] a, Comparator<? super T>)
         *
         * */
@@ -88,4 +88,92 @@ public class MergeIntervals {
             return i1.start < i2.start ? -1 : 1;
         }
     }
+
+
+    //另一种comparator的写法： 匿名类
+    public List<Interval> merge2(List<Interval> intervals) {
+        if(intervals == null){
+            return null;
+        }
+        if(intervals.size() <= 1){
+            return intervals;
+        }
+        List<Interval> res = new ArrayList<>();
+        intervals.sort(new Comparator<Interval>(){
+            @Override
+            public int compare(Interval i1, Interval i2) {
+                return Integer.valueOf(i1.start).compareTo(i2.start);
+            }
+//      或者用integer 的compare函数    return Integer.compare(i1.start, i2.start);
+
+        }); //sort list 用
+        Interval last = intervals.get(0);
+        for(int i = 1; i < intervals.size(); i++){
+            Interval cur = intervals.get(i);
+            if(cur.start <= last.end){
+                last.end = Math.max(last.end, cur.end); //end 的值不确定，所以要看哪个大
+            }else{
+                res.add(last);
+                last = cur;
+            }
+        }
+        //出loop的时候，最后一个值还没有被加进去
+        res.add(last);
+        return res;
+
+    }
+
+
+    //第三种Comparator 写法： 匿名函数
+
+    public List<Interval> merge3(List<Interval> intervals) {
+        if(intervals == null){
+            return null;
+        }
+        if(intervals.size() <= 1){
+            return intervals;
+        }
+        //at least 2 items in the list
+        List<Interval> res = new ArrayList<>();
+        intervals.sort(Comparator.comparing(i -> i.start)); //如果是逆序就是Comparator.comparing(i -> i.start).reversed()
+         Interval last = intervals.get(0);
+        for(int i = 1; i < intervals.size(); i++){
+            Interval cur = intervals.get(i);
+            if(cur.start <= last.end){
+                last.end = Math.max(last.end, cur.end); //end 的值不确定，所以要看哪个大
+            }else{
+                res.add(last);
+                last = cur;
+            }
+        }
+        //出loop的时候，最后一个值还没有被加进去
+        res.add(last);
+        return res;
+
+    }
+
+
+    //第二种思路，快指针确定入队的start值以及更新慢指针的end值   慢指针之前，包括慢指指向的值的所有interval 是最终答案 慢指针移动，说明其指向的start和end都确定下来了
+    public List<Interval> merge4(List<Interval> intervals) {
+        if(intervals == null){
+            return null;
+        }
+        List<Interval> res = new ArrayList<>();
+        intervals.sort(Comparator.comparing(i -> i.start)); //如果是逆序就是Comparator.comparing(i -> i.start).reversed()
+        Interval s = null;
+        for(int i = 0; i < intervals.size(); i++){
+            Interval f = intervals.get(i);
+            if(s == null || f.start > s.end){
+                res.add(f);
+                s = f;
+            }else{
+                s.end = Math.max(s.end, f.end);
+            }
+
+        }
+        return res;
+
+    }
+
+
 }
