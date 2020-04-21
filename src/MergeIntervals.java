@@ -4,29 +4,21 @@ import java.util.List;
 
 
 /*
-* Description
+LintCode
+156. Merge Intervals
+Given a collection of intervals, merge all overlapping intervals.
 
-Given two sorted integer arrays A and B, merge B into A as one sorted array.
-
-You may assume that A has enough space (size that is greater or equal to m + n) to hold additional elements from B. The number of elements initialized in A and B are m and n respectively.
-
-Have you met this question in a real interview?
 Example
 Example 1:
 
-Input：[1, 2, 3] 3  [4,5]  2
-Output：[1,2,3,4,5]
-Explanation:
-After merge, A will be filled as [1, 2, 3, 4, 5]
+Input: [(1,3)]
+Output: [(1,3)]
 Example 2:
 
-Input：[1,2,5] 3 [3,4] 2
-Output：[1,2,3,4,5]
-Explanation:
-After merge, A will be filled as [1, 2, 3, 4, 5]
-*
-*
-*
+Input:  [(1,3),(2,6),(8,10),(15,18)]
+Output: [(1,6),(8,10),(15,18)]
+Challenge
+O(n log n) time and O(1) extra space.
 * */
 
 class Interval { //辅助class 不能是public 否则compile error 一个file里只能有一个public class and the class would be named after it
