@@ -66,12 +66,13 @@ public class MergeIntervals {
         for(int i = 1; i < intervals.size(); i++){
             Interval cur = intervals.get(i);
             if(cur.start <= last.end){
-                last.end = Math.max(last.end, cur.end);
+                last.end = Math.max(last.end, cur.end); //end 的值不确定，所以要看哪个大
             }else{
                 res.add(last);
                 last = cur;
             }
         }
+        //出loop的时候，最后一个值还没有被加进去
         res.add(last);
         return res;
 
