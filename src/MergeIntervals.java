@@ -153,7 +153,7 @@ public class MergeIntervals {
     }
 
 
-    //第二种思路，快指针确定入队的start值以及更新慢指针的end值   慢指针之前，包括慢指指向的值的所有interval 是最终答案 慢指针移动，说明其指向的start和end都确定下来了
+    //!!!z最好的思路!!!第二种思路，快指针确定入队的start值以及更新慢指针的end值   慢指针之前，包括慢指指向的值的所有interval 是最终答案 慢指针移动，说明其指向的start和end都确定下来了
     public List<Interval> merge4(List<Interval> intervals) {
         if(intervals == null){
             return null;
