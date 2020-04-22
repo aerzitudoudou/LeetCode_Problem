@@ -35,7 +35,7 @@ public class KthSmallestWithOnly357AsFactors {
             父类是精度越来越高的方向
            Widening reference conversions never require a special action at run time and therefore never throw an exception at run time. 不需要加括号
 
-           所以这里offer后面不能直接跟3 * 5 * 7因为://TODO: 更新once get 答案
+           所以这里offer后面不能直接跟3 * 5 * 7因为: autobox 只有在没有选择的情况下才做，java设计的时候比较保守。 3 * 5 * 7 可以auto boxing 成integer, 所以除了Long还有别的选择，所以不能asuume 可以成功转化为Long
 
 
         * */
