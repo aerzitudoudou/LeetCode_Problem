@@ -152,6 +152,10 @@ public class Main {
           IntervalMergeString intervalMergeString = new IntervalMergeString();
           boolean flag = intervalMergeString.MergeJudge(a, b);
           System.out.println(flag);
+          Integer m = 5;
+
+
+          long d = 5 * 7;
 
 
 
