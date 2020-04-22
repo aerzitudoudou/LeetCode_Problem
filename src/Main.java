@@ -1,7 +1,5 @@
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -147,17 +145,40 @@ public class Main {
 //          ZombieInMatrix zombieInMatrix = new ZombieInMatrix();
 //          zombieInMatrix.zombie(grid);
 
-          String a = "[a,asdfqwe)";
-          String b = "[asdfqwea,c]";
-          IntervalMergeString intervalMergeString = new IntervalMergeString();
-          boolean flag = intervalMergeString.MergeJudge(a, b);
-          System.out.println(flag);
-          Integer m = 5;
 
 
-          long d = 5 * 7;
+
+ /*list and array play ground
+
+          int[] a = new int[]{1, 2, 3};
+          int[] b = new int[]{1, 2, 3};
+
+          List<Integer> res = new ArrayList();
+          List<Integer> res2 = new ArrayList();
+          res.add(1);
+          res2.add(1);
+          res.add(2);
+          res2.add(2);
+
+        Set set = new HashSet();
+        set.add(Arrays.asList(0, 0, 0));
+
+        int[] test = {1, 2, 4};
+
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+
+        Integer[] array = new Integer[]{};
+        array = list.toArray(array);
+
+        for(int i = 0; i < array.length; i++){
+            System.out.println(array[i]);
+        }
+        System.out.println(res.equals(res2));
 
 
+*/
 
 
 

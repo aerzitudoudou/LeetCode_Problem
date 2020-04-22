@@ -1,6 +1,5 @@
-import java.util.HashSet;
-import java.util.PriorityQueue;
-import java.util.Set;
+import java.util.*;
+
 /*
 * laicode 193
 *
@@ -44,6 +43,10 @@ public class KthSmallestWithOnly357AsFactors {
         pq.offer(Long.valueOf(3 * 5 * 7));
         set.add(Long.valueOf(3 * 5 * 7));
         return bfs(pq, set, k);
+
+
+
+
     }
 
     private long bfs(PriorityQueue<Long> pq, Set<Long> set, int k){
