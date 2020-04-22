@@ -22,6 +22,8 @@ the 5th smallest is 3 ^ 3 * 5 * 7 = 945
 *
 * */
 public class KthSmallestWithOnly357AsFactors {
+    //T: klog(k)
+    //S: O(k)
     public long kth(int k) {
         //data structure: pq, set(deduplication)
         PriorityQueue<Long> pq = new PriorityQueue<>(k);
