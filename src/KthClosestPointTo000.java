@@ -43,7 +43,7 @@ public class KthClosestPointTo000 {
         Set<List<Integer>> set = new HashSet<>();
         pq.offer(new int[]{0, 0, 0});//store index
         //int array to list, value直接list 在（）里
-        //list to array 可以用Collections.toList()
+
         set.add(Arrays.asList(0, 0, 0));
         return bfs(pq, set, a, b, c, k);
 
