@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class SevenPuzzle {
-    //T: O(8!) 第一个位置上8种可能*第二个位置上7种可能。。。= O(8!)
+    //T: O(8!) 第一个位置上8种可能*第二个位置上7种可能。。。= O(8!) //TODO: 更新答案once piazza has update
     //s: O(8!)
     public int numOfSteps(int[] values) {
         Deque<Board> queue = new LinkedList<>();
@@ -102,7 +102,7 @@ public class SevenPuzzle {
             Board b = (Board) o; //强制转换要有
             for(int i = 0; i < R; i++){
                 for(int j = 0; j < C; j++){
-                    if(this.board[i][j] != b.board[i][j]){ //这里的this 是指代内部class Board的吗？
+                    if(this.board[i][j] != b.board[i][j]){ //这里的this 是指代内部class Board的
                         return false;
                     }
                 }
