@@ -179,6 +179,11 @@ public class Main {
 
 
 */
+       SevenPuzzle sevenPuzzle = new SevenPuzzle();
+       int[] values = new int[]{0,1,3,4,5,7,2,6};
+        System.out.println(sevenPuzzle.numOfSteps(values));
+
+
 
 
 
@@ -199,4 +204,6 @@ public class Main {
 
 
     }
+
+
 }

@@ -1,11 +1,22 @@
 public class OuterClassInnerClass {
     private static String msg = "Message";
+    private static boolean isRich = false;
+
+    //the behavior ipo() belongs to the whole class, but not any instance.it can only
+    //operate fields that belong to the class, but not instances(static fields).
+    public static void ipo(){
+        isRich = true;
+    }
+
+
     //why nested class?
     /*
     * 1. logically group classes that are only used in one place
     * 2. increase encapsulation: inner class can access outer class's private members
     * 3. more readable and maintainable code
     * */
+
+    //prefer static nested class to inner class since it uses less memory
     public static class NestedStaticClass{
         /*only a nested class can be declared static
         * only static members of Outer class is directly accessible in nested static class
@@ -20,7 +31,7 @@ public class OuterClassInnerClass {
 
     }
 
-    private class InnerClass{
+    protected class InnerClass{
         /*
         * non-static 类正好相反 优点： 可以access外部类的static member & non-static member
         * 缺点： 内部只能有non-static method
