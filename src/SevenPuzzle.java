@@ -1,8 +1,9 @@
 import java.util.*;
 
 public class SevenPuzzle {
-    //T: O(8!) 第一个位置上8种可能*第二个位置上7种可能。。。= O(8!) //TODO: 更新答案once piazza has update
-    //s: O(8!)
+    //T: O(8!) 第一个位置上8种可能*第二个位置上7种可能。。。= O(n! * n)
+    //"思路上是对的。但是需要注意细节，比如每次你需要O（8）的复杂度去check是否走通了。虽然题目给了棋盘大小为8，所以说O（8！）也是对的。但是记得check这一块的时间付出。"
+    //s: O(n!)
     public int numOfSteps(int[] values) {
         Deque<Board> queue = new LinkedList<>();
         Set<Board> set = new HashSet<>();
