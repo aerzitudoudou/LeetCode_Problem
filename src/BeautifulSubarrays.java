@@ -60,7 +60,7 @@ public class BeautifulSubarrays {
         return t % 2 == 1;
     }
 
-    //other's way : 中心开花 T: O（）
+    //other's way : 中心开花 T: O（n） S: O(n)
     //抽象出奇数的index并加上边界用来计算n个奇数定义出的interval往左往右可形成数组的个数  最终的数组的个数 = total of (每一个interval向左可形成的数组的个数 * 这个interval向右可形成的数组的个数）
     //way2
     //                                       e.g. nums: [7, 8, 9, 10, 11]
