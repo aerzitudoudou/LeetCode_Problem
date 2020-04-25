@@ -183,6 +183,8 @@ public class Main {
        int[] values = new int[]{0,1,3,4,5,7,2,6};
         System.out.println(sevenPuzzle.numOfSteps(values));
 
+        int i = 0, j = 1;
+
 
 
 
