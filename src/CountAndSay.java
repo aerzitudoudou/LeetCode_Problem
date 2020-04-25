@@ -85,5 +85,29 @@ public class CountAndSay {
        return res;
     }
 
+    //way 3: recursion
+    //T: O(n * m)
+    //S: O(n * m) //TODO: 等更新答案
+    public String countAndSay3(int n){
+        //base case
+        if(n == 1){
+            return "1";
+        }
+
+        String tmp = countAndSay3(n - 1);
+        StringBuilder sb = new StringBuilder();
+        for(int i = 1, count = 1; i <= tmp.length(); i++, count++){
+            if(i == tmp.length() || tmp.charAt(i) != tmp.charAt(i - 1)){
+                sb.append(count);
+                sb.append(tmp.charAt(i - 1));
+                count = 0;
+            }
+        }
+        return sb.toString();
+    }
+
+
+
+
 
 }
