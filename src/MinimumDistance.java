@@ -1,4 +1,5 @@
 /*
+lintcode 1364
 *Description
 You are now given a two-dimensional tabular graph , in which each grid contains a integer num.
 
