@@ -87,15 +87,17 @@ public class CountAndSay {
 
     //way 3: recursion
     //T: O(n * m)
-    //S: O(n * m) //TODO: 等更新答案
+    //S: O(n)
+    // 空间复杂度是stack +heap: heap上一旦这一层返回了，recursion里的东西都释放掉了，就可以不用再计算了
+    //算的是stack和heap在最顶峰时的峰值，如果每一层没有额外空间，就是O(n), 如果每层有额外空间，就考虑在最多的时刻的空间是多少，而不是平均值
     public String countAndSay3(int n){
         //base case
         if(n == 1){
             return "1";
         }
 
-        String tmp = countAndSay3(n - 1);
-        StringBuilder sb = new StringBuilder();
+        String tmp = countAndSay3(n - 1); //这里在压栈， 所以最顶峰的时候stack 和heap 就是O(n)
+        StringBuilder sb = new StringBuilder(); //这里空间忽略不计，因为这层返回了 空间就释放掉了，不是在压栈过程中积累的空间
         for(int i = 1, count = 1; i <= tmp.length(); i++, count++){
             if(i == tmp.length() || tmp.charAt(i) != tmp.charAt(i - 1)){
                 sb.append(count);
