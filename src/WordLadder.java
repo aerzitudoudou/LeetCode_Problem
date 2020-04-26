@@ -28,6 +28,9 @@ Explanation: git -> hit -> hot
 *
 * */
 public class WordLadder {
+    //T: wordlist一共有N个单词, 每个单词平均长度是M， 单词的每个char做了check, T = 26 * M * N
+    //S: O(N) set里最后有N个单词
+
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Deque<Integer> queue = new LinkedList<>();
         Set<Integer> set = new HashSet<>();
@@ -78,7 +81,7 @@ public class WordLadder {
 
         public NeighborFinder(List<String> wordList){
             for(int i = 0; i < wordList.size(); i++){
-                wordIndex.put(wordList.get(i), i);
+                wordIndex.put(wordList.get(i), i); //N次
             }
             this.wordList = wordList;
 
@@ -88,9 +91,9 @@ public class WordLadder {
         public List<Integer> findNei(int i){
             List<Integer> neighbors = new ArrayList<>();
             StringBuilder word = new StringBuilder(wordList.get(i));
-            for(int k = 0; k < word.length(); k++){
+            for(int k = 0; k < word.length(); k++){//T: 长度为M forloop 总的时间复杂度为M * 26
                 char orig = word.charAt(k);
-                for(char c = 'a'; c <= 'z'; c++){
+                for(char c = 'a'; c <= 'z'; c++){ //T: 26
                     if(c == orig){
                         continue;
                     }
