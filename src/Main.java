@@ -228,13 +228,27 @@ public class Main {
 //        String word = "baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 //
 //        System.out.println(wordSearch.exist(board, word));
-        String a = "i love yahoo hahahahahhaah  jajajajajajaj";
-        String b = "i love yahoo hahahahahhaah  jajajajajajaj";
-        Set<String> set = new HashSet<>();
-        set.add(a);
-        System.out.println(set.contains(b));
-        System.out.println(a.hashCode());
-        System.out.println(b.hashCode());
+//        String a = "i love yahoo hahahahahhaah  jajajajajajaj";
+//        String b = "i love yahoo hahahahahhaah  jajajajajajaj";
+//        Set<String> set = new HashSet<>();
+//        set.add(a);
+//        System.out.println(set.contains(b));
+//        System.out.println(a.hashCode());
+//        System.out.println(b.hashCode());
+
+//        String test = "Test";
+//        System.out.println(test.indexOf('e'));
+//
+//        System.out.println(((int)('f')));
+        Integer a = 8;
+        int[] steps = new int[9];
+        steps[a] = 9999;
+        for(int i : steps){
+            System.out.println(i);
+        }
+
+
+
 
 
 
