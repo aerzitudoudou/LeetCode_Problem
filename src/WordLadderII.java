@@ -211,7 +211,7 @@ public class WordLadderII {
     }
 
     private void dfs(List<List<String>> res, String begin, String end, List<String> list, Map<String, List<String>> preds){
-        if(begin.equals(end)){ //这个地方第一次做错了，直接Collections.reverse(list) 然后把list 加在result里了， 这种层与层之间传递的变量不能破坏，加入结果要new一个新的
+        if(begin.equals(end)){ //这个地方第一次做错了，直接Collections.reverse(list) 然后把list 加在result里了， 这种层与层之间传递的变量不能破坏，加入结果要new 一个新的， deep copy
             List<String> tmp = new ArrayList<>(list);
             Collections.reverse(tmp);
             res.add(tmp);
