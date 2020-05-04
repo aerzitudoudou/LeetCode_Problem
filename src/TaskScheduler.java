@@ -33,8 +33,6 @@ public class TaskScheduler {
 
      */
 
-
-
     public int leastInterval(char[] tasks, int n) {
         int[] counter = new int[26];
         for(int i = 0; i < tasks.length; i++){
