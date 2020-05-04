@@ -30,6 +30,7 @@ Output: [["git","hit","hot"], ["git","got","hot"]]
 import java.util.*;
 
 public class WordLadderII {
+    //way 1: 定义两个数据结构，一个存每个点的neighbor（NeiFinder）, 另一个存每个点的前序(Tracer)
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         //corner case check
         List<List<String>> res = new ArrayList<>();
@@ -155,4 +156,94 @@ public class WordLadderII {
 
         }
     }
+
+
+
+    //way 2: 不用辅助类：
+    public List<List<String>> findLadders2(String beginWord, String endWord, List<String> wordList) {
+        List<List<String>> res = new ArrayList<>();
+        if(wordList.indexOf(endWord) == -1){
+            return res;
+        }
+        Map<String, List<String>> neis = new HashMap<>();
+        Map<String, List<String>> preds = new HashMap<>();
+        Map<String, Integer> steps = new HashMap<>();
+        if(wordList.indexOf(beginWord) == -1){
+            wordList.add(beginWord);
+        }
+        for(String str : wordList){
+            buildNei(str, neis, wordList);
+            preds.put(str, new ArrayList<String>());
+            steps.put(str, -1);
+        }
+
+        Deque<String> queue = new LinkedList<>();
+        queue.offerFirst(beginWord);
+        steps.put(beginWord, 0);
+        while(!queue.isEmpty()){
+            //expand
+            String tmp = queue.pollLast();
+            if(tmp.equals(endWord)){
+                List<String> list = new ArrayList<>();
+                list.add(endWord);
+                dfs(res, beginWord, endWord, list, preds);
+                break;
+            }
+            //generate
+            for(String nei : neis.get(tmp)){
+                //de-dup
+                if(steps.get(nei) == -1){
+                    //1.en-queue
+                    queue.offerFirst(nei);
+                    //3.update steps
+                    steps.put(nei, steps.get(tmp) + 1);
+
+                }
+                if(steps.get(nei) == steps.get(tmp) + 1){
+                    //2.update preds
+                    preds.get(nei).add(tmp);
+                }
+            }
+        }
+
+        return res;
+
+    }
+
+    private void dfs(List<List<String>> res, String begin, String end, List<String> list, Map<String, List<String>> preds){
+        if(begin.equals(end)){ //这个地方第一次做错了，直接Collections.reverse(list) 然后把list 加在result里了， 这种层与层之间传递的变量不能破坏，加入结果要new一个新的
+            List<String> tmp = new ArrayList<>(list);
+            Collections.reverse(tmp);
+            res.add(tmp);
+            return;
+        }
+        for(String str : preds.get(end)){
+            list.add(str);
+            dfs(res, begin, str, list, preds);
+            list.remove(list.size() - 1);
+        }
+    }
+
+    private void buildNei(String word, Map<String, List<String>> neis, List<String> wordList){
+        List<String> res = new ArrayList<>();
+        neis.put(word, res);
+        for(int i = 0; i < word.length(); i++){
+            StringBuilder sb = new StringBuilder(word);
+            char orig = word.charAt(i);
+            for(char c = 'a'; c <= 'z'; c++){
+                if(c == orig){
+                    continue;
+                }
+                sb.setCharAt(i, c);
+                if(wordList.indexOf(sb.toString()) != -1){
+                    neis.get(word).add(sb.toString());
+                }
+            }
+            sb.setCharAt(i, orig);
+
+        }
+
+    }
+
+
 }
