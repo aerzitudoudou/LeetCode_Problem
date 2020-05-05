@@ -240,12 +240,14 @@ public class Main {
 //        System.out.println(test.indexOf('e'));
 //
 //        System.out.println(((int)('f')));
-        Integer a = 8;
-        int[] steps = new int[9];
-        steps[a] = 9999;
-        for(int i : steps){
-            System.out.println(i);
-        }
+//        Integer a = 8;
+//        int[] steps = new int[9];
+//        steps[a] = 9999;
+//        for(int i : steps){
+//            System.out.println(i);
+//        }
+        CourseScheduleII courseScheduleII = new CourseScheduleII();
+        courseScheduleII.findOrder(2, new int[][]{{1,0}});
 
 
 
