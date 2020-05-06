@@ -27,6 +27,7 @@ Challenge
 Can you do it in O(n) time?
 * */
 public class MaximumSizeSubarraySumEqualsK {
+    //my way
     public int maxSubArrayLen(int[] nums, int k) {
         if(nums == null || nums.length == 0){
             return 0;
@@ -68,5 +69,30 @@ public class MaximumSizeSubarraySumEqualsK {
 
 
 
+    }
+
+    //way 2: https://www.cnblogs.com/grandyang/p/5336668.html
+    /*
+    for loop 一步到位，Map只记录第一个presum 出现的index, 因为指针一直往后走，当前指针位置一定是目前为止能成为此presum 的最大指针。 中间不断更新globalmax
+    * */
+
+    public int maxSubArrayLen2(int[] nums, int k) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+        int res = 0;
+        int sum = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < nums.length; i++){
+            sum += nums[i];
+            map.putIfAbsent(sum, i);
+            int preSum = sum - k;
+            if(sum == k){
+                res = i + 1;
+            } else if(map.containsKey(preSum)){
+                res = Math.max(res, i - map.get(preSum));
+            }
+        }
+        return res;
     }
 }
