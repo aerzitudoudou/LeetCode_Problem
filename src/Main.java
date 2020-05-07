@@ -246,8 +246,16 @@ public class Main {
 //        for(int i : steps){
 //            System.out.println(i);
 //        }
-        CourseScheduleII courseScheduleII = new CourseScheduleII();
-        courseScheduleII.findOrder(2, new int[][]{{1,0}});
+//        CourseScheduleII courseScheduleII = new CourseScheduleII();
+//        courseScheduleII.findOrder(2, new int[][]{{1,0}});
+
+        AlienDictionary alienDictionary = new AlienDictionary();
+        alienDictionary.alienOrder(new String[]{"ze","yf","xd","wd","vd","ua","tt","sz","rd", "qd","pz","op","nw","mt","ln","ko","jm","il", "ho","gk","fa","ed","dg","ct","bb","ba"});
+
+//        Set<Character> set = new HashSet<>();
+//        set.add('c');
+//        set.remove('c');
+//        System.out.println(set);
 
 
 
