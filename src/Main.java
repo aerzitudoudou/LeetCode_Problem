@@ -194,19 +194,31 @@ public class Main {
 //        int k = (1 % 3 * 2 % 3) % 3;
 //
 //        System.out.println("i :" + i + " k :" + k);
-//        Integer[] a = new Integer[]{1, 2};
-//        Integer[] b = new Integer[]{1, 2};
+        Integer[] a = new Integer[]{1, 2};
+        Integer[] b = new Integer[]{1, 2};
+
+        System.out.println(a.hashCode());
+        System.out.println(b.hashCode());
 //        Set<Integer[]> set = new HashSet<>();
 //        set.add(a);
-//        System.out.println(Arrays.asList(a).hashCode());
-//        System.out.println(Arrays.asList(b).hashCode());
 
 
-//        List<Integer> aList = Arrays.asList(a);
-//        List<Integer> bList = Arrays.asList(b);
-//        System.out.println(aList.equals(bList));
-//        int[] c = new int[]{1, 2};
-//        int[] d = new int[]{1, 2};
+
+        List<Integer> aList = Arrays.asList(a);
+        List<Integer> bList = Arrays.asList(b);
+
+        System.out.println(aList.hashCode());
+        System.out.println(bList.hashCode());
+
+        System.out.println(aList.equals(bList));
+
+        int[] c = new int[]{1, 2};
+        int[] d = new int[]{1, 2};
+        System.out.println(c.hashCode());
+        System.out.println(d.hashCode());
+
+
+
 //        Set<List<Integer>> set = new HashSet<>();
 //        set.add(aList);
 //        System.out.println(set.contains(bList));
@@ -249,8 +261,8 @@ public class Main {
 //        CourseScheduleII courseScheduleII = new CourseScheduleII();
 //        courseScheduleII.findOrder(2, new int[][]{{1,0}});
 
-        AlienDictionary alienDictionary = new AlienDictionary();
-        alienDictionary.alienOrder(new String[]{"ze","yf","xd","wd","vd","ua","tt","sz","rd", "qd","pz","op","nw","mt","ln","ko","jm","il", "ho","gk","fa","ed","dg","ct","bb","ba"});
+//        AlienDictionary alienDictionary = new AlienDictionary();
+//        alienDictionary.alienOrder(new String[]{"ze","yf","xd","wd","vd","ua","tt","sz","rd", "qd","pz","op","nw","mt","ln","ko","jm","il", "ho","gk","fa","ed","dg","ct","bb","ba"});
 
 //        Set<Character> set = new HashSet<>();
 //        set.add('c');
