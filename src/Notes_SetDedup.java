@@ -30,6 +30,13 @@ public class Notes_SetDedup {
         System.out.println(c.hashCode());
         System.out.println(d.hashCode());
 
+        //String 只要内容一样，hashcode 就是一样的
+        String s1 = "lalala";
+        String s2 = "lalala";
+        System.out.println(c.hashCode());
+        System.out.println(d.hashCode());
+
+
 
     }
 }

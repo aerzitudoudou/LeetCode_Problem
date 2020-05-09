@@ -194,28 +194,28 @@ public class Main {
 //        int k = (1 % 3 * 2 % 3) % 3;
 //
 //        System.out.println("i :" + i + " k :" + k);
-        Integer[] a = new Integer[]{1, 2};
-        Integer[] b = new Integer[]{1, 2};
-
-        System.out.println(a.hashCode());
-        System.out.println(b.hashCode());
+//        Integer[] a = new Integer[]{1, 2};
+//        Integer[] b = new Integer[]{1, 2};
+//
+//        System.out.println(a.hashCode());
+//        System.out.println(b.hashCode());
 //        Set<Integer[]> set = new HashSet<>();
 //        set.add(a);
 
 
 
-        List<Integer> aList = Arrays.asList(a);
-        List<Integer> bList = Arrays.asList(b);
-
-        System.out.println(aList.hashCode());
-        System.out.println(bList.hashCode());
-
-        System.out.println(aList.equals(bList));
-
-        int[] c = new int[]{1, 2};
-        int[] d = new int[]{1, 2};
-        System.out.println(c.hashCode());
-        System.out.println(d.hashCode());
+//        List<Integer> aList = Arrays.asList(a);
+//        List<Integer> bList = Arrays.asList(b);
+//
+//        System.out.println(aList.hashCode());
+//        System.out.println(bList.hashCode());
+//
+//        System.out.println(aList.equals(bList));
+//
+//        int[] c = new int[]{1, 2};
+//        int[] d = new int[]{1, 2};
+//        System.out.println(c.hashCode());
+//        System.out.println(d.hashCode());
 
 
 
@@ -284,13 +284,25 @@ public class Main {
 
 
 
+//        String s1 = String.valueOf(10);
+//        String s2 = String.valueOf(10);
+//        System.out.println(s1.hashCode());
+//        System.out.println(s2.hashCode());
 
 
 
 
 
-
-        // A utility function to find factorial of n
+//
+//        // A utility function to find factorial of n
+        SerializeAndDeserializeBinaryTree serializeAndDeserializeBinaryTree = new SerializeAndDeserializeBinaryTree();
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(10);
+        root.right = new TreeNode(10);
+        root.right.left = new TreeNode(28);
+        root.right.right = new TreeNode(3);
+        serializeAndDeserializeBinaryTree.serialize(root);
+        serializeAndDeserializeBinaryTree.deserialize("10,5,28,10_1,3,5,10,10_1,28,3");
 
 
 
