@@ -270,7 +270,7 @@ public class SerializeAndDeserializeBinaryTree {
              *
              *
              */
-            /
+
             if(curRoot == null){
                 continue;
             }
