@@ -45,7 +45,7 @@ public class SerializeAndDeserializeBinaryTree {
 
 
 
-    //way1: My way. use preorder and inorder to deserialize
+    //way1: My way. use preorder and inorder to deserialize  这种做法是不需要记录空节点的，只记录有值的节点，所以需要另个方向的遍历来帮助确定null叶子节点的位子
 
     public String serialize(TreeNode root) {
         if(root == null){
@@ -167,6 +167,7 @@ public class SerializeAndDeserializeBinaryTree {
                  1 2 3 # #  4 # # #
 
 */
+    //第二种和第三种解法的奥义是需要记录叶子节点为null的层，即一个node的两个子节点都是null, 那么null 是叶子节点，而不是有值的node本身
     //T: O(N)
     //S: O(h) 如果算返回的String的话空间复杂度是O(N)
     public String serialize2(TreeNode root) {
