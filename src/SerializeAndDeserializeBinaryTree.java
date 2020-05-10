@@ -40,80 +40,10 @@ There is no limit of how you deserialize or serialize a binary tree, LintCode wi
 *
 *
 * */
+
 public class SerializeAndDeserializeBinaryTree {
 
-//    /**
-//     * This method will be invoked first, you should design your own algorithm
-//     * to serialize a binary tree which denote by a root node to a string which
-//     * can be easily deserialized by your own "deserialize" method later.
-//     */
-//    public String serialize(TreeNode root) {
-//        //normal level order traversal using a queue
-//        StringBuilder sb = new StringBuilder();
-//        Deque<TreeNode> queue = new LinkedList<>();
-//        if(root == null){
-//            return "";
-//        }
-//        queue.offerFirst(root);
-//
-//        while(!queue.isEmpty()){
-//            TreeNode tmp = queue.pollLast();
-//            if(tmp == null){
-//                sb.append('#');
-//            }else{
-//                sb.append(tmp.key);
-//                queue.offerFirst(tmp.left);
-//                queue.offerFirst(tmp.right);
-//            }
-//            sb.append(',');
-//        }
-//        return sb.substring(0, sb.length() - 1).toString();
-//
-//
-//    }
-//
-//    /**
-//     * This method will be invoked second, the argument data is what exactly
-//     * you serialized at method "serialize", that means the data is not given by
-//     * system, it's given by your own serialize method. So the format of data is
-//     * designed by yourself, and deserialize it here as you serialize it in
-//     * "serialize" method.
-//     */
-//    public TreeNode deserialize(String data) {
-//        if(data == ""){
-//            return null;
-//        }
-//        //build queue containing the treenodes and order
-//        Deque<TreeNode> queue = new LinkedList<>();
-//        String[] datas = data.split(",");
-//        for(int i = 0; i < datas.length; i++){
-//            if(datas[i].equals("#")){
-//                queue.offerFirst(null);
-//            }else{
-//                queue.offerFirst(new TreeNode(Integer.valueOf(datas[i])));
-//
-//            }
-//        }
-//        TreeNode root = queue.pollLast();
-//        return helper(root, queue);
-//
-//
-//    }
-//
-//
-//    private TreeNode helper(TreeNode root, Deque<TreeNode> queue){
-//        //queue, based on the serialized logic, is always even number
-//        if(root == null || queue.isEmpty()){
-//            return root;
-//        }
-//        TreeNode left = queue.pollLast();
-//        TreeNode right = queue.pollLast();
-//        root.left = helper(left, queue);
-//        root.right = helper(right, queue);
-//
-//        return root;
-//
-//    }
+
 
     //way1: My way. use preorder and inorder to deserialize
 
@@ -226,7 +156,139 @@ public class SerializeAndDeserializeBinaryTree {
         return cur;
     }
 
-    //TODO: 总结更好的方法
+
+    /*
+                    1
+                   /
+                  2
+                /   \
+               3     4
+
+                 1 2 3 # #  4 # # #
+
+*/
+    //T: O(N)
+    //S: O(h) 如果算返回的String的话空间复杂度是O(N)
+    public String serialize2(TreeNode root) {
+        //use pre order but all the null leaf nodes as #
+        StringBuilder sb = new StringBuilder();
+        preOrderSer(root, sb);
+        return sb.toString();
+
+    }
+
+    private void preOrderSer(TreeNode root, StringBuilder sb){
+        if(root == null){
+            sb.append("#,");
+            return;
+        }
+        sb.append(root.key + ",");
+
+        preOrderSer(root.left, sb);
+        preOrderSer(root.right, sb);
+        return;
+    }
+    //T: O(N)
+    //S: O(h) 如果算返回的String的话空间复杂度是O(N)
+    public TreeNode deserialize2(String data) {
+        String[] dataAry = data.split(",");
+        //List interface have remove() as optional operation i.e.
+        //That an interface method is specified as optional in the JavaDoc
+        //means that classes implementing this interface does not necessarily have to implement that method. Instead, they could for example, throw an exception.
+        List<String> dataList = new LinkedList(Arrays.asList(dataAry));
+        return preOrderDe(dataList);
+
+    }
+
+    private TreeNode preOrderDe(List<String> list){
+        if(list.get(0).equals("#")){
+            list.remove(0);
+            return null;
+        }
+
+        TreeNode root = new TreeNode(Integer.valueOf(list.get(0)));
+        list.remove(0);
+        root.left = preOrderDe(list);
+        root.right = preOrderDe(list);
+
+        return root;
+
+
+    }
+
+
+    //way 3: level order traversal
+    //T: O(N)
+    //S: O(N)
+    public String serialize3(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.offerFirst(root);
+        while(!queue.isEmpty()){
+            TreeNode tmp = queue.pollLast();
+            if(tmp == null) {
+                sb.append("#,");
+            }else{
+                sb.append(tmp.key + ",");
+                queue.offerFirst(tmp.left);
+                queue.offerFirst(tmp.right);
+
+            }
+        }
+        return sb.toString();
+
+
+    }
+
+    //T: O(N)
+    //S: O(N)
+    public TreeNode deserialize3(String data) {
+        String[] dataAry = data.split(",");
+        List<String> dataList = new LinkedList<>(Arrays.asList(dataAry));
+
+        TreeNode root = dataList.get(0).equals("#") ? null : new TreeNode(Integer.valueOf(dataList.get(0)));
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.offerFirst(root);
+        dataList.remove(0);
+        while(!queue.isEmpty() && dataList.size() > 0){
+            TreeNode curRoot = queue.pollLast();
+            //这里注意，只有不是null 的节点才有探索其左右节点的意义。如果poll出来的是null, 则其左右子节点没有在serialize的结果中记录，所以直接跳过
+            /**
+             * eg.
+             *         1
+             *      |     \
+             *     2       #
+             *    / \
+             *   3  4
+             *  /\  /\
+             * # # # #
+             *
+             *
+             * level order serialization 之后的结果： 1， 2， #， 3， 4， #， #， #， #，
+             *  deserialize 时候 ， index = 2 位置这个#， 他的两个子节点也是#和#， 但是serialized之后的结果没有记录空节点下一层了，这也就意味着queue里如果pop出空节点，直接从list里删掉就好，不会影响后面deserialize结果
+             *
+             *
+             *
+             */
+            /
+            if(curRoot == null){
+                continue;
+            }
+            TreeNode left = dataList.get(0).equals("#") ? null : new TreeNode(Integer.valueOf(dataList.get(0)));
+            queue.offerFirst(left);
+            dataList.remove(0);
+            TreeNode right = dataList.get(0).equals("#") ? null : new TreeNode(Integer.valueOf(dataList.get(0)));
+            queue.offerFirst(right);
+            dataList.remove(0);
+            curRoot.left = left;
+            curRoot.right = right;
+        }
+        return root;
+
+    }
+
+
+
 
 
 }
