@@ -303,6 +303,8 @@ public class Main {
 //        root.right.right = new TreeNode(3);
 //        serializeAndDeserializeBinaryTree.serialize(root);
 //        serializeAndDeserializeBinaryTree.deserialize("10,5,28,10_1,3,5,10,10_1,28,3");
+        FactorCombinations factorCombinations = new FactorCombinations();
+        factorCombinations.combinations(12);
 
 
 
