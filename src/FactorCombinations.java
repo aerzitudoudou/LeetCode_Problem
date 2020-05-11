@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 /**
- *
+ *Laicode
  *404. Factor Combinations
  * Medium
  * Given an integer number, return all possible combinations of the factors that can multiply to the target number.
