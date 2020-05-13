@@ -26,6 +26,7 @@ import java.util.List;
 //T: (4(worst branch number) ^ N) * N
 //S: O(N)
 public class CombinationsForTelephonePadI {
+    //way1 : my way 不太优雅的做法
     public String[] combinations(int number) {
         StringBuilder num = new StringBuilder();
         while(number > 0){
@@ -85,4 +86,8 @@ public class CombinationsForTelephonePadI {
             sb.deleteCharAt(sb.length() - 1);
         }
     }
+
+    //way 2: TODO:答案优雅的做法
+
+
 }

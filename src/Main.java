@@ -306,7 +306,10 @@ public class Main {
 //        FactorCombinations factorCombinations = new FactorCombinations();
 //        factorCombinations.combinations(12);
 
-        List<String> test = new ArrayList<>(Arrays.asList(new String[]{"1"}));
+//        List<String> test = new ArrayList<>(Arrays.asList(new String[]{"1"}));
+        RestoreIPAddress restoreIPAddress = new RestoreIPAddress();
+        List<String> res = restoreIPAddress.restore("11819111");
+        System.out.println(res);
 
 
 
