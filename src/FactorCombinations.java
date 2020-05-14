@@ -30,9 +30,11 @@ import java.util.List;
  *
  */
 
-//T: M is the number of factors the target has, 能分出的最多的叉就是当factor 为2 的时候的叉数， 即2^n = target -> n = log2^ target 所以总的时间复杂度是recursion tree 叉数^ 层数 = O(log2 target)^M
-//S: stack: O(M) + heap: O(M) M is the number is factors
-//TODO: 在像汤老师确认如果直上直下带着一个list 空间复杂度怎么算
+//T: M is the number of factors the target has, 能分出的最多的叉就是当factor 为2 的时候的叉数， 即2^n = target -> n = log2 target 所以总的时间复杂度是recursion tree 叉数^ 层数 = O{(log2 target)^M}
+//S: stack: O(M) M is the number is factors + heap: O(log2 target)  用来存结果的list最长的时候是factor都是最小值2的时候，这个时候list长度是log2 target
+//空间复杂度分析from 汤老师:
+// 1. 如果每一层都新开了空间（例如每一层都单独开一个hashmap 去重），Space complexity 就是recursion tree每一层用到的空间加和
+// 2. 如果global开一个数据结构记录当前值，这个数据结构跟着recursion从上到下到上。。。那么这时候的空间就是O(层数)（如果每一层没有别的新开空间） + O(这个global 数据结构worst的空间)
 
 public class FactorCombinations {
 

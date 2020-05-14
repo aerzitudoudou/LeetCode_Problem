@@ -29,6 +29,8 @@ Output: [“255.255.11.135”, “255.255.111.35”]
 public class RestoreIPAddress {
 
     //1. my way
+    //T: branch: 3   levels: 4    T: (3^4) * length of ip String
+    //S: O(4:层数+ length of ip string： pre 和rem的空间)
     public List<String> restore(String ip) {
         StringBuilder pre = new StringBuilder();
         StringBuilder rem = new StringBuilder(ip);
@@ -81,6 +83,8 @@ public class RestoreIPAddress {
     }
 
     //way 2: 用offset记录当前指针的位置
+    //T: branch: 3   levels: 4    T: (3^4) * length of ip String
+    //S: O(4:层数+ length of ip string： pre 和ipsb的空间)
     public List<String> restore2(String ip) {
         StringBuilder pre = new StringBuilder();
         StringBuilder ipSb = new StringBuilder(ip);

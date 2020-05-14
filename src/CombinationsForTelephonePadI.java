@@ -87,7 +87,42 @@ public class CombinationsForTelephonePadI {
         }
     }
 
-    //way 2: TODO:答案优雅的做法
+    //way 2:  把index 和字母的对应关系存在数组里
+    public String[] combinations2(int number) {
+        //number 到String 不需要除模， 一个String.valueOf 或者Integer.toString() 就解决了
+        String numStr = String.valueOf(number);
+        List<String> res = new ArrayList();
+        StringBuilder sb = new StringBuilder();
+        //建立map 的关系
+        String[] numToChar = {"", "", "abc", "def", "ghi",  "jkl", "mno",  "pqrs", "tuv", "wxyz"};
+        dfs2(res, 0, numStr, sb, numToChar);
+        //注意list to array: list.toArray(空同类型数组)
+        String[] ary = {};
+        return res.toArray(ary);
+
+    }
+
+    private void dfs2(List<String> res, int index, String numStr, StringBuilder sb, String[] numToChar){
+        if(index == numStr.length()){
+            res.add(sb.toString());
+            return;
+        }
+
+        //char to int:
+        int numToCharIndex = numStr.charAt(index) - '0';
+        String value = numToChar[numToCharIndex];
+        if(value.length() == 0){
+            dfs2(res, index + 1, numStr, sb, numToChar);
+        }else{
+            for(int i = 0; i < value.length(); i++){
+                sb.append(value.charAt(i));
+                dfs2(res, index + 1, numStr, sb, numToChar);
+                sb.deleteCharAt(sb.length() - 1);
+            }
+        }
+    }
+
+
 
 
 }
