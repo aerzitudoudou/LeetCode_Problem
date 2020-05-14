@@ -307,9 +307,11 @@ public class Main {
 //        factorCombinations.combinations(12);
 
 //        List<String> test = new ArrayList<>(Arrays.asList(new String[]{"1"}));
-        RestoreIPAddress restoreIPAddress = new RestoreIPAddress();
-        List<String> res = restoreIPAddress.restore("11819111");
-        System.out.println(res);
+//        RestoreIPAddress restoreIPAddress = new RestoreIPAddress();
+//        List<String> res = restoreIPAddress.restore("11819111");
+//        System.out.println(res);
+        TwoSubsetsWithMinDifference twoSubsetsWithMinDifference  = new TwoSubsetsWithMinDifference();
+        twoSubsetsWithMinDifference.minDifference(new int[]{5,-2,-10,3});
 
 
 
