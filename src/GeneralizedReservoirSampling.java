@@ -3,6 +3,8 @@ import java.util.List;
 import java.util.Random;
 
 /*
+
+*laicode
 * 110. Generalized Reservoir Sampling
 Medium
 Consider an unlimited flow of data elements. How do you sample k element from this flow, such that at any point during the processing of the flow, you can return a random set of k elements from the n elements read so far.
