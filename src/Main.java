@@ -310,8 +310,10 @@ public class Main {
 //        RestoreIPAddress restoreIPAddress = new RestoreIPAddress();
 //        List<String> res = restoreIPAddress.restore("11819111");
 //        System.out.println(res);
-        TwoSubsetsWithMinDifference twoSubsetsWithMinDifference  = new TwoSubsetsWithMinDifference();
-        twoSubsetsWithMinDifference.minDifference(new int[]{5,-2,-10,3});
+//        TwoSubsetsWithMinDifference twoSubsetsWithMinDifference  = new TwoSubsetsWithMinDifference();
+//        twoSubsetsWithMinDifference.minDifference(new int[]{5,-2,-10,3});
+        GenerateRandomMaze generateRandomMaze = new GenerateRandomMaze();
+        generateRandomMaze.maze(5);
 
 
 
