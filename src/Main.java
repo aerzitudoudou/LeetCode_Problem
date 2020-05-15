@@ -312,8 +312,10 @@ public class Main {
 //        System.out.println(res);
 //        TwoSubsetsWithMinDifference twoSubsetsWithMinDifference  = new TwoSubsetsWithMinDifference();
 //        twoSubsetsWithMinDifference.minDifference(new int[]{5,-2,-10,3});
-        GenerateRandomMaze generateRandomMaze = new GenerateRandomMaze();
-        generateRandomMaze.maze(5);
+//        GenerateRandomMaze generateRandomMaze = new GenerateRandomMaze();
+//        generateRandomMaze.maze(5);
+        Random1000UsingRandom5 random1000UsingRandom5 = new Random1000UsingRandom5();
+        random1000UsingRandom5.random1000();
 
 
 
