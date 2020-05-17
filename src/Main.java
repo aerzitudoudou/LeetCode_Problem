@@ -196,14 +196,20 @@ public class Main {
 //        System.out.println("i :" + i + " k :" + k);
 //        Integer[] a = new Integer[]{1, 2};
 //        Integer[] b = new Integer[]{1, 2};
-//
+
 //        System.out.println(a.hashCode());
 //        System.out.println(b.hashCode());
 //        Set<Integer[]> set = new HashSet<>();
 //        set.add(a);
 
 
+//        Integer a = -909090909;
+//        Integer b = -909090909;
+//        System.out.println(a.hashCode());
+//        System.out.println(b.hashCode());
 
+
+//
 //        List<Integer> aList = Arrays.asList(a);
 //        List<Integer> bList = Arrays.asList(b);
 //
@@ -240,13 +246,13 @@ public class Main {
 //        String word = "baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 //
 //        System.out.println(wordSearch.exist(board, word));
-//        String a = "i love yahoo hahahahahhaah  jajajajajajaj";
-//        String b = "i love yahoo hahahahahhaah  jajajajajajaj";
-//        Set<String> set = new HashSet<>();
-//        set.add(a);
-//        System.out.println(set.contains(b));
-//        System.out.println(a.hashCode());
-//        System.out.println(b.hashCode());
+        String a = "i love yahoo hahahahahhaah  jajajajajajaj";
+        String b = "i love yahoo hahahahahhaah  jajajajajajaj";
+        Set<String> set = new HashSet<>();
+        set.add(a);
+        System.out.println(set.contains(b));
+        System.out.println(a.hashCode());
+        System.out.println(b.hashCode());
 
 //        String test = "Test";
 //        System.out.println(test.indexOf('e'));
@@ -314,8 +320,8 @@ public class Main {
 //        twoSubsetsWithMinDifference.minDifference(new int[]{5,-2,-10,3});
 //        GenerateRandomMaze generateRandomMaze = new GenerateRandomMaze();
 //        generateRandomMaze.maze(5);
-        Random1000UsingRandom5 random1000UsingRandom5 = new Random1000UsingRandom5();
-        random1000UsingRandom5.random1000();
+//        Random1000UsingRandom5 random1000UsingRandom5 = new Random1000UsingRandom5();
+//        random1000UsingRandom5.random1000();
 
 
 
