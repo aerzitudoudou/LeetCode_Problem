@@ -50,5 +50,48 @@ public class Percentile95 {
         return res;
     }
 
-    //way 2: TODO: 对比答案做法
+    //way 2: 正着做，算出95%
+    public int percentile952(List<Integer> lengths) {
+        //bucket 物理意义：记录每个Length的个数
+        //%95 percentile就是当数量是总的url数量的95%时 url长度落在的bucket的index
+        int[] counter = new int[4097];
+        //把所有length的distribution分布做出来
+        for(int i = 0; i < lengths.size(); i++){
+            counter[lengths.get(i)]++;
+        }
+
+        //找%95
+        //物理意义: bucket的直方图面积是url个数i.e. lengths.size的95%时候，bucket[i]的值
+        int res = 0;
+        int area = 0;
+        //more elegant way to handle 边界判断
+        while(area < lengths.size() * 0.95 ){
+            res++;
+            area += counter[res];
+        }
+
+        return res;
+    }
+
+    //way 3: 返着做，算出5%
+    public int percentile953(List<Integer> lengths) {
+        //bucket 物理意义：记录每个Length的个数
+        //%95 percentile就是当数量是总的url数量的95%时 url长度落在的bucket的index
+        int[] counter = new int[4097];
+        //把所有length的distribution分布做出来
+        for(int i = 0; i < lengths.size(); i++){
+            counter[lengths.get(i)]++;
+        }
+
+        //找%95
+        //物理意义: bucket的直方图面积是url个数i.e. lengths.size的95%时候，bucket[i]的值
+        int res = 4097;
+        int area = 0;
+        while(area <= lengths.size() * 0.05 ){
+            res--;
+            area += counter[res];
+        }
+
+        return res;
+    }
 }
