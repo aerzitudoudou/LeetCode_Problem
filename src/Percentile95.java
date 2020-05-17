@@ -25,21 +25,21 @@ import java.util.List;
 public class Percentile95 {
     //way 1: my way
     public int percentile95(List<Integer> lengths) {
-        //bucket 物理意义：记录每个Length的个数
-        //%95 percentile就是当数量是总的url数量的95%时 url长度落在的bucket的index
-        int[] bucket = new int[4097];
+        //counter 物理意义：记录每个Length的个数
+        //%95 percentile就是当数量是总的url数量的95%时 url长度落在的counter的index
+        int[] counter = new int[4097];
         //把所有length的distribution分布做出来
         for(int i = 0; i < lengths.size(); i++){
-            bucket[lengths.get(i)]++;
+            counter[lengths.get(i)]++;
         }
 
         //找%95
-        //物理意义: bucket的直方图面积是url个数i.e. lengths.size的95%时候，bucket[i]的值
+        //物理意义: counter的直方图面积是url个数i.e. lengths.size的95%时候，counter[i]的值
         int res = 0;
         int area = 0;
-        for(int i = 0; i < bucket.length; i++){
+        for(int i = 0; i < counter.length; i++){
             if(area < lengths.size() * 0.95){
-                area += bucket[i];
+                area += counter[i];
             }else{
                 //坑: 第一次做错。i的时候面积不比95%小了意味着index = i - 1时候已经符合了95%的定义 所以res 是i - 1 不是i
                 res = i - 1;
@@ -52,16 +52,14 @@ public class Percentile95 {
 
     //way 2: 正着做，算出95%
     public int percentile952(List<Integer> lengths) {
-        //bucket 物理意义：记录每个Length的个数
-        //%95 percentile就是当数量是总的url数量的95%时 url长度落在的bucket的index
+
         int[] counter = new int[4097];
         //把所有length的distribution分布做出来
         for(int i = 0; i < lengths.size(); i++){
             counter[lengths.get(i)]++;
         }
 
-        //找%95
-        //物理意义: bucket的直方图面积是url个数i.e. lengths.size的95%时候，bucket[i]的值
+
         int res = 0;
         int area = 0;
         //more elegant way to handle 边界判断
@@ -75,16 +73,14 @@ public class Percentile95 {
 
     //way 3: 返着做，算出5%
     public int percentile953(List<Integer> lengths) {
-        //bucket 物理意义：记录每个Length的个数
-        //%95 percentile就是当数量是总的url数量的95%时 url长度落在的bucket的index
+
         int[] counter = new int[4097];
         //把所有length的distribution分布做出来
         for(int i = 0; i < lengths.size(); i++){
             counter[lengths.get(i)]++;
         }
 
-        //找%95
-        //物理意义: bucket的直方图面积是url个数i.e. lengths.size的95%时候，bucket[i]的值
+        //找5%
         int res = 4097;
         int area = 0;
         while(area <= lengths.size() * 0.05 ){
