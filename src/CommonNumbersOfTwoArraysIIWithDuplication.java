@@ -24,6 +24,8 @@ import java.util.*;
 
 public class CommonNumbersOfTwoArraysIIWithDuplication {
     //sort then find
+    //T: O(mlogm + nlogn)
+    //S: O(max(m,n))
     public List<Integer> common0(int[] A, int[] B) {
         Arrays.sort(A);
         Arrays.sort(B);
@@ -44,7 +46,8 @@ public class CommonNumbersOfTwoArraysIIWithDuplication {
         return res;
     }
 
-
+    //T:O(m + n)
+    //S:O(min(m, n))
     public List<Integer> common(int[] A, int[] B) {
         List<Integer> res = new ArrayList<>();
         Map<Integer, Integer> map = new HashMap<>();
