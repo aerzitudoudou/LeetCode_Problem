@@ -324,10 +324,11 @@ public class Main {
 //        random1000UsingRandom5.random1000();
 
 
-        CommonNumbersOfTwoArraysIIWithDuplication commonNumbersOfTwoArraysIIWithDuplication = new CommonNumbersOfTwoArraysIIWithDuplication();
-        commonNumbersOfTwoArraysIIWithDuplication.common(new int[]{3,2,1,5,4}, new int[]{2,9,5,3});
+//        CommonNumbersOfTwoArraysIIWithDuplication commonNumbersOfTwoArraysIIWithDuplication = new CommonNumbersOfTwoArraysIIWithDuplication();
+//        commonNumbersOfTwoArraysIIWithDuplication.common(new int[]{3,2,1,5,4}, new int[]{2,9,5,3});
 
-
+        Integer a = 130;
+        System.out.println(a.byteValue());
 
 
 
