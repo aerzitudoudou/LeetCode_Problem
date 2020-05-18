@@ -211,7 +211,7 @@ read(10), median is 2.5
 *     --2.3 put remaining data in a sorted array in part1
 *
 *
-*TODO:看design class: memory 和disk 上的memory是怎么做的
+*TODO:看design class: memory 和disk 上的memory merge是怎么做的
 *
 * */
 
