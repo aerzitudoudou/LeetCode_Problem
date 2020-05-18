@@ -25,7 +25,7 @@ import java.util.*;
 
 public class CommonElementsInThreeSortedArray {
     //iterative
-    //T: O(m + n + min(m,n)log(min(m,n))) * 2
+    //T: O(m + n) * 2
     //S: O(min(m, n))
     public List<Integer> common(int[] a, int[] b, int[] c) {
         Integer[] res = findCommons(toIntegerArray(a), toIntegerArray(b));
@@ -54,7 +54,6 @@ public class CommonElementsInThreeSortedArray {
             }
         }
 
-        Collections.sort(res);
         Integer[] array = new Integer[]{};
         return res.toArray(array);
     }
@@ -67,4 +66,33 @@ public class CommonElementsInThreeSortedArray {
         }
         return res;
     }
+
+    //k way merge
+    //t: O(max(m ,n ,l))
+    //S: O(1)
+    public List<Integer> common2(int[] a, int[] b, int[] c) {
+        //key way merge
+        int k1 = 0, k2 = 0, k3 = 0;
+
+        List<Integer> res = new ArrayList<>();
+        //第一次做的时候错了 这里不是取三个数组的长度最小值 有可能值一样的落在最小长度的外面
+        while(k1 < a.length && k2 < b.length && k3 < c.length){
+            if(a[k1] == b[k2] && b[k2] == c[k3]){
+                res.add(a[k1]);
+                k1++;
+                k2++;
+                k3++;
+            }else if(a[k1] <= b[k2] && a[k1] <= c[k3]){ //a is the smallest
+                k1++;
+            }else if(b[k2] <= a[k1] && b[k2] <= c[k3]){
+                k2++;
+            }else{
+                k3++;
+            }
+        }
+        return res;
+    }
+
+
+
 }
