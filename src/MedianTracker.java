@@ -52,7 +52,7 @@ read(10), median is 2.5
 * float               32 bit / 4 bytes         varies
 * double              64 bit / 8 bytes         varies
 *
-* 总结一下不同基本数据类型以及他们的wrapper class之间相互的转化:
+* 不同基本数据类型以及他们的wrapper class之间相互的转化:
 * static 是class level method
 * int : Integer
 * Integer a
