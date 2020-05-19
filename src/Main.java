@@ -330,6 +330,11 @@ public class Main {
         Integer a = 130;
         System.out.println(a.byteValue());
 
+        List<Integer> test = new ArrayList<>();
+        test.add(1);
+        test.add(2);
+        System.out.println(test.subList(0, 1));
+
 
 
     }
