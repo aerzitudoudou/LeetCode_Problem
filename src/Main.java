@@ -327,13 +327,32 @@ public class Main {
 //        CommonNumbersOfTwoArraysIIWithDuplication commonNumbersOfTwoArraysIIWithDuplication = new CommonNumbersOfTwoArraysIIWithDuplication();
 //        commonNumbersOfTwoArraysIIWithDuplication.common(new int[]{3,2,1,5,4}, new int[]{2,9,5,3});
 
-        Integer a = 130;
-        System.out.println(a.byteValue());
+//        Integer a = 130;
+//        System.out.println(a.byteValue());
+//
+//        List<Integer> test = new ArrayList<>();
+//        test.add(1);
+//        test.add(2);
+//        System.out.println(test.subList(0, 1));
 
-        List<Integer> test = new ArrayList<>();
-        test.add(1);
-        test.add(2);
-        System.out.println(test.subList(0, 1));
+
+        //1->2
+
+        ListNode a = new ListNode(1);
+        ListNode b = new ListNode(2);
+        a.next = b;
+
+
+        ListNode c = new ListNode(3);
+        ListNode d = new ListNode(4);
+        c.next = d;
+
+        List<ListNode> list = new ArrayList<>();
+        list.add(a);
+        list.add(c);
+
+        MergeKSortedLists mergeKSortedLists = new MergeKSortedLists();
+        mergeKSortedLists.merge(list);
 
 
 
