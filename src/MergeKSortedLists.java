@@ -145,7 +145,7 @@ public class MergeKSortedLists {
 
 
     //way 4: binary reduction
-    /** TODO: ListNode 这个是最优解？
+    /**TODO: 写一下这个解法
      * list 1
      * list 2   ==> 2n
      * list 3
@@ -163,4 +163,5 @@ public class MergeKSortedLists {
      *
      *
      */
+
 }
