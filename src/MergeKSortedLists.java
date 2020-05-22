@@ -146,7 +146,6 @@ public class MergeKSortedLists {
 
     //way 4: binary reduction
     /**
-     * TODO: 写一下这个解法
      * list 1
      * list 2   ==> 2n
      * list 3
@@ -160,5 +159,40 @@ public class MergeKSortedLists {
      * T = logk * kn  一共有logk层
      * S = O(1)
      */
+    public ListNode merge4(List<ListNode> listOfLists) {
+        if(listOfLists == null || listOfLists.size() == 0){
+            return null;
+        }
+        while(listOfLists.size() > 1){
+            ListNode tmp = helper(listOfLists.get(0), listOfLists.get(1));
+            listOfLists.add(tmp);
+            listOfLists.remove(0);
+            listOfLists.remove(0);
+        }
+        return listOfLists.get(0);
+    }
+
+    private ListNode helper(ListNode n1, ListNode n2){
+        ListNode dummy = new ListNode(0), cur = dummy;
+        while(n1 != null && n2 != null){
+            if(n1.val < n2.val){
+                cur.next = n1;
+                n1 = n1.next;
+            }else{
+                cur.next = n2;
+                n2 = n2.next;
+            }
+            cur = cur.next;
+
+        }
+        if(n1 != null){
+            cur.next = n1;
+        }
+        if(n2 != null){
+            cur.next = n2;
+        }
+        return dummy.next;
+    }
+
 
 }
