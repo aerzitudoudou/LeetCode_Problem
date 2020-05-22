@@ -338,21 +338,42 @@ public class Main {
 
         //1->2
 
-        ListNode a = new ListNode(1);
-        ListNode b = new ListNode(2);
-        a.next = b;
+//        ListNode a = new ListNode(1);
+//        ListNode b = new ListNode(2);
+//        a.next = b;
+//
+//
+//        ListNode c = new ListNode(3);
+//        ListNode d = new ListNode(4);
+//        c.next = d;
+//
+//        List<ListNode> list = new ArrayList<>();
+//        list.add(a);
+//        list.add(c);
+//
+//        MergeKSortedLists mergeKSortedLists = new MergeKSortedLists();
+//        mergeKSortedLists.merge(list);
 
+        List<Integer> list = new ArrayList<>();
+        list.add(7);
+        list.add(3);
+        list.add(2);
+        list.add(8);
+        list.add(49);
+        list.add(1);
+        MinHeap minHeap = new MinHeap(list);
+        for(int i = 0; i < 6; i++){
+            System.out.println(minHeap.poll());
+            minHeap.offer(100);
 
-        ListNode c = new ListNode(3);
-        ListNode d = new ListNode(4);
-        c.next = d;
+        }
+        minHeap.offer(101);
+        minHeap.offer(102);
+        while(!minHeap.isEmpty()){
+            System.out.println(minHeap.poll());
 
-        List<ListNode> list = new ArrayList<>();
-        list.add(a);
-        list.add(c);
+        }
 
-        MergeKSortedLists mergeKSortedLists = new MergeKSortedLists();
-        mergeKSortedLists.merge(list);
 
 
 

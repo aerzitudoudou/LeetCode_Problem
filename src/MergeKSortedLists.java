@@ -145,7 +145,8 @@ public class MergeKSortedLists {
 
 
     //way 4: binary reduction
-    /**TODO: 写一下这个解法
+    /**
+     * TODO: 写一下这个解法
      * list 1
      * list 2   ==> 2n
      * list 3
@@ -158,10 +159,6 @@ public class MergeKSortedLists {
      *
      * T = logk * kn  一共有logk层
      * S = O(1)
-     *
-     *
-     *
-     *
      */
 
 }
