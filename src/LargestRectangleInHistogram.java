@@ -19,7 +19,8 @@ Examples
 
 import java.util.Deque;
 import java.util.LinkedList;
-//太巧秒了，需要再做一遍
+//太巧秒了，需要再做一遍 用到了单调栈算法
+//TODO: 总结单调栈的算法套路
 //T: O(n)
 //S: O(n)
 public class LargestRectangleInHistogram {
