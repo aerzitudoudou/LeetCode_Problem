@@ -354,25 +354,29 @@ public class Main {
 //        MergeKSortedLists mergeKSortedLists = new MergeKSortedLists();
 //        mergeKSortedLists.merge(list);
 
-        List<Integer> list = new ArrayList<>();
-        list.add(7);
-        list.add(3);
-        list.add(2);
-        list.add(8);
-        list.add(49);
-        list.add(1);
-        MinHeap minHeap = new MinHeap(list);
-        for(int i = 0; i < 6; i++){
-            System.out.println(minHeap.poll());
-            minHeap.offer(100);
+//        List<Integer> list = new ArrayList<>();
+//        list.add(7);
+//        list.add(3);
+//        list.add(2);
+//        list.add(8);
+//        list.add(49);
+//        list.add(1);
+//        MinHeap minHeap = new MinHeap(list);
+//        for(int i = 0; i < 6; i++){
+//            System.out.println(minHeap.poll());
+//            minHeap.offer(100);
+//
+//        }
+//        minHeap.offer(101);
+//        minHeap.offer(102);
+//        while(!minHeap.isEmpty()){
+//            System.out.println(minHeap.poll());
+//
+//        }
 
-        }
-        minHeap.offer(101);
-        minHeap.offer(102);
-        while(!minHeap.isEmpty()){
-            System.out.println(minHeap.poll());
-
-        }
+          Point[] points = new Point[]{new Point(0,0), new Point(94911151, 94911150), new Point(94911152, 94911151)};
+          MostPointsOnALine mostPointsOnALine = new MostPointsOnALine();
+          mostPointsOnALine.most(points);
 
 
 
