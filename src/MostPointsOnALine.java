@@ -45,23 +45,18 @@ public class MostPointsOnALine {
     public int most(Point[] points) {
         int res = 0;
         for(int i = 0; i < points.length; i++){
-            Map<BigDecimal, Integer> slopeMap = new HashMap<>();
+            Map<Double, Integer> slopeMap = new HashMap<>();
             int sameX = 0;
             int slopeMax = 0; //物理意义：对于一个特定的i, loop through 其他的点，其他的点和这个点组成的line的slope中点数最多的那个slope的点数
-            int same = 0; //物理意义： 相同的点
+            int same = 0; //物理意义： 相同的点，或当前点
             for(int j = 0; j < points.length; j++){
-                //add 'self ' point at the very end, skip self in the loop through
-                if(i == j){
-                    continue;
-                }
                 //corner case: coordinate equal points
                 if(points[j].x == points[i].x && points[j].y == points[i].y){
-                    sameX++; //除了当前点，与当前点横坐标相同的点
-                    same++; //除了当前点，与当前点坐标相同的点
-                }else if(points[j].x == points[i].x){ //only x coordinate equals
+                    same++; //当前点，或与当前点坐标相同的点
+                }else if(points[j].x == points[i].x){ //only x coordinate equals    sameX意思是除了： （1. 当前点 2.与当前点坐标相同的点） 以外， 只与当前点横坐标相同的点
                     sameX++;                       //0.999999989463830285529866159777157008647918701171875
                 }else{//have slope, update cnt map //0.999999989463830285529866159777157008647918701171875
-                    BigDecimal slope = new BigDecimal((points[j].y - points[i].y + 0.0) / (points[j].x - points[i].x));
+                    Double slope = (points[j].y - points[i].y + 0.0) / (points[j].x - points[i].x);
                     Integer value = slopeMap.putIfAbsent(slope, 1);
                     if(value != null){
                         slopeMap.put(slope, slopeMap.get(slope) + 1);
@@ -70,7 +65,7 @@ public class MostPointsOnALine {
                 }
 
             }
-            res = Math.max(res, Math.max(slopeMax + same, sameX) + 1); //注意！！第一次做错了： 这里更新总res时，要把1. 当前点，2，和与当前点左边相同的点加上
+            res = Math.max(res, Math.max(slopeMax, sameX) + same); //注意！！第一次做错了： 这里更新总res时，要把1. 当前点，2，和与当前点坐标相同的点加上
         }
 
         return res;
