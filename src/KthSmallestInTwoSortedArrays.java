@@ -72,6 +72,8 @@ A = {1, 2, 3, 4}, B = {}, the 2nd smallest number is 2.
 * 3. recursion时候注意k是相对值，需要在两个数组起始值基础上 删掉k / 2
 */
 
+//T: logk
+//S: logk
 public class KthSmallestInTwoSortedArrays {
     public int kth(int[] a, int[] b, int k) {
         if(a.length == 0){
