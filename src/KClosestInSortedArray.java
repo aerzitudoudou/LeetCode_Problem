@@ -113,8 +113,7 @@ public class KClosestInSortedArray {
     }
 
     //way3： 类比laicode 202, 确定比target 小于等于的最大值以后，脑子里可以将原数组一分为二，他们和target的差的绝对值就是一个kth smallest in two sorted arrays
-    //T: O(logn) + O(logk)
-    //S: O(logk)
+    //T: O(logn) + k ==> 但是如果只需要求最后L 和 R的坐标值，使得[l, r] 之间的数是距离target最近的K个数，则按照此方法时间复杂度可降到logn + logk
     //坐标的物理意义！！
     public int[] kClosest3(int[] array, int target, int k) {
         if(array == null || array.length == 0 || k == 0){
