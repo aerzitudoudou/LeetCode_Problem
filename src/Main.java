@@ -373,10 +373,20 @@ public class Main {
 //            System.out.println(minHeap.poll());
 //
 //        }
+//
+//          Point[] points = new Point[]{new Point(0,0), new Point(94911151, 94911150), new Point(94911152, 94911151)};
+//          MostPointsOnALine mostPointsOnALine = new MostPointsOnALine();
+//          mostPointsOnALine.most(points);
+        KClosestInSortedArray kClosestInSortedArray = new KClosestInSortedArray();
+        int[] array = {0,0,1,2,3,3,4,7,7,8};
+        int target = 3;
+        int k = 5;
+        int[] res = kClosestInSortedArray.kClosest3(array, target, k);
+        for(int i : res){
+            System.out.println(i);
+        }
 
-          Point[] points = new Point[]{new Point(0,0), new Point(94911151, 94911150), new Point(94911152, 94911151)};
-          MostPointsOnALine mostPointsOnALine = new MostPointsOnALine();
-          mostPointsOnALine.most(points);
+
 
 
 

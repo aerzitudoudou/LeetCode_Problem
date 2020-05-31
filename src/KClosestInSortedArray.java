@@ -97,9 +97,7 @@ public class KClosestInSortedArray {
     private int helper(int[] array, int target, int left, int right){
         while(left + 1 < right){
             int mid = left + (right - left) / 2;
-            if(array[mid] == target) {
-                return mid;
-            }else if(array[mid] < target){
+            if(array[mid] <= target){
                 //第二次做错了，这个不能是mid - 1, e.g. array 里面只有3个值 1， 2， 3  target = 10, mid = 1, A[1] = 2 < 10, left = mid - 1 = 0, 就会无限循环下去
                 left = mid;
             }else{
@@ -114,9 +112,73 @@ public class KClosestInSortedArray {
 
     }
 
-    //way3
-    //T: O(logk)
+    //way3： 类比laicode 202, 确定比target 小于等于的最大值以后，脑子里可以将原数组一分为二，他们和target的差的绝对值就是一个kth smallest in two sorted arrays
+    //T: O(logn) + O(logk)
     //S: O(logk)
-    //TODO: 把logk在k范围内Run Binary search 的方法写一下
+    //坐标的物理意义！！
+    public int[] kClosest3(int[] array, int target, int k) {
+        if(array == null || array.length == 0 || k == 0){
+            return new int[0];
+        }
+        int[] res = new int[k];
+        int left = findTargetIndex(array, target, 0, array.length - 1);
+        int right = left + 1;
+        helper(array, left, right, k, target, res, 0);
+        return res;
+
+    }
+    //run logk 的binary search 确定每一步有哪 k/2可以被放入结果
+    private void helper(int[] array, int left, int right, int k, int target, int[] res, int current){
+        if(left < 0){
+            for(int i = 0; i < k; i++){
+                res[current++] = array[right++];
+            }
+            return;
+        }
+        if(right >= array.length){
+            for(int i = 0; i < k; i++){
+                res[current++] = array[left--];
+            }
+            return;
+        }
+        if(k == 1){
+            res[current] = Math.abs(target - array[left]) <= Math.abs(target - array[right]) ? array[left] : array[right];
+            return;
+        }
+
+        int index = k / 2 - 1;
+        int leftIndex = left - index;
+        int rightIndex = right + index;
+        int val1 = leftIndex < 0 ? Integer.MAX_VALUE : Math.abs(target - array[leftIndex]);
+        int val2 = rightIndex > array.length - 1 ? Integer.MAX_VALUE : Math.abs(target - array[rightIndex]);
+        if(val1 <= val2){ //坑1！！！！： |array的值 - target|相等的情况下左边的值要先入res
+            for(int i = 0; i < k / 2; i++){
+                res[current++] = array[left--];
+            }
+            //坑2！！！！: 和Kth smallest in two sorted array 不同，这里的left index 就是for loop run 完之后的index, 不需要 leftIndex - k / 2. 另一个题需要减，因为不存在数组值copy，需要一次性定位到下一个left 的 index
+            helper(array, left, right, k - k / 2, target, res, current);
+        }else{
+            for(int i = 0; i < k / 2; i++){
+                res[current++] = array[right++];
+            }
+            helper(array, left, right, k - k / 2, target, res, current);
+        }
+    }
+    //find largest number smaller or equal to target
+    private int findTargetIndex(int[] array, int target, int left, int right){
+        while(left + 1 < right){
+            int mid = left + (right - left) / 2;
+            //坑3！！！： 这里不能遇到target就直接返回。 return 值的物理意义是比target小于等于的所有值得最大值
+            if(array[mid] <= target){
+                left = mid;
+            }else{
+                right = mid;
+            }
+        }
+        if(target >= array[right]){
+            return right;
+        }
+        return left;
+    }
 
 }
