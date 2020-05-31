@@ -167,7 +167,7 @@ public class KClosestInSortedArray {
     //find largest number smaller or equal to target
     private int findTargetIndex(int[] array, int target, int left, int right){
         while(left + 1 < right){
-            int mid = left + (right - left) / 2;
+            int mid = left + (right - left) / 2; //坑4！！！ 算mid应在while内部算，而不是外面
             //坑3！！！： 这里不能遇到target就直接返回。 return 值的物理意义是比target小于等于的所有值得最大值
             if(array[mid] <= target){
                 left = mid;
