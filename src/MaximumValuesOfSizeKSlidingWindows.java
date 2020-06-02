@@ -27,6 +27,7 @@ public class MaximumValuesOfSizeKSlidingWindows {
                 maxHeap.offer(new int[]{array[i], i});
                 int[] max = maxHeap.peek();
                 int maxIndex = max[1];
+                //lazy deletion, 最大数不在当前的sliding window 范围内的时候，再delete
                 while(!(maxIndex >= count && maxIndex <= count + k - 1)){
                     maxHeap.poll();
                     maxIndex = maxHeap.peek()[1];
