@@ -26,6 +26,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 //思路和之前的majority number 一样都是打擂台
+//TODO: 时间复杂度
+
 public class MajorityNumberIII {
     public List<Integer> majority(int[] array, int k) {
         //a是 > 1/k * L 的任意一个数的个数  a > L/k
