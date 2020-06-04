@@ -386,9 +386,13 @@ public class Main {
 //            System.out.println(i);
 //        }
 
-        MajorityNumberII majorityNumberII = new MajorityNumberII();
-        int[] test = {1,1,1,4,3,3};
-        majorityNumberII.majority(test);
+//        MajorityNumberII majorityNumberII = new MajorityNumberII();
+//        int[] test = {1,1,1,4,3,3};
+//        majorityNumberII.majority(test);
+
+        MajorityNumberIII majorityNumberIII = new MajorityNumberIII();
+        int[] test = new int[]{1,1,1,2,1,3,4};
+        majorityNumberIII.majority(test, 2);
 
 
 
