@@ -44,10 +44,7 @@ public class MajorityNumberIII {
         //bottleneck 时间复杂度 <= O(n) 所以时间复杂度是O(n) 空间复杂度是O(k)
         for(int i = 0; i < array.length; i++){
             //把所有count = 0 的数去掉
-            for(int j = 0; j < numberToRemove.size(); j++){
-                map.remove(numberToRemove.get(j)); //运行bottleneck： step 1
-            }
-            numberToRemove.clear(); //clear 的用法要清楚
+
             //map里数字个数 < k - 1, 1. 进来的数和某key一致， 此key counter++ 2. 不一致，put in map, counter = 1
             if(map.containsKey(array[i])){//T: O(1)
                 int count = map.get(array[i]);
@@ -65,12 +62,27 @@ public class MajorityNumberIII {
                         }
                         map.put(entry.getKey(), count); //运行bottleneck： step 4
                     }
+                    for(int j = 0; j < numberToRemove.size(); j++){
+                        map.remove(numberToRemove.get(j)); //运行bottleneck： step 1
+                    }
+                    numberToRemove.clear(); //clear 的用法要清楚
+
                 }
             }
 
             //map 里数字个数 == k - 1, 1. 进来的数和某key 一致， 此key counter++ 2.不一致，团灭，台上每个数counter--,如果count减到0了，直接删掉这个entry
 
         }
+        /*
+        *
+        *
+        *O(1000) + O(0)
+        *O(700) + O(< 700)
+        *
+        * [O(1000) + O(0) + O(700) + O(< 700)] / 2 = 2 * O(1000) + 2 * O(1000) / 2 = 2 O(1000) = O(n)
+        *
+        * */
+
 
         //post-processing: map里的每一个数在array里过一遍，check出现个数是否 < L/K
 
@@ -88,6 +100,19 @@ public class MajorityNumberIII {
         return res;
 
     }
+    /*
+    * abcdefg push
+    * stack 1
+    * stack 2 edcba
+    *
+    * 1000
+    *
+    * 1000 +  O(999) / 1000 <= O(1)
+    * 1000 + 2 * O(499)/ 1000 <= O(1)
+
+     *
+    *
+    * */
 
 
     //lint code 的signature, 给的是一个list而非数组
