@@ -101,7 +101,6 @@ public class MinimumCutsForPalindromes {
         char[] ary = input.toCharArray();
         //m[i] represents minimum cuts for substring[0, i - 1]
         int[] m = new int[input.length() + 1];
-        m[0] = 0;
         //p[i][j] 表示input [i - 1, j - 1]区间的substring是不是palindrome
         boolean[][] isP = new boolean[ary.length + 1][ary.length + 1];
 
