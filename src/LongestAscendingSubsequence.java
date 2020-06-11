@@ -27,17 +27,20 @@ public class LongestAscendingSubsequence {
         if(array == null || array.length == 0){
             return 0;
         }
+        //注意初始值的init, 一开始设定的是Integer.MIN_VALUE 这里注意初始要narrow到不能narrow为止。最差情况是1，就要set成1.
+        //如果set 成min_value， 会出现如果linear scan 回头看过程如果没有更新max,就直接返回min_value, 在这里显然不对，最小的长度至少也是1
+        //即数组不存在ascending 的情况     e.g. 54321
         int max = 1;
         int[] dp = new int[array.length];
         dp[0] = 1;
         for(int i = 1; i < array.length; i++){
-            int currentMax = 1;
+            //同样的情况，回头看的时候初始值也是要make sense的最坏情况即 = 1
+            dp[i] = 1;
             for(int j = i - 1; j >= 0; j--){
                 if(array[j] < array[i]){
-                    currentMax = Math.max(currentMax, dp[j] + 1);
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
-            dp[i] = currentMax;
             max = Math.max(max, dp[i]);
         }
         return max;
