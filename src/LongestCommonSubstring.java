@@ -114,4 +114,33 @@ public class LongestCommonSubstring {
         return res;
 
     }
+
+
+    //way4: 滚动数组只用到前一个，空间复杂度可以继续优化到O(1) T: O(m * n) S: O(1) 另一种实现方法： i跟着字符串走, j 跟着dp[] 走 //todo： O(1) 怎么做？？？？？？
+    public String longestCommon4(String source, String target) {
+        String res = "";
+
+        if(source == null || source.length() == 0 || target == null || target.length() == 0){
+            return res;
+        }
+        //相向而行就可以用滚动数组了
+        int smallerLen = source.length() < target.length() ? source.length() : target.length();
+        String smaller = source.length() < target.length() ? source : target;
+        int largerLen = source.length() < target.length() ? target.length() : source.length();
+        String larger = source.length() < target.length() ? target : source;
+        String cur = "";
+        //i跟着字符串走,j跟着m[]走
+        for(int i = 0; i < largerLen; i++){
+            for(int j = smallerLen; j >= 1; j--){
+                if(smaller.charAt(j - 1) == larger.charAt(i)){
+                    cur = cur + smaller.charAt(j - 1);
+                    res = cur.length() > res.length() ? cur : res;
+                }else{
+                    cur = "";
+                }
+            }
+        }
+        return res;
+
+    }
 }
