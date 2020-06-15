@@ -21,6 +21,13 @@ S = “abcde”, T = “cdf”, the longest common substring of S and T is “cd
 * 跟着原数组走， dp: i + 1, j + 1 原数组：（i, j）
 *
 * -恒定不变的是dp 数组 size = 原数组size + 1 仅此而已。
+*
+*
+*
+*
+* 总结：矩阵类型题涉及对角线的问题：
+*
+*
 * */
 
 
@@ -116,24 +123,45 @@ public class LongestCommonSubstring {
     }
 
 
-    //way4: 滚动数组只用到前一个，空间复杂度可以继续优化到O(1) T: O(m * n) S: O(1) 另一种实现方法： i跟着字符串走, j 跟着dp[] 走 //todo： O(1) 怎么做？？？？？？
+    //way4: 因为只用到了m[i - 1][j - 1], 可以一个对角线，一个对角线的扫，在该对角线上只需要记录前一个的值 最后求最大值
+    /*
+    * source: aaaaaa   target: bbaaba
+    *
+    *
+    * offset(x axis)             0     -1    -2    -3    -4    -5
+    * index(x axis)              0     1     2     3     4      5
+    * source                     a     a     a     a     a      a
+    *
+    *index(y)  offset(y) target
+    *
+    * 0         0         b      *     *     *     *     *       *
+    *                               \     \     \     \      \
+    * 1         1         b      *     *     *     *     *       *
+    *                               \     \     \     \      \
+    * 2         2         a      a     a     a     a     a       a
+    *                               \     \      \     \     \
+    * 3         3         a      a     aa    aa    aa    aa      aa
+    *                               \     \     \     \      \
+    * 4         4         b      *     *     *     *     *       *
+    *                                \     \     \     \     \
+    * 5         5         a      a     a     a     a     a       a
+    *
+    *
+    * */
+
+    //本程序是按照offset from -5 to 5 的顺序, 平行对角线从右到左， 每一条对角线从左上，到右下，遍历过整个的matrix
+    //T: O(n ^ 2) S: O(1)
     public String longestCommon4(String source, String target) {
         String res = "";
-
         if(source == null || source.length() == 0 || target == null || target.length() == 0){
             return res;
         }
-        //相向而行就可以用滚动数组了
-        int smallerLen = source.length() < target.length() ? source.length() : target.length();
-        String smaller = source.length() < target.length() ? source : target;
-        int largerLen = source.length() < target.length() ? target.length() : source.length();
-        String larger = source.length() < target.length() ? target : source;
-        String cur = "";
-        //i跟着字符串走,j跟着m[]走
-        for(int i = 0; i < largerLen; i++){
-            for(int j = smallerLen; j >= 1; j--){
-                if(smaller.charAt(j - 1) == larger.charAt(i)){
-                    cur = cur + smaller.charAt(j - 1);
+        int n1 = source.length(), n2 = target.length();
+        for(int offset = -n1 + 1; offset < n2; offset++){
+            String cur = "";
+            for(int i = Math.max(offset, 0); i - offset < n1 && i < n2; i++){
+                if(source.charAt(i - offset) == target.charAt(i)){
+                    cur = cur + source.charAt(i - offset);
                     res = cur.length() > res.length() ? cur : res;
                 }else{
                     cur = "";
@@ -141,6 +169,33 @@ public class LongestCommonSubstring {
             }
         }
         return res;
-
     }
+
+
+
+    //本程序是按照offset from 5 to -5 的顺序, 平行对角线从左到右， 每一条对角线从左上，到右下，遍历过整个的matrix
+
+    public String longestCommon5(String source, String target) {
+        String res = "";
+        if(source == null || source.length() == 0 || target == null || target.length() == 0){
+            return res;
+        }
+        int n1 = source.length(), n2 = target.length();
+        for(int offset = n2 - 1; offset >= -(n1 + 1); offset--){
+            String cur = "";
+            for(int i = Math.max(offset, 0); i - offset < n1 && i < n2; i++){
+                if(source.charAt(i - offset) == target.charAt(i)){
+                    cur = cur + source.charAt(i - offset);
+                    res = cur.length() > res.length() ? cur : res;
+                }else{
+                    cur = "";
+                }
+            }
+        }
+        return res;
+    }
+
+
+
+
 }
