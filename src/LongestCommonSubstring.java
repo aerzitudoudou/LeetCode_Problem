@@ -25,7 +25,8 @@ S = “abcde”, T = “cdf”, the longest common substring of S and T is “cd
 *
 *
 *
-* 总结：矩阵类型题涉及对角线的问题：
+* 其他矩阵问题有offsite的: Spiral Order Traverse I
+*
 *
 *
 * */
@@ -123,32 +124,6 @@ public class LongestCommonSubstring {
     }
 
 
-    //way4: 因为只用到了m[i - 1][j - 1], 可以一个对角线，一个对角线的扫，在该对角线上只需要记录前一个的值 最后求最大值
-    /*
-    * source: aaaaaa   target: bbaaba
-    *
-    *
-    * offset(x axis)             0     -1    -2    -3    -4    -5
-    * index(x axis)              0     1     2     3     4      5
-    * source                     a     a     a     a     a      a
-    *
-    *index(y)  offset(y) target
-    *
-    * 0         0         b      *     *     *     *     *       *
-    *                               \     \     \     \      \
-    * 1         1         b      *     *     *     *     *       *
-    *                               \     \     \     \      \
-    * 2         2         a      a     a     a     a     a       a
-    *                               \     \      \     \     \
-    * 3         3         a      a     aa    aa    aa    aa      aa
-    *                               \     \     \     \      \
-    * 4         4         b      *     *     *     *     *       *
-    *                                \     \     \     \     \
-    * 5         5         a      a     a     a     a     a       a
-    *
-    *
-    * */
-
     //本程序是按照offset from -5 to 5 的顺序, 平行对角线从右到左， 每一条对角线从左上，到右下，遍历过整个的matrix
     //T: O(n ^ 2) S: O(1)
     public String longestCommon4(String source, String target) {
@@ -194,6 +169,60 @@ public class LongestCommonSubstring {
         }
         return res;
     }
+
+
+
+    //way4: 因为只用到了m[i - 1][j - 1], 可以一个对角线，一个对角线的扫，在该对角线上只需要记录前一个的值 最后求最大值
+    /*
+    * source: aaaaaa   target: bbaaba
+    *
+    *
+    * offset(x axis)             0     -1    -2    -3    -4    -5
+    * index(x axis)              0     1     2     3     4      5
+    * source                     a     a     a     a     a      a
+    *
+    *index(y)  offset(y) target
+    *
+    * 0         0         b      *     *     *     *     *       *
+    *                               \     \     \     \      \
+    * 1         1         b      *     *     *     *     *       *
+    *                               \     \     \     \      \
+    * 2         2         a      a     a     a     a     a       a
+    *                               \     \      \     \     \
+    * 3         3         a      a     aa    aa    aa    aa      aa
+    *                               \     \     \     \      \
+    * 4         4         b      *     *     *     *     *       *
+    *                                \     \     \     \     \
+    * 5         5         a      a     a     a     a     a       a
+    *
+    *
+    * */
+
+
+
+    //平行对角线从右到左扫， 每一条对角线从右上，到左下，遍历过整个的matrix
+    /*
+offset    0  -1  -2  -3  -4
+
+          1   2   3   4   5
+    1     6   7   8   9   10
+    2     11  12  13  14  15
+    3     16  17  18  19  20
+    *
+    *
+    *
+    *
+    *
+    * */
+    int[][] matrix = {{1,2,3,4,5}, {6,7,8,9,10}, {11,12,13,14,15}, {16,17,18,19,20}};
+
+    public void sweepDirectionUpDownSweepRightLeft(){
+
+        int n1 = matrix.length; //5
+        int n2 = matrix[0].length; //3
+        //TODO: 怎么扫？
+    }
+
 
 
 
