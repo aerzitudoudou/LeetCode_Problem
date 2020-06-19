@@ -24,7 +24,7 @@ S = “abcde”, T = “cbabdfe”, the longest common subsequence of s and t is
 * */
 
 public class LongestCommonSubsequence {
-    //T: O(m * n) S:O(m * n)
+    //way1: T: O(m * n) S:O(m * n)
     public int longest(String source, String target) {
 
         if(source == null || source.length() == 0 || target == null || target.length() == 0){
@@ -48,4 +48,7 @@ public class LongestCommonSubsequence {
         }
         return m[source.length()][target.length()];
     }
+
+    //way2: TODO: 滚动数组把空间复杂度降到O(min(m, n))
+
 }
