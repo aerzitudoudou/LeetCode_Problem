@@ -68,6 +68,8 @@ Explanation: To win the game, you pick 2 first, then your friend will pick eithe
 * */
 
 public class CanIWinII {
+    //T: O(n ^ 2)
+    //S: O(n ^ 2)
     public int canWin(int[] nums) {
         if(nums == null || nums.length == 0){
             return 0;
