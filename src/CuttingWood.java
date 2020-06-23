@@ -67,6 +67,8 @@ L = 10, A = {2, 4, 7}, the minimum total cost is 10 + 4 + 6 = 20 (cut at 4 first
 * */
 
 public class CuttingWood {
+    //T: O(n^3) three for loops
+    //S: O(n^2)
     public int minCost(int[] cuts, int length) {
         //只有cut 了才产生cost
         if(cuts == null || length == 0){
