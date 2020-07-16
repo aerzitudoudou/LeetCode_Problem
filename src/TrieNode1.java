@@ -66,7 +66,7 @@ public class TrieNode1 {
             return false;
         }
         TrieNode1 cur = root;
-        //cur.count++;  ---->是不是还应该加上这一句？ 使count始终满足它的物理意义呢？//TODO: 在等老师答案
+        cur.count++;  //是不是还应该加上这一句？-->是的 使count始终满足它的物理意义呢？--> confirmed. 需要。这样才能符合物理意义。
         TrieNode1 next;
         for(int i = 0; i < word.length(); i++){
             next = root.children.get(word.charAt(i));
@@ -91,7 +91,7 @@ public class TrieNode1 {
             return false;
         }
         TrieNode1 cur = root;
-        //cur.count--; //同理： 这里是不是也应该有count-- TODO: 需要confirm
+        cur.count--;
         TrieNode1 next;
         for(int i = 0; i < word.length(); i++){
             next = root.children.get(word.charAt(i));

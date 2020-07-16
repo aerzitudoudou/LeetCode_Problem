@@ -46,7 +46,7 @@ public class TrieNode2 {
             return false;
         }
         TrieNode2 cur = root;
-        cur.count++; //TODO: 确认这个是不是应该有
+        cur.count++;
         TrieNode2 next;
         for(int i = 0; i < word.length(); i++){
             next = cur.children[word.charAt(i) - 'a'];
@@ -68,7 +68,7 @@ public class TrieNode2 {
             return false;
         }
         TrieNode2 cur = root;
-        cur.count--; //todo: 确定这句是不是应该有
+        cur.count--;
         TrieNode2 next;
         for(int i = 0; i < word.length(); i++){
             next = cur.children[word.charAt(i) - 'a'];
