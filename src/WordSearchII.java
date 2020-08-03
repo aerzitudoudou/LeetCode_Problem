@@ -37,12 +37,20 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-//TODO: summary time complexity, and compare with pure dfs algorithm
+/*
+* average length of word = L
+* number of words: k
+* m * n matrix
+*
+*O(L * K +  m * n * 4^L)
+*
+* */
 public class WordSearchII {
     private static class TrieNode{
         TrieNode[] children = new TrieNode[26];
         boolean isWord;
         //search
+        //T: O(L)
         public boolean search(String word, TrieNode root){
             if(word == null || word.length() == 0){
                 return false;
@@ -57,7 +65,7 @@ public class WordSearchII {
             }
             return root.isWord;
         }
-
+        //O(L)
         public boolean insert(String word, TrieNode root){
             if(word == null || word.length() == 0 || search(word, root)){
                 return false;
@@ -95,13 +103,14 @@ public class WordSearchII {
                 helper(i, j, visited, board, root, res, sb);
             }
         }
-        List<String> list = new ArrayList(); //todo: check see if there's better implementation
+        List<String> list = new ArrayList();
         list.addAll(res);
         return list;
     }
 
 
     //build trie tree
+    //O(L * K)
     private TrieNode buildTrie(String[] words){
         TrieNode root = new TrieNode();
         for(String word : words){
@@ -116,6 +125,7 @@ public class WordSearchII {
     root ：以[从(i, j) 到(x, y) 不包括(x,y) board 上走过的cell对应的字母]为前缀所对应的trienode
     res: 结果集
     */
+    //O(4 ^ L) 有L层，每层最多分出4个叉，每个recursion tree 结点做的事儿
     private void helper(int x, int y, boolean visited[][], char[][] board, TrieNode root, Set<String> res, StringBuilder sb){
         int[] dirX = {0, 1, 0, -1};
         int[] dirY = {1, 0, -1, 0};
@@ -131,17 +141,17 @@ public class WordSearchII {
         char c = board[x][y];
 
         //base case 2: trienode 的孩子没有(x,y) 对应的值
-        if(root.children[c - 'a'] == null){
+        if(root.children[c - 'a'] == null){//O(1)
             return;
         }
 
 
-        root = root.children[c - 'a'];//todo: 为什么root 不会回溯？
+        root = root.children[c - 'a'];
 
 
         //recursion rule:
-        sb.append(board[x][y]);
-        //!!!!!!!!!注意加結果的地方。todo: summary why here
+        sb.append(board[x][y]); //worst case 是O(L), amortized O(1) https://www.quora.com/What-is-the-complexity-of-Java-StringBuffer-append
+        //!!!!!!!!!注意加結果的地方。
         if(root.isWord){
             res.add(sb.toString());
         }
