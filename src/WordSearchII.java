@@ -146,16 +146,17 @@ public class WordSearchII {
         }
 
 
-        root = root.children[c - 'a'];
+        root = root.children[c - 'a'];//这里只有reference 的copy， 没有对root的de-reference 所以不用recursion之后吐出来
 
 
-        //recursion rule:
+        //recursion rule: 这里存在对sb的de-ref 所以recursion之后需要吐出来
         sb.append(board[x][y]); //worst case 是O(L), amortized O(1) https://www.quora.com/What-is-the-complexity-of-Java-StringBuffer-append
+
         //!!!!!!!!!注意加結果的地方。
         if(root.isWord){
             res.add(sb.toString());
         }
-        visited[x][y] = true;
+        visited[x][y] = true; //visited也存在对二维数组的de-ref, 所以recursion之后要恢复回去
         for(int i = 0; i < 4; i++){
             int a = x + dirX[i];
             int b = y + dirY[i];
@@ -163,6 +164,12 @@ public class WordSearchII {
         }
         visited[x][y] = false;
         sb.deleteCharAt(sb.length() - 1);
+        //root 在这里为什么不需要返回之前的状态：
+        /*
+        * root只是表示在每一个recursion call中的当前节点，仅仅是一个reference。由于Java的pass by value的性质，
+        * 每一个recursion call里面的root都是各自不相干的不同的reference。当该层return时，该层的root这个reference也就被gc回收了。
+        * 而我们需要去还原visited和sb，那是因为我们所修改并不是那两个references，而是那两个references所指向的objects上面的value.
+        * */
 
 
 
