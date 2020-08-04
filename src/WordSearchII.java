@@ -1,9 +1,5 @@
 /*
 *
-*
-*
-*
-*
 * Laicode
 *
 * 431. Word Search II
