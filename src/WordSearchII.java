@@ -41,6 +41,7 @@ import java.util.Set;
 *O(L * K +  m * n * 4^L)
 *
 * */
+//todo: 第二遍把dfs解法写一遍
 public class WordSearchII {
     private static class TrieNode{
         TrieNode[] children = new TrieNode[26];
