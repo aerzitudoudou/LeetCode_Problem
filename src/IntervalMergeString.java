@@ -29,7 +29,7 @@ If two intervals A and B satisfy that A⋃B is a continuous interval, then A and
 *
 *
 * 1. String的字典序（lexicographic）可以用sting1.compareTo(string2)
-* 2. sting1.compareTo(string2) = -1 string1 优先级高 , = 0 两个优先级一样 = 1 string2 优先级高 （
+* 2. sting1.compareTo(string2) = -1 string1 优先级高(smaller on lexicographic order) , = 0 两个优先级一样 = 1 string2 优先级高 （
 * 3.  compareTo 只有-1， 1， 0 三种结果。判断两个String 是否lexicographical continuous, 需要用 a.equals(b + "a")判断。 两个连续字符串只相差一个a
 * 4. String 的 + 后面不能是character 只能是string
 * 5. 让A的第一部分string lexicographic order 优先于B的第一部分（不是的话switch顺序）， 分类讨论
