@@ -28,6 +28,14 @@ Output：
 public class MinimumInsertion {
     public int minimumInsertion(int[] a, int[] b) {
         /*
+        转化为在a 里找到一个substring, 使得该substring 在b中的subsequence 最长。
+        e.g. 下面例子里13（length = 2）是满足条件的a的substring在b中是一个subsequence 的最长的值. 所以需要动的是13 这部分的左右两边 i.e. 54 和2 ， 所以需要挪动的值是3
+
+        a = [5,4,1,3,2]    54 | 13 | 2
+        b = [1,2,3,4,5]
+
+
+
         dp[i]物理意义： 表示以index = i结尾的a的substring同时又是b的subsequence的最长的长度
         base case:
         dp[0] = 1
@@ -36,7 +44,7 @@ public class MinimumInsertion {
         if (index of a[i] in b > index of a[i - 1] in b): dp[i] = dp[i - 1] + 1
         otherwise dp[i] = 1
 
-        结果为dp[i]的最大值
+        结果为b.length - dp[i]的最大值
 
 
         */
