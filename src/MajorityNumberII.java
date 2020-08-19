@@ -24,9 +24,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MajorityNumberII {
-    //may way
+    //my way
     //T: O(n)
     //S: O(1)
+    /*
+    假设a是>k/3的数字的个数, 团灭3个以后剩下的a的个数，依然满足a(剩下的) > k(剩下的) / 3, 证明如下：
+                          擂台上灭掉一个a, 即a的个数变成a - 1 依旧大于   k - 3(所有数字剩下的总数) / 3
+    * a > k / 3 ==>        a - 1                           >           ( (k / 3 )- 1 )  = (k - 3) / 3
+    *
+    *
+    *
+    * */
     public List<Integer> majority(int[] array) {
         List<Integer> res = new ArrayList<>();
         Integer can1 = null, can2 = null, count1 = 0, count2 = 0;
@@ -45,7 +53,9 @@ public class MajorityNumberII {
                     count1++;
                 }
 
-                if(can2 != null && array[i] == can2){ //这里需要check candidate 是不是null e.g. 111433 如果不check则判断==时， 会de-reference null value
+                if(can2 != null && array[i] == can2){ //这里需要check candidate 是不是null
+                    // e.g. 111433 如果不check则判断==时， array[i] 是int, can2是integer型所以需要Unboxing Integer才能比较，
+                    // 如果can2 是null, 则会de-reference null value
                     count2++;
                 }
             }
