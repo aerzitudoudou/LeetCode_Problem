@@ -33,7 +33,7 @@ Explanation: The same letters are at least distance 2 from each other.
 /*
 * Summary:
 *  1. heap.addAll(Collection<> c) is O(m log m) : PriorityQueue inherits the addAll implementation from AbstractQueue which iterates over the collection and calls add on each element.
-*  2. T: O(nlogn)  S: O(26) --> //todo 确认为啥是O(n)?
+*  2. T: O(nlog26) = O(n) 此题中堆最大是26所以logn变成常数log26  S: O(26)
 *  3. Max heap: 用来store - 可构建一个由k个不重复letter组成的trunk，的可用的<letter, 次数>
       list: 用来存储在下一轮可以被用来构建长度为K的trunk的<letter,次数>
 
@@ -140,7 +140,7 @@ public class RearrangeStringKDistanceApart {
         List<Map.Entry<Character, Integer>> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
 
-        //s.length = n T: O(n logn): sb append了n次，每次都是heap poll操作 （logn）
+        //s.length = n T: O(n logn) = O(nlog26) = O(n): sb append了n次，每次都是heap poll操作 （log26）
         while(!maxHeap.isEmpty()){
             for(int i = 0; i < k; i++){
                 if(maxHeap.isEmpty()){
