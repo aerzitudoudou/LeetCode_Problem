@@ -435,9 +435,14 @@ public class Main {
 //        String b = "(())()(())";
 //        System.out.println(b.compareTo(a));
 //        minimumParenthesesMatching.minimumParenthesesMatching(input);
-        Character a = 'f';
-        Character b = 'b';
-        System.out.println( a < b);
+//        Character a = 'f';
+//        Character b = 'b';
+//        System.out.println( a < b);
+        Integer[] ary = {25,62,51,92,93,40,23,16,36,32};
+        List<Integer> list = Arrays.asList(ary);
+        MinimumCost minimumCost = new MinimumCost();
+        minimumCost.MinimumCost(list);
+
 
 
 
