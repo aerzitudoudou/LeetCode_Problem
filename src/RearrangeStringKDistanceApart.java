@@ -50,19 +50,10 @@ init                       <a, 3>,<b, 1><c, 1>                 <>               
 ===================================offer back what's in list to heap===============================
                            <a, 2>
 
-
-
-
 ==================================another round of poll for 3 times================================
 1st time poll<a, 3>        empty                               <a, 1>                       "abca"
 
 heap can't do poll but list still has elements. hence invalid string and k --> case 1
-
-
-
-
-
-
 
 
 
@@ -97,15 +88,6 @@ nothing to offer back to heap in this round since list is empty
 
 heap is empty and list is empty, therefore valid result. --> case 2 in the code
 *Here if eventually heap is empty but hasn't finish polling 2 times,  result is still valid. --> case 3 in the code
-
-*
-*
-*
-*
-*
-*
-*
-*
 * */
 
 import java.util.*;
@@ -115,32 +97,25 @@ public class RearrangeStringKDistanceApart {
         if(s == null || s.length() == 0){
             return "";
         }
-        //corner case 注意 第一次做错！
+        //corner case
         if(k == 0){
             return s;
         }
-
         //map: <letter, times> O(n)
         Map<Character, Integer> map = new HashMap<>();
         for(int i = 0; i < s.length(); i++){
             map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
         }
-
-
         PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<>(new Comparator<Map.Entry<Character, Integer>>() {
             @Override
             public int compare(Map.Entry<Character, Integer> t1, Map.Entry<Character, Integer> t2) {
-                //第一次做错！等于的时候需要给key排个序，在次数相同时候按字母序，否则如果letter次数一样, pop 出的顺序有可能每一轮是不一样的 e.g. aabbcc -> acbabc<错误答案！> k = 2
                 if(t1.getValue().equals(t2.getValue())) return t1.getKey() < t2.getKey() ? -1 : 1;
                 return t1.getValue() > t2.getValue() ? -1 : 1;
             }
         });
         maxHeap.addAll(map.entrySet()); //O(26log26)
-
         List<Map.Entry<Character, Integer>> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
-
-        //s.length = n T: O(n logn) = O(nlog26) = O(n): sb append了n次，每次都是heap poll操作 （log26）
         while(!maxHeap.isEmpty()){
             for(int i = 0; i < k; i++){
                 if(maxHeap.isEmpty()){
@@ -159,13 +134,11 @@ public class RearrangeStringKDistanceApart {
                     list.add(entry);
                 }
             }
-
             //把可以构建下一轮k个的<letter, times>放回heap
             for(Map.Entry<Character, Integer> entry : list){
                 maxHeap.offer(entry);
             }
             list.clear();
-
         }
         //case 2
         return sb.toString();
