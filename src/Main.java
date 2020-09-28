@@ -1,9 +1,6 @@
 
-import amazonOA.AccountMerge;
-import amazonOA.CalPoints;
-import amazonOA.LargestItemAssociation;
+import amazonOA.*;
 import amazonOA.LargestItemAssociation.PairString;
-import amazonOA.MostCommonWord;
 
 import java.util.*;
 
@@ -478,67 +475,73 @@ public class Main {
 //        AccountMerge accountMerge = new AccountMerge();
 //        accountMerge.accountsMerge(list);
 
-        List<PairString> list = new ArrayList<>();
-        list.add(new PairString("item1", "item2"));
-        list.add(new PairString("item3", "item4"));
-        list.add(new PairString("item4", "item5"));
-        // item3 item4 item5
+//        List<PairString> list = new ArrayList<>();
+//        list.add(new PairString("item1", "item2"));
+//        list.add(new PairString("item3", "item4"));
+//        list.add(new PairString("item4", "item5"));
+//        // item3 item4 item5
+//
+//
+//        list = new ArrayList<>();
+//        list.add(new PairString("z", "b"));
+//        list.add(new PairString("z", "c"));
+//        list.add(new PairString("c", "d"));
+//        list.add(new PairString("e", "f"));
+//        // b c z d
+//
+//
+//        list = new ArrayList<>();
+//        list.add(new PairString("y", "x"));
+//        list.add(new PairString("a", "y"));
+//        list.add(new PairString("d", "e"));
+//        list.add(new PairString("e", "f"));
+//        // a x y
+//
+//
+//        list = new ArrayList<>();
+//        list.add(new PairString("a", "b"));
+//        list.add(new PairString("b", "a"));
+//        list.add(new PairString("c", "e"));
+//        list.add(new PairString("e", "f"));
+//        list.add(new PairString("f", "c"));
+//        // c e f
+//
+//
+//        list = new ArrayList<>();
+//        list.add(new PairString("a", "b"));
+//        list.add(new PairString("b", "a"));
+//        list.add(new PairString("a", "c"));
+//        list.add(new PairString("d", "e"));
+//        list.add(new PairString("e", "f"));
+//        list.add(new PairString("f", "e"));
+//        list.add(new PairString("b", "e"));
+//
+//        list.add(new PairString("w", "x"));
+//        list.add(new PairString("x", "y"));
+//        list.add(new PairString("y", "z"));
+//        // a b c d e f
+//
+//
+//        list = new ArrayList<>();
+//
+//        list.add(new PairString("item1","item2"));
+//        list.add(new PairString("item2","item3"));
+//
+//        list.add(new PairString("item3","item4"));
+//        list.add(new PairString("item6","item7"));
+//        list.add(new PairString("item5","item6"));
+//        list.add(new PairString("item9","item7"));
+//
+//
+//        LargestItemAssociation largestItemAssociation = new LargestItemAssociation();
+//        largestItemAssociation.largestItemAssociation(list);
 
 
-        list = new ArrayList<>();
-        list.add(new PairString("z", "b"));
-        list.add(new PairString("z", "c"));
-        list.add(new PairString("c", "d"));
-        list.add(new PairString("e", "f"));
-        // b c z d
-
-
-        list = new ArrayList<>();
-        list.add(new PairString("y", "x"));
-        list.add(new PairString("a", "y"));
-        list.add(new PairString("d", "e"));
-        list.add(new PairString("e", "f"));
-        // a x y
-
-
-        list = new ArrayList<>();
-        list.add(new PairString("a", "b"));
-        list.add(new PairString("b", "a"));
-        list.add(new PairString("c", "e"));
-        list.add(new PairString("e", "f"));
-        list.add(new PairString("f", "c"));
-        // c e f
-
-
-        list = new ArrayList<>();
-        list.add(new PairString("a", "b"));
-        list.add(new PairString("b", "a"));
-        list.add(new PairString("a", "c"));
-        list.add(new PairString("d", "e"));
-        list.add(new PairString("e", "f"));
-        list.add(new PairString("f", "e"));
-        list.add(new PairString("b", "e"));
-
-        list.add(new PairString("w", "x"));
-        list.add(new PairString("x", "y"));
-        list.add(new PairString("y", "z"));
-        // a b c d e f
-
-
-        list = new ArrayList<>();
-
-        list.add(new PairString("item1","item2"));
-        list.add(new PairString("item2","item3"));
-
-        list.add(new PairString("item3","item4"));
-        list.add(new PairString("item6","item7"));
-        list.add(new PairString("item5","item6"));
-        list.add(new PairString("item9","item7"));
-
-
-        LargestItemAssociation largestItemAssociation = new LargestItemAssociation();
-        largestItemAssociation.largestItemAssociation(list);
-
+        KSubstringWithKDifferentCharacters kSubstringWithKDifferentCharacters = new KSubstringWithKDifferentCharacters();
+        kSubstringWithKDifferentCharacters.KSubstring("abacabc", 3);
+//          SlidingWindowFramework slidingWindowFramework = new SlidingWindowFramework();
+//          slidingWindowFramework.slidingWindow("str1", "str2");
+//          SlidingWindowFramework.test();
 
 
 
