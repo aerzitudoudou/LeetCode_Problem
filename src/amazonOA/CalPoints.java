@@ -75,6 +75,41 @@ Expected Return Value: 3
 
     * */
 
+    //Best solution as for the coding style
+    //Stack implement Collection interface therefore can use for each loop
+    public int calPoints3(String[] ops) {
+        //T: O(n) S: O(n) n is the length of input ops array
+
+        //corner cases
+        if(ops == null || ops.length == 0){
+            throw new IllegalArgumentException("Invalid input.");
+        }
+        Deque<Integer> stack = new LinkedList<>();
+        int res = 0;
+        for(String str : ops){
+            if(str.equals("+") && stack.size() >= 2){
+                int top = stack.pollFirst();
+                int newTop = top + stack.peekFirst();
+                stack.offerFirst(top);
+                stack.offerFirst(newTop);
+            }else if(str.equals("D") && stack.size() >= 1){
+                stack.offerFirst(stack.peekFirst() * 2);
+            }else if(str.equals("C") && stack.size() >= 1){
+                stack.pollFirst();
+            }else{
+                try{
+                    stack.offerFirst(Integer.parseInt(str));
+                }catch(NumberFormatException ex){
+                    throw new IllegalArgumentException("Invalid input.");
+                }
+            }
+        }
+        for(Integer i : stack){
+            res += i;
+        }
+        return res;
+    }
+
     //T: O(n) S: O(n) n is the length of input ops array
     public int calPoints2(String[] ops) {
         if(ops == null || ops.length == 0){
@@ -113,38 +148,7 @@ Expected Return Value: 3
 
 
 
-    //Best solution as for the coding style
-    //Stack implement Collection interface therefore can use for each loop
-    public int calPoints3(String[] ops) {
-        //corner cases
-        if(ops == null || ops.length == 0){
-            throw new IllegalArgumentException("Invalid input.");
-        }
-        Deque<Integer> stack = new LinkedList<>();
-        int res = 0;
-        for(String str : ops){
-            if(str.equals("+") && stack.size() >= 2){
-                int top = stack.pollFirst();
-                int newTop = top + stack.peekFirst();
-                stack.offerFirst(top);
-                stack.offerFirst(newTop);
-            }else if(str.equals("D") && stack.size() >= 1){
-                stack.offerFirst(stack.peekFirst() * 2);
-            }else if(str.equals("C") && stack.size() >= 1){
-                stack.pollFirst();
-            }else{
-                try{
-                    stack.offerFirst(Integer.parseInt(str));
-                }catch(NumberFormatException ex){
-                    throw new IllegalArgumentException("Invalid input.");
-                }
-            }
-        }
-        for(Integer i : stack){
-            res += i;
-        }
-        return res;
-    }
+
 
 
 

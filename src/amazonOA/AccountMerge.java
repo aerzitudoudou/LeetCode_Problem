@@ -26,7 +26,8 @@ This makes disjoint-set operations practically constant time.
 
  */
 public class AccountMerge {
-
+   //T: O(nlogn) where n is the total number of strings in accounts
+    //S: O(n)
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
         //map: <parent, set of string for that parent>
         Map<String, TreeSet<String>> map = new HashMap<>();
@@ -39,12 +40,11 @@ public class AccountMerge {
                 uf.union(list.get(i), list.get(1));
             }
         }
-        //entry: <str, parentString>
 
         //O(nlogn) where n is the total number of strings in the list of list of strings
         for(List<String> list : accounts){
             for(int i = 1; i < list.size(); i++){
-                String cur = uf.find(list.get(i)); //!!!做错。判断是不是在一个set的时候需要调用find 而不能直接check parent
+                String cur = uf.find(list.get(i));
                 TreeSet<String> set = map.getOrDefault(cur, new TreeSet<String>());
                 set.add(list.get(i)); //O(logn)
                 map.put(cur, set);
@@ -76,7 +76,6 @@ public class AccountMerge {
             }
 
         }
-        //O(1)??
         public String find(String str){
             while(!parent.get(str).equals(str)){
                 //parent[x] = parent[parent[x]] path compression
@@ -87,7 +86,6 @@ public class AccountMerge {
             return str;
         }
 
-        //O(1)??
         public void union(String str1, String str2){
             String pStr1 = find(str1);
             String pStr2 = find(str2);
