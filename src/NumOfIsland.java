@@ -74,7 +74,7 @@ public class NumOfIsland {
         //initialization
         //这里point 也可以换成一个长度为2的数组
         Deque<int[]> queue = new LinkedList<>();
-        int[] tmp = {i, j};
+        int[] tmp = new int[]{i, j};
         queue.offerFirst(tmp);
         grid[i][j] = false;
 
