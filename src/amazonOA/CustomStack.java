@@ -2,7 +2,7 @@ package amazonOA;
 
 import java.util.Deque;
 import java.util.LinkedList;
-
+//leetcode 1381
 //https://leetcode.com/problems/design-a-stack-with-increment-operation/
 /*
 Use an additional array to record the increment value.
