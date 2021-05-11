@@ -41,7 +41,75 @@ import java.util.Set;
 *O(L * K +  m * n * 4^L)
 *
 * */
-//todo: 第二遍把dfs解法写一遍
+
+
+class Solution {
+    //!!!!!!最好的写法
+    //T: m * n * 4^l + m * n = m * n * 4^l, l average length of the words
+    //S: k * l + l = k * l, k length of words string
+    public List<String> findWords(char[][] board, String[] words) {
+        TrieNode root = buildTrie(words);
+        List<String> res = new ArrayList<>();
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[0].length; j++){
+                dfs(i, j, board, root, res);
+            }
+        }
+        return res;
+    }
+    
+    
+    private void dfs(int i, int j, char[][] board, TrieNode cur, List<String> res){
+        char c = board[i][j];
+        if(cur == null || cur.children[c - 'a'] == null){
+            return;
+        }
+        
+        cur = cur.children[c - 'a'];
+        board[i][j] = '#';
+        if(cur.word != null){
+            res.add(cur.word);
+            cur.word = null;
+        }
+        int[] dirX = {0, 1, 0, -1};
+        int[] dirY = {1, 0, -1, 0};
+        for(int a = 0; a < 4; a++){
+            int x = i + dirX[a];
+            int y = j + dirY[a];
+            if(isValid(x, y, board)) dfs(x, y, board, cur, res); //every time cur is a new value of the reference
+        }
+        board[i][j] = c;
+        
+    }
+    
+    private boolean isValid(int i, int j, char[][] board){
+        return (i >= 0 && i < board.length && j >= 0 && j < board[0].length && board[i][j] != '#');
+    }
+    
+    private TrieNode buildTrie(String[] words){
+        TrieNode root = new TrieNode();
+        for(String word : words){
+            TrieNode cur = root;
+            for(int i = 0; i < word.length(); i++){
+                char c = word.charAt(i);
+                if(cur.children[c - 'a'] == null) {
+                    cur.children[c - 'a'] = new TrieNode();
+                }
+                cur = cur.children[c - 'a'];
+            }
+            cur.word = word; //remember to add word here!
+        }
+        return root;
+    }
+    
+    public class TrieNode{
+        TrieNode[] children = new TrieNode[26];
+        String word;
+    }
+}
+
+
+//2020第一次写
 public class WordSearchII {
     private static class TrieNode{
         TrieNode[] children = new TrieNode[26];
