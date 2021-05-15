@@ -30,9 +30,8 @@ You may assume that all inputs are consist of lowercase letters a-z.
 
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 /*
 * average length of word = L
 * number of words: k
@@ -41,202 +40,205 @@ import java.util.Set;
 *O(L * K +  m * n * 4^L)
 *
 * */
+//todo: 第二遍把dfs解法写一遍 yr 2020
+public class WordSearchII {
+//    private static class TrieNode{
+//        TrieNode[] children = new TrieNode[26];
+//        boolean isWord;
+//        //search
+//        //T: O(L)
+//        public boolean search(String word, TrieNode root){
+//            if(word == null || word.length() == 0){
+//                return false;
+//            }
+//            for(int i = 0; i < word.length(); i++){
+//                char c = word.charAt(i);
+//                if(root.children[c - 'a'] == null){
+//                    return false;
+//                }else{
+//                    root = root.children[c - 'a'];
+//                }
+//            }
+//            return root.isWord;
+//        }
+//        //O(L)
+//        public boolean insert(String word, TrieNode root){
+//            if(word == null || word.length() == 0 || search(word, root)){
+//                return false;
+//            }
+//            for(int i = 0; i < word.length(); i++){
+//                char c = word.charAt(i);
+//                if(root.children[c - 'a'] == null){
+//                    TrieNode node = new TrieNode();
+//                    root.children[c - 'a'] = node;
+//
+//                }
+//                root = root.children[c - 'a'];
+//
+//            }
+//            root.isWord = true;
+//            return true;
+//        }
+//
+//    }
+//
+//    public List<String> findWords(char[][] board, String[] words) {
+//        //sanity check
+//        if(board == null || board.length == 0 || board[0] == null || board.length == 0 || words == null || words.length == 0){
+//            throw new IllegalArgumentException("Invalid input!");
+//        }
+//        //build trie tree
+//        TrieNode root = buildTrie(words);
+//        int row = board.length;
+//        int col = board[0].length;
+//        Set<String> res = new HashSet<>(); //答案判重
+//        for(int i = 0; i < row; i++){
+//            for(int j = 0; j < col; j++){
+//                boolean visited[][] = new boolean[row][col];
+//                StringBuilder sb = new StringBuilder();
+//                helper(i, j, visited, board, root, res, sb);
+//            }
+//        }
+//        List<String> list = new ArrayList();
+//        list.addAll(res);
+//        return list;
+//    }
+//
+//
+//    //build trie tree
+//    //O(L * K)
+//    private TrieNode buildTrie(String[] words){
+//        TrieNode root = new TrieNode();
+//        for(String word : words){
+//            root.insert(word, root);
+//        }
+//        return root;
+//    }
+//    /*
+//    物理意义： 开闭区间，一一对应
+//    dfs + trie to check if the current char is valid
+//    visited ： 从(i, j) 到 (x, y)不包括(x, y) 走过的cell
+//    root ：以[从(i, j) 到(x, y) 不包括(x,y) board 上走过的cell对应的字母]为前缀所对应的trienode
+//    res: 结果集
+//    */
+//    //O(4 ^ L) 有L层，每层最多分出4个叉，每个recursion tree 结点做的事儿
+//    private void helper(int x, int y, boolean visited[][], char[][] board, TrieNode root, Set<String> res, StringBuilder sb){
+//        int[] dirX = {0, 1, 0, -1};
+//        int[] dirY = {1, 0, -1, 0};
+//
+//
+//        //base case 1: x, y 越界 或已经被探测过
+//        if(x < 0 || x >= board.length || y < 0 || y >= board[0].length || visited[x][y]){
+//            return;
+//        }
+//
+//
+//
+//        char c = board[x][y];
+//
+//        //base case 2: trienode 的孩子没有(x,y) 对应的值
+//        if(root.children[c - 'a'] == null){//O(1)
+//            return;
+//        }
+//
+//
+//        root = root.children[c - 'a'];//这里只有reference 的copy， 没有对root的de-reference 所以不用recursion之后吐出来
+//
+//
+//        //recursion rule: 这里存在对sb的de-ref 所以recursion之后需要吐出来
+//        sb.append(board[x][y]); //worst case 是O(L), amortized O(1) https://www.quora.com/What-is-the-complexity-of-Java-StringBuffer-append
+//
+//        //!!!!!!!!!注意加結果的地方。
+//        if(root.isWord){
+//            res.add(sb.toString());
+//        }
+//        visited[x][y] = true; //visited也存在对二维数组的de-ref, 所以recursion之后要恢复回去
+//        for(int i = 0; i < 4; i++){
+//            int a = x + dirX[i];
+//            int b = y + dirY[i];
+//            helper(a, b, visited, board, root, res, sb);
+//        }
+//        visited[x][y] = false;
+//        sb.deleteCharAt(sb.length() - 1);
+//        //root 在这里为什么不需要返回之前的状态：
+//        /*
+//        * root只是表示在每一个recursion call中的当前节点，仅仅是一个reference。由于Java的pass by value的性质，
+//        * 每一个recursion call里面的root都是各自不相干的不同的reference。当该层return时，该层的root这个reference也就被gc回收了。
+//        * 而我们需要去还原visited和sb，那是因为我们所修改并不是那两个references，而是那两个references所指向的objects上面的value.
+//        * */
+//
+//
+//
+//    }
 
 
-class Solution {
-    //!!!!!!最好的写法
-    //T: m * n * 4^l + m * n = m * n * 4^l, l average length of the words
-    //S: k * l + l = k * l, k length of words string
+
+
     public List<String> findWords(char[][] board, String[] words) {
-        TrieNode root = buildTrie(words);
         List<String> res = new ArrayList<>();
+        TrieNode root = buildTrie(words);
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[0].length; j++){
-                dfs(i, j, board, root, res);
+                dfs(i, j, root, board, res);
             }
         }
         return res;
     }
-    
-    
-    private void dfs(int i, int j, char[][] board, TrieNode cur, List<String> res){
-        char c = board[i][j];
-        if(cur == null || cur.children[c - 'a'] == null){
+
+
+    private void dfs(int i, int j, TrieNode root, char[][] board, List<String> res){
+        if(!isValid(i, j, board) || root == null){
             return;
         }
-        
-        cur = cur.children[c - 'a'];
+
+
+//        if(!isValid(i, j, board)) return;
+
+        char c = board[i][j];
         board[i][j] = '#';
-        if(cur.word != null){
-            res.add(cur.word);
-            cur.word = null;
+        // TrieNode pre = root;
+        root = root.children[c - 'a'];
+        if(root != null && root.word != null){
+            res.add(new String(root.word)); //why can we do root.word directly?
+            System.out.println("root.word" + root.word);
+            root.word = null;
         }
-        int[] dirX = {0, 1, 0, -1};
-        int[] dirY = {1, 0, -1, 0};
-        for(int a = 0; a < 4; a++){
-            int x = i + dirX[a];
-            int y = j + dirY[a];
-            if(isValid(x, y, board)) dfs(x, y, board, cur, res); //every time cur is a new value of the reference
+
+        int[] aryX = {0, 1, 0, -1};
+        int[] aryY = {1, 0, -1, 0};
+        for(int a = 0; a < aryX.length; a++){
+            int x = i + aryX[a];
+            int y = j + aryY[a];
+            dfs(x, y, root, board, res);
         }
+        // root = pre;
         board[i][j] = c;
-        
+
     }
-    
+
     private boolean isValid(int i, int j, char[][] board){
-        return (i >= 0 && i < board.length && j >= 0 && j < board[0].length && board[i][j] != '#');
+        return i >= 0 && i < board.length && j >= 0 && j < board[0].length && board[i][j] != '#';
     }
-    
+
     private TrieNode buildTrie(String[] words){
         TrieNode root = new TrieNode();
+
         for(String word : words){
             TrieNode cur = root;
             for(int i = 0; i < word.length(); i++){
                 char c = word.charAt(i);
-                if(cur.children[c - 'a'] == null) {
+                if(cur.children[c - 'a'] == null){
                     cur.children[c - 'a'] = new TrieNode();
                 }
                 cur = cur.children[c - 'a'];
             }
-            cur.word = word; //remember to add word here!
+            cur.word = word;
         }
         return root;
     }
-    
-    public class TrieNode{
-        TrieNode[] children = new TrieNode[26];
+
+    class TrieNode{
         String word;
-    }
-}
-
-
-//2020第一次写
-public class WordSearchII {
-    private static class TrieNode{
         TrieNode[] children = new TrieNode[26];
-        boolean isWord;
-        //search
-        //T: O(L)
-        public boolean search(String word, TrieNode root){
-            if(word == null || word.length() == 0){
-                return false;
-            }
-            for(int i = 0; i < word.length(); i++){
-                char c = word.charAt(i);
-                if(root.children[c - 'a'] == null){
-                    return false;
-                }else{
-                    root = root.children[c - 'a'];
-                }
-            }
-            return root.isWord;
-        }
-        //O(L)
-        public boolean insert(String word, TrieNode root){
-            if(word == null || word.length() == 0 || search(word, root)){
-                return false;
-            }
-            for(int i = 0; i < word.length(); i++){
-                char c = word.charAt(i);
-                if(root.children[c - 'a'] == null){
-                    TrieNode node = new TrieNode();
-                    root.children[c - 'a'] = node;
-
-                }
-                root = root.children[c - 'a'];
-
-            }
-            root.isWord = true;
-            return true;
-        }
-
-    }
-
-    public List<String> findWords(char[][] board, String[] words) {
-        //sanity check
-        if(board == null || board.length == 0 || board[0] == null || board.length == 0 || words == null || words.length == 0){
-            throw new IllegalArgumentException("Invalid input!");
-        }
-        //build trie tree
-        TrieNode root = buildTrie(words);
-        int row = board.length;
-        int col = board[0].length;
-        Set<String> res = new HashSet<>(); //答案判重
-        for(int i = 0; i < row; i++){
-            for(int j = 0; j < col; j++){
-                boolean visited[][] = new boolean[row][col];
-                StringBuilder sb = new StringBuilder();
-                helper(i, j, visited, board, root, res, sb);
-            }
-        }
-        List<String> list = new ArrayList();
-        list.addAll(res);
-        return list;
-    }
-
-
-    //build trie tree
-    //O(L * K)
-    private TrieNode buildTrie(String[] words){
-        TrieNode root = new TrieNode();
-        for(String word : words){
-            root.insert(word, root);
-        }
-        return root;
-    }
-    /*
-    物理意义： 开闭区间，一一对应
-    dfs + trie to check if the current char is valid
-    visited ： 从(i, j) 到 (x, y)不包括(x, y) 走过的cell
-    root ：以[从(i, j) 到(x, y) 不包括(x,y) board 上走过的cell对应的字母]为前缀所对应的trienode
-    res: 结果集
-    */
-    //O(4 ^ L) 有L层，每层最多分出4个叉，每个recursion tree 结点做的事儿
-    private void helper(int x, int y, boolean visited[][], char[][] board, TrieNode root, Set<String> res, StringBuilder sb){
-        int[] dirX = {0, 1, 0, -1};
-        int[] dirY = {1, 0, -1, 0};
-
-
-        //base case 1: x, y 越界 或已经被探测过
-        if(x < 0 || x >= board.length || y < 0 || y >= board[0].length || visited[x][y]){
-            return;
-        }
-
-
-
-        char c = board[x][y];
-
-        //base case 2: trienode 的孩子没有(x,y) 对应的值
-        if(root.children[c - 'a'] == null){//O(1)
-            return;
-        }
-
-
-        root = root.children[c - 'a'];//这里只有reference 的copy， 没有对root的de-reference 所以不用recursion之后吐出来
-
-
-        //recursion rule: 这里存在对sb的de-ref 所以recursion之后需要吐出来
-        sb.append(board[x][y]); //worst case 是O(L), amortized O(1) https://www.quora.com/What-is-the-complexity-of-Java-StringBuffer-append
-
-        //!!!!!!!!!注意加結果的地方。
-        if(root.isWord){
-            res.add(sb.toString());
-        }
-        visited[x][y] = true; //visited也存在对二维数组的de-ref, 所以recursion之后要恢复回去
-        for(int i = 0; i < 4; i++){
-            int a = x + dirX[i];
-            int b = y + dirY[i];
-            helper(a, b, visited, board, root, res, sb);
-        }
-        visited[x][y] = false;
-        sb.deleteCharAt(sb.length() - 1);
-        //root 在这里为什么不需要返回之前的状态：
-        /*
-        * root只是表示在每一个recursion call中的当前节点，仅仅是一个reference。由于Java的pass by value的性质，
-        * 每一个recursion call里面的root都是各自不相干的不同的reference。当该层return时，该层的root这个reference也就被gc回收了。
-        * 而我们需要去还原visited和sb，那是因为我们所修改并不是那两个references，而是那两个references所指向的objects上面的value.
-        * */
-
-
-
     }
 }

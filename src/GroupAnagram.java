@@ -1,5 +1,7 @@
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GroupAnagram {
 
@@ -68,5 +70,44 @@ public class GroupAnagram {
             count[str.charAt(i) - 'a']++;
         }
         return count;
+    }
+
+
+
+    /*way 3*/
+    //2021/04/01
+    public List<List<String>> groupAnagrams3(String[] strs) {
+        List<List<String>> res = new ArrayList<>();
+        Map<String, List<String>> ans = new HashMap<>();
+        if(strs == null || strs.length == 0){
+            return res;
+        }
+
+        for(String s : strs){
+            int[] count = new int[26];
+            char[] charAry = s.toCharArray();
+            for(char c : charAry){
+                count[c - 'a']++;
+            }
+            String key = encode(count);
+            List<String> list = ans.getOrDefault(key, new ArrayList<String>());
+            list.add(s);
+            ans.put(key, list);
+
+        }
+        res.addAll(ans.values());//List<String> has to have type to be able to use List.addAll
+
+        return res;
+
+
+    }
+
+    private String encode(int[] count){
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < count.length; i++){
+            sb.append('#');
+            sb.append(count[i]);
+        }
+        return sb.toString();
     }
 }

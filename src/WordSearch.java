@@ -1,80 +1,170 @@
-import java.util.*;
+// class WordSearch {
+//     int m, n;
+//     public boolean exist(char[][] board, String word) {
+//         m = board.length;
+//         n = board[0].length;
 
-public class WordSearch {
-    //my sol: TLE
+//         char[] chars = word.toCharArray();
+//         boolean[][] visited = new boolean[m][n];
+//         for(int i = 0; i < m; i++){
+//             for(int j = 0; j < n; j++){
+//                 boolean[] flag = new boolean[1];
+//                 dfs(i, j, board, visited, 0, chars, flag);
+//                 if(flag[0]){
+//                     return true;
+//                 }
+//             }
+//         }
+//         return false;
+//     }
 
-    /**
-     * @param board: A list of lists of character
-     * @param word: A string
-     * @return: A boolean
-     */
-    //my way: dfs 暴力
-    //T: M * N *(4 ^ L)
-    //S: O(M + N) + O(L)
+
+//     int[] xAry = new int[]{0, 1, 0, -1};
+//     int[] yAry = new int[]{1, 0, -1, 0};
+
+//     private void dfs(int i, int j, char[][] board, boolean[][] visited, int index, char[] chars, boolean[] ary){
+//         //sol1:
+//         // if(index == chars.length - 1 && board[i][j] == chars[index]) {
+//         //     ary[0] = true;
+//         //     return;
+//         // };
+//         // if(board[i][j] != chars[index]){
+//         //     return;
+//         // }
+//         // //index < chars.length && board[i][j] == chars[index]
+//         // visited[i][j] = true;
+//         // for(int a = 0; a < 4; a++){
+//         //     int x = i + xAry[a];
+//         //     int y = j + yAry[a];
+//         //     if(isValid(x, y, board, visited)){
+//         //         dfs(x, y, board, visited, index + 1, chars, ary);
+//         //     }
+//         // }
+//         // visited[i][j] = false;
+
+
+
+
+//         //sol2:
+//         // char cur = board[i][j];
+//         // if(index == chars.length - 1 && cur == chars[index]){
+//         //     ary[0] = true;
+//         // }
+//         // if(cur != chars[index]){
+//         //     return;
+//         // }
+//         // for(int a = 0; a < 4; a++){
+//         //     int x = i + xAry[a];
+//         //     int y = j + yAry[a];
+//         //     if(isValid(x, y, board, visited) && index < chars.length - 1){
+//         //         visited[x][y] = true;
+//         //         dfs(x, y, board, visited, index + 1, chars, ary);
+//         //         visited[x][y] = false;
+//         //     }
+//         // }
+
+
+
+//     }
+
+//     private boolean isValid(int i, int j, char[][] board, boolean[][] visited){
+//         return i >= 0 && i < m && j >= 0 && j < n && !visited[i][j];
+//     }
+
+
+
+
+
+// }
+
+/*
+best solution
+T: m * n * 4 ^ l
+l is the length of word
+S: o(l)
+*/
+
+class WordSearch {
+    //check at current level. return early if either branch is true to prune.
+    int m, n;
     public boolean exist(char[][] board, String word) {
-        //corner case:
-        if(board == null || board.length == 0 || board[0] == null || word == null || word.length() == 0){
-            return false;
-        }
+        m = board.length;
+        n = board[0].length;
 
-        boolean res = false;
-        Deque<Integer[]> queue = new LinkedList<>();
-        for(int i = 0; i < board.length; i++){
-            for(int j = 0; j < board[0].length; j++){
-                if(board[i][j] == word.charAt(0)){
-                    queue.offerFirst(new Integer[]{i, j});
+        char[] chars = word.toCharArray();
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(dfs(i, j, board, 0, chars)){
+                    return true;
                 }
             }
         }
-        while(!queue.isEmpty()){ //最多Loop M *N 次
-            Integer[] tmp = queue.pollLast();
-            Deque<Integer[]> stack = new LinkedList<>();
-            Set<List<Integer>> set = new HashSet<>();
-            stack.offerFirst(tmp);
-            set.add(Arrays.asList(tmp));
-            boolean[] flag = new boolean[]{false};
-            dfs(stack, board, word, set, 0, flag);
-            if(flag[0]){
+        return false;
+    }
+    int[] xAry = new int[]{0, 1, 0, -1};
+    int[] yAry = new int[]{1, 0, -1, 0};
+
+    private boolean dfs(int i, int j, char[][] board, int index, char[] chars){
+        if(index == chars.length) return true;
+        if(!isValid(i, j, board, chars, index)) return false;
+
+        board[i][j] = '#';  //reuse board to check visited
+        for(int a = 0; a < 4; a++){
+            if(dfs(i + xAry[a], j + yAry[a], board, index + 1, chars)){
+                //need return
                 return true;
             }
         }
+        board[i][j] = chars[index];
         return false;
 
     }
 
-    //word length = L 每层叉出4个叉 T: O(4 ^ L)
-    //S: 2D matrix M rows and N columns S: O(M + N) heap 上set 的空间 + O(L) stack 空间
-    private void dfs(Deque<Integer[]> stack, char[][] board, String word, Set<List<Integer>> set, int index, boolean[] flag){
-        int[] dirX = {-1, 0, 1, 0};
-        int[] dirY = {0, 1, 0, -1};
-        if(flag[0] == true){ //第一遍这里没有做： 一旦发现有符合的，立即退出 不加这个条件程序就会遍历完recursion tree上所有的节点
-            return;
-        }
-        if(index == word.length() - 1){
-            flag[0]  = true;
-            return;
-        }
-        Integer[] tmp = stack.peekFirst();
-        for(int i = 0; i < 4; i++){
-            int x = tmp[0] + dirX[i];
-            int y = tmp[1] + dirY[i];
-            char c = word.charAt(index + 1);
-            if(isValid(board, set, x, y, c)){
-                Integer[] cur = new Integer[]{x, y};
-                stack.offerFirst(cur);
-                set.add(Arrays.asList(cur));
-                dfs(stack, board, word, set, index + 1, flag);
-                stack.pollFirst();
-                set.remove(Arrays.asList(cur));
-            }
-        }
-        return;
+    private boolean isValid(int i, int j, char[][] board, char[] chars, int index){
+        return i >= 0 && i < m && j >= 0 && j < n && board[i][j] == chars[index];
 
     }
 
-    private boolean isValid(char[][] board, Set<List<Integer>> set, int x, int y, char c){
-        int m = board.length;
-        int n = board[0].length;
-        return x >= 0 && x < m && y >= 0 && y < n && !set.contains(Arrays.asList(new Integer[]{x, y})) && board[x][y] == c;
-    }
+//    class WordSearch {
+//     int m, n;
+//     public boolean exist(char[][] board, String word) {
+//         m = board.length;
+//         n = board[0].length;
+
+//         char[] chars = word.toCharArray();
+
+//         for(int i = 0; i < m; i++){
+//             for(int j = 0; j < n; j++){
+//                 boolean[] flag = new boolean[1];
+//                 dfs(i, j, board, 0, chars, flag);
+//                 if(flag[0]){
+//                     return true;
+//                 }
+//             }
+//         }
+//         return false;
+//     }
+//     int[] xAry = new int[]{0, 1, 0, -1};
+//     int[] yAry = new int[]{1, 0, -1, 0};
+
+//     private void dfs(int i, int j, char[][] board, int index, char[] chars, boolean[] flag){
+//         if(index == chars.length) {
+//             flag[0] = true;
+//             return;
+//         }
+//         if(!isValid(i, j, board, chars, index)){
+//            return;
+//         }
+//         board[i][j] = '#';
+//         for(int a = 0; a < 4; a++){
+//            dfs(i + xAry[a], j + yAry[a], board, index + 1, chars, flag);
+//            if(flag[0]) return;
+//         }
+//         board[i][j] = chars[index];
+//     }
+
+//     private boolean isValid(int i, int j, char[][] board, char[] chars, int index){
+//         return i >= 0 && i < m && j >= 0 && j < n && board[i][j] == chars[index];
+
+//     }
 }

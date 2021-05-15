@@ -1,9 +1,3 @@
-
-import amazonOA.*;
-import amazonOA.LargestItemAssociation.PairString;
-
-import java.util.*;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -22,7 +16,7 @@ public class Main {
 //        reverseWords.reverseWords("An Apple");
 
 //        StringReplace stringReplace = new StringReplace();
-//        String res = stringReplace.replace("appleCatapple", "Cat", "DogDog");
+//        String res = stringReplace.replace("laicode", "code", "offer");
 //        System.out.println(res);
 //        ReOrderArray reOrderArray = new ReOrderArray();
 ////        reOrderArray.reorder(new int[]{0,1,2,3,4});
@@ -91,10 +85,10 @@ public class Main {
 //        System.out.println(res);
 
 //        List<List<String>> res = new ArrayList<List<String>>();
-
+//
 //        String[] ary = new String[]{"eat","tea","tan","ate","nat","bat"};
 //        GroupAnagram groupAnagram = new GroupAnagram();
-//        List<List<String>> res = groupAnagram.groupAnagrams(ary);
+//        List<List<String>> res = groupAnagram.groupAnagrams3(ary);
 //        for(List<String> list : res){
 //            System.out.println(list);
 //
@@ -234,7 +228,7 @@ public class Main {
 //        set.remove(bList);
 //        System.out.println(set);
 
-//        WordSearch wordSearch = new WordSearch();
+        WordSearch wordSearch = new WordSearch();
 //        char[][] board = {"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),
 //                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),
 //                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),
@@ -247,8 +241,13 @@ public class Main {
 //                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),
 //                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaab".toCharArray()};
 //        String word = "baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+
+
+//        char[][] board = {"abce".toCharArray(),"sfcs".toCharArray(),
+//                "adee".toCharArray()};
+//        String word = "abab";
 //
-//        System.out.println(wordSearch.exist(board, word));
+//        System.out.println(wordSearch.exist2(board, word));
 //        String a = "i love yahoo hahahahahhaah  jajajajajajaj";
 //        String b = "i love yahoo hahahahahhaah  jajajajajajaj";
 //        Set<String> set = new HashSet<>();
@@ -380,6 +379,39 @@ public class Main {
 //          Point[] points = new Point[]{new Point(0,0), new Point(94911151, 94911150), new Point(94911152, 94911151)};
 //          MostPointsOnALine mostPointsOnALine = new MostPointsOnALine();
 //          mostPointsOnALine.most(points);
+
+//
+//        int[][] points = {{0,0}, {1, -1}, {1, 1}};
+//        MostPointsOnALine mostPointsOnALine = new MostPointsOnALine();
+//        mostPointsOnALine.maxPoints2(points);
+//
+//
+//        List<Integer[]> list = new ArrayList<>();
+//        Integer[] point1 = {1,1};
+//        Integer[] point2 = {3,2};
+//        Integer[] point3 = {5,3};
+//        Integer[] point4 = {4,1};
+//        Integer[] point5 = {2,3};
+//        Integer[] point6 = {1,4};
+//        list.add(point1);
+//        list.add(point2);
+//        list.add(point3);
+//        list.add(point4);
+//        list.add(point5);
+//        list.add(point6);
+//        MostPointsOnALine.calculatePoints(list);
+
+
+//        List<Integer[]> list = new ArrayList<>();
+//        Integer[] point1 = {1,1};
+//        Integer[] point2 = {2,2};
+//        Integer[] point3 = {3,3};
+//
+//        list.add(point1);
+//        list.add(point2);
+//        list.add(point3);
+//        MostPointsOnALine.calculatePoints(list);
+
 //        KClosestInSortedArray kClosestInSortedArray = new KClosestInSortedArray();
 //        int[] array = {0,0,1,2,3,3,4,7,7,8};
 //        int target = 3;
@@ -537,13 +569,44 @@ public class Main {
 //        largestItemAssociation.largestItemAssociation(list);
 
 
-        KSubstringWithKDifferentCharacters kSubstringWithKDifferentCharacters = new KSubstringWithKDifferentCharacters();
-        kSubstringWithKDifferentCharacters.KSubstring("abacabc", 3);
+//        KSubstringWithKDifferentCharacters kSubstringWithKDifferentCharacters = new KSubstringWithKDifferentCharacters();
+//        kSubstringWithKDifferentCharacters.KSubstring("abacabc", 3);
 //          SlidingWindowFramework slidingWindowFramework = new SlidingWindowFramework();
 //          slidingWindowFramework.slidingWindow("str1", "str2");
 //          SlidingWindowFramework.test();
 
+//        KClosest kClosest = new KClosest();
+//        kClosest.kClosest(new int[]{1,3,3,6,9,9,12,15}, 10, 5);
+//
+//        int target = 1;
+//        int[] coins = {25,10,5,1};
+//        CombinationOfCoins combinationOfCoins = new CombinationOfCoins();
+//        combinationOfCoins.combinations(target, coins);
 
+//        CourseScheduleIIAllCourses courseScheduleIIAllCourses = new CourseScheduleIIAllCourses();
+////        courseScheduleIIAllCourses.findCourses(4, new int[][]{{1,0},{2,0},{3,2},{3,1}});
+//        courseScheduleIIAllCourses.findCourses(2, new int[][]{});
+//        Atoi atoi = new Atoi();
+//        atoi.myAtoi("9223372036854775808");
+//
+//        int a = -123;
+//
+//        System.out.println(a / -10 + "; "  + a % -10);
+
+//        StringBuilder sb = new StringBuilder();
+//        sb.append(12 + "->");
+//        System.out.println(sb.substring(0, sb.length() - 3));
+
+//        FindDuplicateNumber findDuplicateNumber = new FindDuplicateNumber();
+//        findDuplicateNumber.findDuplicate(new int[]{1,3,4,2,2});
+
+          WordSearchII wordSearchII = new WordSearchII();
+//          char[][] board = {{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}};
+//          String[] words = {"oath","pea","eat","rain"};
+          char[][] board = {{'a'}};
+          String[] words = {"a"};
+
+        wordSearchII.findWords(board, words);
 
 
 

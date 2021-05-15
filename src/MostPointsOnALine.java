@@ -1,11 +1,9 @@
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /*
 *
 * Laicode
-* 216. Most Points On A Line
+* 216. Most Points On A LineN
 Medium
 Given an array of 2D coordinates of points (all the coordinates are integers), find the largest number of points that can be crossed by a single line in 2D space.
 
@@ -92,6 +90,15 @@ public class MostPointsOnALine {
                     sameX++;
                 }else{//have slope, update cnt map
                     int gcd = gcd(points[j].y - points[i].y, points[j].x - points[i].x);
+
+                    /*
+                    * x1 = 2   x2 = 3  x1 - x2 = -1    -1 and -1's gcd = -1    x1 / gcd = 1
+                    * y1 = 4   y2 = 5  y1 - y2 = -1                            x2 / gcd = 1
+                    * x1 = 2   x2 = 3  x2 - x1 = 1      1 and  1's gcd =  1    x1 / gcd = 1
+                    * y1 = 4   y2 = 5  y2 - y1 = 1                             x2 / gcd = 1
+                    *
+                    *
+                    * */
                     int x = (points[j].x - points[i].x) / gcd;
                     int y = (points[j].y - points[i].y) / gcd;
                     String key = x + "#" + y;
@@ -115,5 +122,94 @@ public class MostPointsOnALine {
         return gcd(b, a % b);
     }
 
+
+    //sol3: my solution at Gusto interview 2021/04/23
+
+    public static int calculatePoints(List<Integer[]> list){
+        Map<String, Set<Integer[]>> map = new HashMap<>();
+//0,1,2,3
+        for(int i= 0; i < list.size(); i++){
+            for(int j = i + 1; j < list.size(); j++){
+                Integer[] point1 = list.get(i);
+                Integer[] point2 = list.get(j);
+//x1 == x2
+                String key;
+                if(point1[0] == point2[0]){
+                    //encode 要用一个string. 一开始用Double[] 如果ary1=[key, value] ary2=[key, value]这两个object在放进map as a key hashcode不一样不算是同一个object
+                    key = "null" + "#" + new Double(point1[0]);
+
+                }else{
+                    Double slope = new Double((point1[1] - point2[1]))/(point1[0] - point2[0]);
+//b = k * x2 - y2
+                    Double b = slope * point1[0] - point1[1];
+                    key = slope + "#" + b;
+                }
+//                Set<Integer[]> set = map.putIfAbsent(key, new HashSet<Integer[]>(){{
+//                    add(point1);
+//                    add(point2);
+//                }});
+                Set<Integer[]> set = map.putIfAbsent(key, new HashSet<>(Arrays.asList(point1, point2)));
+                if(set != null){
+                    set.add(point1);
+                    set.add(point2);
+                }
+
+            }
+        }
+        int max = 0;
+        for(Map.Entry<String, Set<Integer[]>> entry : map.entrySet()){
+            Set<Integer[]> set = entry.getValue();
+            max = Math.max(max, set.size());
+//            System.out.println("slope:" + entry.getKey()[0] + ", b:" + entry.getKey()[1] );
+//            for(Integer[] ary : set){
+//                System.out.println("x:" + ary[0] + ", y:" + ary[1] );
+//            }
+        }
+        return max;
+    }
+
+
+    //2021/04/23 重写gcd
+    public int maxPoints2(int[][] points) {
+
+        int max = 0;
+        for(int i = 0; i < points.length; i++){ //物理意义: 以point0为起点的所有能形成的线上的点的最大值
+            Map<String, Integer> map = new HashMap<>();
+            String key;
+            for(int j = i + 1; j < points.length; j++){ //以0点为起点的所有的线已经算过了，不需要再算了
+                int x1 = points[i][0];
+                int x2 = points[j][0];
+                int y1 = points[i][1];
+                int y2 = points[j][1];
+                if(x1 == x2){
+                    key = 0 + "#";
+                }else if(y1 == y2){
+                    key = "#" + 0;
+                }else{
+                    int gcd = gcd2(x1 - x2, y1 - y2);
+                    int gcdX = (x1 - x2) / gcd;
+                    int gcdY = (y1 - y2) / gcd;
+                    key = gcdX + "#" + gcdY;
+                }
+                Integer count = map.putIfAbsent(key, 1);
+                if(count != null){
+                    map.put(key, map.get(key) + 1);
+                }
+                max = Math.max(max, map.get(key));
+            }
+        }
+        return max + 1;
+
+    }
+
+    private int gcd2(int a, int b){
+        int c;
+        while(b != 0){
+            c = a % b;
+            a = b;
+            b = c;
+        }
+        return a;
+    }
 
 }

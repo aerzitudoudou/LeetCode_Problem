@@ -1,4 +1,5 @@
 import java.util.*;
+
 /*
 *laicode
 *430. Course Schedule II
@@ -97,6 +98,123 @@ public class CourseScheduleII {
         return res;
 
 
+
+    }
+
+
+    //2021.4.17
+    //my way
+    //T:O(V+ E)
+    //S:O(V + E)
+//     public int[] findOrder1(int numCourses, int[][] prerequisites) {
+//         int[] res = new int[numCourses];
+//         //length == 0 corner case
+//         if(prerequisites == null){
+//             return new int[0];
+//         }
+
+
+//         //build indegree map <number, #of indegree> and neigher map<pre, posts>
+//         Map<Integer, Integer> indegree = new HashMap<>();
+//         Map<Integer, List<Integer>> nei = new HashMap<>();
+//         //init indegree, nei map //T:O(V)
+//         for(int i = 0; i < numCourses; i++){
+//             indegree.put(i, 0); //S: O(V)
+//             nei.put(i, new ArrayList<Integer>()); //S:O(V)
+//         }
+
+//         for(int i = 0; i < prerequisites.length; i++){
+//             int pre = prerequisites[i][1];
+//             int post = prerequisites[i][0];
+//             indegree.put(post, indegree.get(post) + 1);
+//             nei.get(pre).add(post); //S: O(E)
+//         }
+
+//         //init: all courses with indegree = 0
+//         Deque<Integer> queue = new LinkedList<>();
+//         for(Map.Entry<Integer, Integer> entry : indegree.entrySet()){
+//             if(entry.getValue() == 0){
+//                 //indegree = 0, enqueue
+//                 queue.offerFirst(entry.getKey());
+//             }
+//         }
+
+//         int count = 0;
+//         while(!queue.isEmpty()){
+//             //expand
+//             Integer tmp = queue.pollLast();
+//             res[count++] = tmp;
+
+//             //generate
+//             for(Integer cur : nei.get(tmp)){
+//                 indegree.put(cur, indegree.get(cur) - 1);
+//                 if(indegree.get(cur) == 0){
+//                     //enqueue: indegree == 0
+//                     queue.offerFirst(cur);
+//                 }
+//             }
+//         }
+
+//         if(count != numCourses){
+//             return new int[0];
+//         }
+
+//         return res;
+
+//     }
+
+    //sol2: use array instead of map to simpify the code
+    public int[] findOrder2(int numCourses, int[][] prerequisites) {
+        int[] res = new int[numCourses];
+        //length == 0 corner case
+        if(prerequisites == null){
+            return new int[0];
+        }
+
+
+        //build indegree map <number, #of indegree> and neigher map<pre, posts>
+        int[] indegree = new int[numCourses];
+        Map<Integer, List<Integer>> nei = new HashMap<>();
+        //init indegree, nei map //T:O(V)
+        for(int i = 0; i < numCourses; i++){
+            nei.put(i, new ArrayList<Integer>()); //S:O(V)
+        }
+
+        for(int i = 0; i < prerequisites.length; i++){
+            int pre = prerequisites[i][1];
+            int post = prerequisites[i][0];
+            indegree[post]++;
+            nei.get(pre).add(post); //S: O(E)
+        }
+
+        //init: all courses with indegree = 0
+        Deque<Integer> queue = new LinkedList<>();
+        for(int i = 0; i < numCourses; i++){
+            if(indegree[i] == 0){
+                //indegree = 0, enqueue
+                queue.offerFirst(i);
+            }
+        }
+
+        int count = 0;
+        while(!queue.isEmpty()){
+            //expand
+            Integer tmp = queue.pollLast();
+            res[count++] = tmp;
+
+            //generate
+            for(Integer cur : nei.get(tmp)){
+                indegree[cur]--;
+                if(indegree[cur] == 0){
+                    //enqueue: indegree == 0
+                    queue.offerFirst(cur);
+                }
+            }
+        }
+
+
+
+        return count != numCourses ? new int[0] : res;
 
     }
 }
