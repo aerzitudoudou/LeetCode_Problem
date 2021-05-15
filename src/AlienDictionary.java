@@ -39,6 +39,7 @@ import java.util.*;
 //T: O(M * N)
 //S: O(26^ 2)
 
+
 public class AlienDictionary {
 
     /**
