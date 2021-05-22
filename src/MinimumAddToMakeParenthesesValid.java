@@ -1,6 +1,6 @@
 
 //lc 921
-//O(n) O(1)
+//greedy, O(n) O(1)
 public class MinimumAddToMakeParenthesesValid {
     public int minAddToMakeValid(String s) {
         int leftCount = 0, res = 0;
