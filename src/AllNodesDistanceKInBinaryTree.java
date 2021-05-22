@@ -29,6 +29,200 @@ The descriptions of the inputs above are just serializations of these objects.
 *
 * */
 public class AllNodesDistanceKInBinaryTree {
+
+
+
+    //2021/5/17
+    //sol 1 T: O(N) S: O(N) bfs to find the parent, then bfs to do level order
+    public List<Integer> distanceK1(TreeNode root, TreeNode target, int k) {
+        List<Integer> res = new ArrayList<>();
+
+        Map<TreeNode, TreeNode> map = new HashMap<>();
+        //bfs to build the graph
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.offerFirst(root);
+        while(!queue.isEmpty()){
+            TreeNode tmp = queue.pollLast();
+            if(tmp.left != null){
+                queue.offerFirst(tmp.left);
+                map.put(tmp.left, tmp);
+            }
+
+            if(tmp.right != null){
+                queue.offerFirst(tmp.right);
+                map.put(tmp.right, tmp);
+            }
+        }
+
+
+        //bfs: level order
+        queue.offerFirst(target);
+        Set<TreeNode> visited = new HashSet<>();
+        int counter = 0;
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            if(counter == k) break; //k == 0
+            for(int i = 0; i < size; i++){
+                TreeNode tmp = queue.pollLast();
+                visited.add(tmp);
+                TreeNode parent = map.get(tmp);
+                // if(list == null) return res; //corner case: e.g. root = 1, target = 1, k = 3  no map is there since no neighbors
+
+                List<TreeNode> neis = Arrays.asList(new TreeNode[]{tmp.left, tmp.right, parent});
+                for(TreeNode nei : neis){
+                    if(nei != null && !visited.contains(nei)){
+                        queue.offerFirst(nei);
+                    }
+                }
+            }
+
+            counter++;
+        }
+
+        while(!queue.isEmpty()){
+            res.add(queue.pollLast().key);
+        }
+        return res;
+
+
+
+
+    }
+
+
+
+
+
+    //sol 2 T: O(N) S: O(N) dfs to find the parent, then bfs to do level order
+    public List<Integer> distanceK2(TreeNode root, TreeNode target, int k) {
+        List<Integer> res = new ArrayList<>();
+
+        Map<TreeNode, TreeNode> map = new HashMap<>();
+
+
+        //dfs to build the parent map
+        dfs(root, null, map);
+
+
+        //bfs: level order
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.offerFirst(target);
+        Set<TreeNode> visited = new HashSet<>();
+        int counter = 0;
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            if(counter == k) break; //k == 0
+            for(int i = 0; i < size; i++){
+                TreeNode tmp = queue.pollLast();
+                visited.add(tmp);
+                TreeNode parent = map.get(tmp);
+                // if(list == null) return res; //corner case: e.g. root = 1, target = 1, k = 3  no map is there since no neighbors
+
+                List<TreeNode> neis = Arrays.asList(new TreeNode[]{tmp.left, tmp.right, parent});
+                for(TreeNode nei : neis){
+                    if(nei != null && !visited.contains(nei)){
+                        queue.offerFirst(nei);
+                    }
+                }
+            }
+
+            counter++;
+        }
+
+        while(!queue.isEmpty()){
+            res.add(queue.pollLast().key);
+        }
+        return res;
+
+
+
+
+    }
+
+    private void dfs(TreeNode cur, TreeNode parent, Map<TreeNode, TreeNode> map){
+        if(cur == null) return;
+
+        dfs(cur.left, cur, map);
+        dfs(cur.right, cur, map);
+        map.put(cur, parent);
+
+
+
+    }
+
+
+
+
+//     //mine. build the entire graph which is not needed.T: O(N) S: O(V + E) neighbor map = O(v + v - 1) = 0(v) = O(n) v is number of vertex, E is number of edges
+//     public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
+//         List<Integer> res = new ArrayList<>();
+
+//         Map<TreeNode, List<TreeNode>> map = new HashMap<>();
+//         //bfs to build the graph
+//         Deque<TreeNode> queue = new LinkedList<>();
+//         queue.offerFirst(root);
+//         while(!queue.isEmpty()){
+//             TreeNode tmp = queue.pollLast();
+//             if(tmp.left != null){
+//                 queue.offerFirst(tmp.left);
+//                 //tmp = 3  tmp.left = 5
+//                 List<TreeNode> list = map.getOrDefault(tmp, new ArrayList<TreeNode>());
+//                 list.add(tmp.left);
+//                 map.put(tmp, list);
+
+//                 list = map.getOrDefault(tmp.left, new ArrayList<TreeNode>());
+//                 list.add(tmp);
+//                 map.put(tmp.left, list);
+//             }
+
+//              if(tmp.right != null){
+//                 queue.offerFirst(tmp.right);
+//                 List<TreeNode> list = map.getOrDefault(tmp, new ArrayList<TreeNode>());
+//                 list.add(tmp.right);
+//                 map.put(tmp, list);
+
+//                 list = map.getOrDefault(tmp.right, new ArrayList<TreeNode>());
+//                 list.add(tmp);
+//                 map.put(tmp.right, list);
+//             }
+//         }
+
+//         queue.offerFirst(target);
+//         Set<TreeNode> set = new HashSet<>();
+//         int counter = 0;
+//         while(!queue.isEmpty()){
+//             int size = queue.size();
+//             if(counter == k) break; //k == 0
+//             for(int i = 0; i < size; i++){
+//                 TreeNode tmp = queue.pollLast();
+//                 set.add(tmp);
+//                 List<TreeNode> list = map.get(tmp);
+//                 if(list == null) return res; //corner case: e.g. root = 1, target = 1, k = 3  no map is there since no neighbors
+//                 for(TreeNode nei : list){
+//                     if(!set.contains(nei)){
+//                         queue.offerFirst(nei);
+//                     }
+//                 }
+//             }
+
+//             counter++;
+
+
+
+//         }
+
+//         while(!queue.isEmpty()){
+//             res.add(queue.pollLast().val);
+//         }
+//         return res;
+
+
+
+
+//     }
+
+
+//2020.8
     public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
         List<Integer> res = new ArrayList<>();
         //Build parent
