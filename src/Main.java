@@ -599,14 +599,19 @@ public class Main {
 
 //        FindDuplicateNumber findDuplicateNumber = new FindDuplicateNumber();
 //        findDuplicateNumber.findDuplicate(new int[]{1,3,4,2,2});
+//
+//          WordSearchII wordSearchII = new WordSearchII();
+////          char[][] board = {{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}};
+////          String[] words = {"oath","pea","eat","rain"};
+//          char[][] board = {{'a'}};
+//          String[] words = {"a"};
+//
+//        wordSearchII.findWords(board, words);
 
-          WordSearchII wordSearchII = new WordSearchII();
-//          char[][] board = {{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}};
-//          String[] words = {"oath","pea","eat","rain"};
-          char[][] board = {{'a'}};
-          String[] words = {"a"};
-
-        wordSearchII.findWords(board, words);
+        VerifyingAnAlienDictionary verifyingAnAlienDictionary = new VerifyingAnAlienDictionary();
+        String[] words = {"hello","l"};
+        String order = "hlabcdefgijkmnopqrstuvwxyz";
+        verifyingAnAlienDictionary.isAlienSorted(words, order);
 
 
 
