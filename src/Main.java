@@ -608,11 +608,14 @@ public class Main {
 //
 //        wordSearchII.findWords(board, words);
 
-        VerifyingAnAlienDictionary verifyingAnAlienDictionary = new VerifyingAnAlienDictionary();
-        String[] words = {"hello","l"};
-        String order = "hlabcdefgijkmnopqrstuvwxyz";
-        verifyingAnAlienDictionary.isAlienSorted(words, order);
+//        VerifyingAnAlienDictionary verifyingAnAlienDictionary = new VerifyingAnAlienDictionary();
+//        String[] words = {"hello","l"};
+//        String order = "hlabcdefgijkmnopqrstuvwxyz";
+//        verifyingAnAlienDictionary.isAlienSorted(words, order);
 
+        int test = 123;
+        IntegerToEnglishWords integerToEnglishWords = new IntegerToEnglishWords();
+        integerToEnglishWords.numberToWords(test);
 
 
 
