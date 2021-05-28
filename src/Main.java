@@ -613,9 +613,13 @@ public class Main {
 //        String order = "hlabcdefgijkmnopqrstuvwxyz";
 //        verifyingAnAlienDictionary.isAlienSorted(words, order);
 
-        int test = 123;
-        IntegerToEnglishWords integerToEnglishWords = new IntegerToEnglishWords();
-        integerToEnglishWords.numberToWords(test);
+//        int test = 123;
+//        IntegerToEnglishWords integerToEnglishWords = new IntegerToEnglishWords();
+//        integerToEnglishWords.numberToWords(test);
+
+          MaximumLengthOfRepeatedSubarray_LC718 maximumLengthOfRepeatedSubarray_lc718 = new MaximumLengthOfRepeatedSubarray_LC718();
+          maximumLengthOfRepeatedSubarray_lc718.findLength(new int[]{1,2,3,2,1},new int[]{3,2,1,4,7} );
+
 
 
 
