@@ -617,8 +617,11 @@ public class Main {
 //        IntegerToEnglishWords integerToEnglishWords = new IntegerToEnglishWords();
 //        integerToEnglishWords.numberToWords(test);
 
-          MaximumLengthOfRepeatedSubarray_LC718 maximumLengthOfRepeatedSubarray_lc718 = new MaximumLengthOfRepeatedSubarray_LC718();
-          maximumLengthOfRepeatedSubarray_lc718.findLength(new int[]{1,2,3,2,1},new int[]{3,2,1,4,7} );
+//          MaximumLengthOfRepeatedSubarray_LC718 maximumLengthOfRepeatedSubarray_lc718 = new MaximumLengthOfRepeatedSubarray_LC718();
+//          maximumLengthOfRepeatedSubarray_lc718.findLength(new int[]{1,2,3,2,1},new int[]{3,2,1,4,7} );
+
+          AddBinary_LC67 addBinary_lc67 = new AddBinary_LC67();
+          addBinary_lc67.addBinary2("11", "1");
 
 
 

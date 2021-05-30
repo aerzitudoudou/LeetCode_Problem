@@ -1,5 +1,26 @@
-public class AddBinary {
+public class AddBinary_LC67 {
     //lc 67
+
+
+    //sol2. % is binary add result  / is binary add carry
+
+    public String addBinary2(String a, String b) {
+        int i = a.length() - 1, j = b.length() - 1;
+        int carry = 0;
+        StringBuilder sb = new StringBuilder();
+        while(i >= 0 || j >= 0){
+            int aN = 0, bN = 0;
+            if(i >= 0) aN = a.charAt(i--) - '0';
+            if(j >= 0) bN = b.charAt(j--) - '0';
+            int curBinary = (aN + bN + carry) % 2;
+            //carry 位记得加！！！！
+            carry = (aN + bN + carry) / 2;
+            sb.insert(0, curBinary);
+        }
+        return carry == 1 ? sb.insert(0, carry).toString() : sb.toString();
+
+
+    }
     //sol 1. my sol. lots of code.
     public String addBinary(String a, String b) {
         int i = a.length() - 1, j = b.length() - 1;
