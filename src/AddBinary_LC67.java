@@ -9,12 +9,12 @@ public class AddBinary_LC67 {
         int carry = 0;
         StringBuilder sb = new StringBuilder();
         while(i >= 0 || j >= 0){
-            int aN = 0, bN = 0;
-            if(i >= 0) aN = a.charAt(i--) - '0';
-            if(j >= 0) bN = b.charAt(j--) - '0';
-            int curBinary = (aN + bN + carry) % 2;
+            int sum = carry;
+            if(i >= 0) sum += a.charAt(i--) - '0';
+            if(j >= 0) sum += b.charAt(j--) - '0';
+            int curBinary = sum % 2;
             //carry 位记得加！！！！
-            carry = (aN + bN + carry) / 2;
+            carry = sum / 2;
             sb.insert(0, curBinary);
         }
         return carry == 1 ? sb.insert(0, carry).toString() : sb.toString();
