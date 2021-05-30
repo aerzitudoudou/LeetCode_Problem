@@ -228,7 +228,7 @@ public class Main {
 //        set.remove(bList);
 //        System.out.println(set);
 
-        WordSearch wordSearch = new WordSearch();
+//        WordSearch wordSearch = new WordSearch();
 //        char[][] board = {"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),
 //                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),
 //                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".toCharArray(),
@@ -619,9 +619,12 @@ public class Main {
 
 //          MaximumLengthOfRepeatedSubarray_LC718 maximumLengthOfRepeatedSubarray_lc718 = new MaximumLengthOfRepeatedSubarray_LC718();
 //          maximumLengthOfRepeatedSubarray_lc718.findLength(new int[]{1,2,3,2,1},new int[]{3,2,1,4,7} );
+//
+//          AddBinary_LC67 addBinary_lc67 = new AddBinary_LC67();
+//          addBinary_lc67.addBinary2("11", "1");
 
-          AddBinary_LC67 addBinary_lc67 = new AddBinary_LC67();
-          addBinary_lc67.addBinary2("11", "1");
+        ValidPalindrome_LC125 validPalindrome_lc125 = new ValidPalindrome_LC125();
+        validPalindrome_lc125.isPalindrome("A man, a plan, a canal: Panama");
 
 
 
