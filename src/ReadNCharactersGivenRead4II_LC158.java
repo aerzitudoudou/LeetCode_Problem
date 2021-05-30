@@ -4,6 +4,10 @@ public class ReadNCharactersGivenRead4II_LC158 {
      * @param n   Number of characters to read
      * @return    The number of actual characters read
      */
+
+    //sol1: from happygirlzt: https://www.youtube.com/watch?v=HcmRR2If2Hk
+
+    //class variable to remember the current read state.
     private int curIndexInBuf4 = 0; //index of cur char to be processed in the buf4
     private int curResNumFromBuf4 = 0; //how many number i can get from read 4 currently
     private char[] buf4 = new char[4]; //current buf used as destination by calling read4
