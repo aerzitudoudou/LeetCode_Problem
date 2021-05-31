@@ -623,8 +623,10 @@ public class Main {
 //          AddBinary_LC67 addBinary_lc67 = new AddBinary_LC67();
 //          addBinary_lc67.addBinary2("11", "1");
 
-        ValidPalindrome_LC125 validPalindrome_lc125 = new ValidPalindrome_LC125();
-        validPalindrome_lc125.isPalindrome("A man, a plan, a canal: Panama");
+//        ValidPalindrome_LC125 validPalindrome_lc125 = new ValidPalindrome_LC125();
+//        validPalindrome_lc125.isPalindrome("A man, a plan, a canal: Panama");
+
+          int[][] res = {{1,3},{-2,2}};
 
 
 

@@ -1,6 +1,7 @@
 package amazonOA;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 //https://leetcode.com/problems/k-closest-points-to-origin/submissions/
 /*解答抄的这里： https://leetcode.com/problems/k-closest-points-to-origin/discuss/220235/Java-Three-solutions-to-this-classical-K-th-problem.
@@ -22,6 +23,7 @@ In this case we'll return the first K elements, because they are not greater tha
  */
 
 //Theoretically, the average time complexity is O(N) , but just like quick sort, in the worst case, this solution would be degenerated to O(N^2), and pratically, the real time it takes on leetcode is 15ms.
+//TODO: 又不懂。理解
 public class KclosestPointsToOrigin {
     public int[][] kClosest(int[][] points, int K) {
         int len =  points.length, l = 0, r = len - 1;
@@ -51,5 +53,39 @@ public class KclosestPointsToOrigin {
 
     private int compare(int[] p1, int[] p2) {
         return p1[0] * p1[0] + p1[1] * p1[1] - p2[0] * p2[0] - p2[1] * p2[1];
+    }
+
+
+
+    //2021/05/30
+     /*
+        x^2 + y^2 smallest
+        max heap
+    */
+    public int[][] kClosest1(int[][] points, int k) {
+        PriorityQueue<int[]> pq = new PriorityQueue<>((int[] p1, int[] p2) -> {
+            int x1 = p1[0], y1 = p1[1], x2 = p2[0], y2 = p2[1];
+            int sum1 = x1 * x1 + y1 * y1, sum2 = x2 * x2 + y2 * y2;
+            if(sum1 == sum2) return 0;
+            return sum1 > sum2 ? -1 : 1;
+        });
+
+        for(int[] point : points){
+            pq.offer(point);
+            if(pq.size() > k){
+                pq.poll();
+            }
+        }
+
+
+
+        int[][] res = new int[k][2];
+        int i = 0;
+        while(!pq.isEmpty()){
+            res[i++] = pq.poll();
+        }
+
+        return res;
+
     }
 }
