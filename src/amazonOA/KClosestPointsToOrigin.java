@@ -24,7 +24,7 @@ In this case we'll return the first K elements, because they are not greater tha
 
 //Theoretically, the average time complexity is O(N) , but just like quick sort, in the worst case, this solution would be degenerated to O(N^2), and pratically, the real time it takes on leetcode is 15ms.
 //TODO: 又不懂。理解
-public class KclosestPointsToOrigin {
+public class KClosestPointsToOrigin {
     public int[][] kClosest(int[][] points, int K) {
         int len =  points.length, l = 0, r = len - 1;
         while (l <= r) {
