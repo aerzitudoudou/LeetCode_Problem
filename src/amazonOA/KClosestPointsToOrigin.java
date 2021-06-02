@@ -25,6 +25,7 @@ In this case we'll return the first K elements, because they are not greater tha
 public class KClosestPointsToOrigin {
     //sol1 TODO：考虑代码优化
 
+    //quick select O(n), O(1)
     public int[][] kClosest2(int[][] points, int k) {
         /*
          if 3 is pivot then left half = [0,mid] which is all the number smaller or equal to the pivot
@@ -41,7 +42,7 @@ public class KClosestPointsToOrigin {
 
 
     }
-
+    //平均每次指针的搜索域减少一半 T: O(n) + O(n / 2) + O(n / 4)... = O(n) worst case O(n ^ 2) if everytime pivot is the chosen to be smallest and put at the right side
     private void helper(int[][] points, int k){
         int l = 0, r = points.length - 1;
         while(l <= r){
@@ -83,7 +84,6 @@ public class KClosestPointsToOrigin {
         points[i] = points[j];
         points[j] = tmp;
     }
-
 
 
 
