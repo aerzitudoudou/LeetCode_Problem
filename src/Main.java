@@ -1,3 +1,5 @@
+import amazonOA.KClosestPointsToOrigin;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -627,6 +629,8 @@ public class Main {
 //        validPalindrome_lc125.isPalindrome("A man, a plan, a canal: Panama");
 
           int[][] res = {{1,3},{-2,2}};
+        KClosestPointsToOrigin kClosestPointsToOrigin = new KClosestPointsToOrigin();
+        kClosestPointsToOrigin.kClosest2(res, 1);
 
 
 

@@ -2,15 +2,13 @@ package amazonOA;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
+import java.util.Random;
 
 //https://leetcode.com/problems/k-closest-points-to-origin/submissions/
 /*解答抄的这里： https://leetcode.com/problems/k-closest-points-to-origin/discuss/220235/Java-Three-solutions-to-this-classical-K-th-problem.
 *
 * 第一题：k nearest points to origin
 
-但第一题如果按照力扣上的解法 会有3个case不过
-然后想了半天 把max heap改成min heap
-记录所有的points 然后再poll出前K个 就过所有的case了...
 * */
 /* Quick select.
 
@@ -23,8 +21,74 @@ In this case we'll return the first K elements, because they are not greater tha
  */
 
 //Theoretically, the average time complexity is O(N) , but just like quick sort, in the worst case, this solution would be degenerated to O(N^2), and pratically, the real time it takes on leetcode is 15ms.
-//TODO: 又不懂。理解
+
 public class KClosestPointsToOrigin {
+    //sol1 TODO：考虑代码优化
+
+    public int[][] kClosest2(int[][] points, int k) {
+        /*
+         if 3 is pivot then left half = [0,mid] which is all the number smaller or equal to the pivot
+         right half = [mid + 1, length - 1] which is all the number larger than pivot
+         until i = k then numbers from [0, k - 1] is the result
+         mid < k check [mid + 1, length - 1]
+         mid > k check [0, mid - 1]
+                i
+        1 2 3 3 3 4 7 6
+
+        */
+        helper(points, k);
+        return Arrays.copyOfRange(points, 0, k);
+
+
+    }
+
+    private void helper(int[][] points, int k){
+        int l = 0, r = points.length - 1;
+        while(l <= r){
+            int mid = partition(points, l, r);
+            if(mid == k) return;
+            else if(mid < k){
+                l = mid + 1;
+            }else{
+                r = mid - 1;
+            }
+
+        }
+
+    }
+
+    private int partition(int[][] points, int l, int r){
+        Random rand = new Random();
+        int pivot = l + rand.nextInt(r - l + 1);
+        swap(points, pivot, r);
+        int i = l, j = r - 1;
+        while(i <= j){
+            if(compare(points[i], points[r]) <= 0) {
+                i++;
+            }else if(compare(points[j], points[r]) > 0){
+                j--;
+            }else{
+                swap(points, i, j);
+                i++;
+                j--;
+            }
+        }
+        swap(points, i, r);
+        return i;
+    }
+
+
+    private void swap(int[][] points, int i, int j){
+        int[] tmp = points[i];
+        points[i] = points[j];
+        points[j] = tmp;
+    }
+
+
+
+
+
+    //////////////////////////sol2 copied
     public int[][] kClosest(int[][] points, int K) {
         int len =  points.length, l = 0, r = len - 1;
         while (l <= r) {
@@ -57,7 +121,7 @@ public class KClosestPointsToOrigin {
 
 
 
-    //2021/05/30
+    //2021/05/30 sol3: maxheap
      /*
         x^2 + y^2 smallest
         max heap
