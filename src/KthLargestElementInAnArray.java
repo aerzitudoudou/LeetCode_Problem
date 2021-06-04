@@ -3,6 +3,8 @@ public class KthLargestElementInAnArray {
         k
     6 5 4 3 2 1   k = 2 return 1
    */
+    //average O(n) worst O(n^2)
+    //space: O(1)
     public int findKthLargest(int[] nums, int k) {
         int l = 0, r = nums.length - 1;
         while(l <= r){
