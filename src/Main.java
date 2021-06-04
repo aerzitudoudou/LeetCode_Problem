@@ -627,10 +627,14 @@ public class Main {
 
 //        ValidPalindrome_LC125 validPalindrome_lc125 = new ValidPalindrome_LC125();
 //        validPalindrome_lc125.isPalindrome("A man, a plan, a canal: Panama");
+//
+//          int[][] res = {{1,3},{-2,2}};
+//        KClosestPointsToOrigin kClosestPointsToOrigin = new KClosestPointsToOrigin();
+//        kClosestPointsToOrigin.kClosest2(res, 1);
 
-          int[][] res = {{1,3},{-2,2}};
-        KClosestPointsToOrigin kClosestPointsToOrigin = new KClosestPointsToOrigin();
-        kClosestPointsToOrigin.kClosest2(res, 1);
+        int[] nums = {2,3,1,5,6,4};
+        KthLargestElementInAnArray kthLargestElementInAnArray = new KthLargestElementInAnArray();
+        kthLargestElementInAnArray.findKthLargest(nums, 2);
 
 
 
