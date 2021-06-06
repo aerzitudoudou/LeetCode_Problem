@@ -632,9 +632,12 @@ public class Main {
 //        KClosestPointsToOrigin kClosestPointsToOrigin = new KClosestPointsToOrigin();
 //        kClosestPointsToOrigin.kClosest2(res, 1);
 
-        int[] nums = {2,3,1,5,6,4};
-        KthLargestElementInAnArray kthLargestElementInAnArray = new KthLargestElementInAnArray();
-        kthLargestElementInAnArray.findKthLargest(nums, 2);
+//        int[] nums = {2,3,1,5,6,4};
+//        KthLargestElementInAnArray kthLargestElementInAnArray = new KthLargestElementInAnArray();
+//        kthLargestElementInAnArray.findKthLargest(nums, 2);
+
+        SortArray sortArray = new SortArray();
+        sortArray.sortArray(new int[]{5,2,3,1});
 
 
 
