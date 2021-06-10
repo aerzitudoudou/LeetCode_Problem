@@ -631,13 +631,26 @@ public class Main {
 //          int[][] res = {{1,3},{-2,2}};
 //        KClosestPointsToOrigin kClosestPointsToOrigin = new KClosestPointsToOrigin();
 //        kClosestPointsToOrigin.kClosest2(res, 1);
+//
+//        int[] nums = {2,3,1,5,6,4};
+//        KthLargestElementInAnArray kthLargestElementInAnArray = new KthLargestElementInAnArray();
+//        kthLargestElementInAnArray.findKthLargest(nums, 2);
 
-        int[] nums = {2,3,1,5,6,4};
-        KthLargestElementInAnArray kthLargestElementInAnArray = new KthLargestElementInAnArray();
-        kthLargestElementInAnArray.findKthLargest(nums, 2);
+          TreeNode one = new TreeNode(1);
+          TreeNode two = new TreeNode(2);
+          TreeNode three = new TreeNode(3);
+          TreeNode four = new TreeNode(4);
+          TreeNode five = new TreeNode(5);
+
+          one.left = two;
+          one.right = three;
+          three.left = four;
+          three.right = five;
 
 
-
+          SerializeAndDeserializeBinaryTree_LC297 serializeAndDeserializeBinaryTree_lc297 = new SerializeAndDeserializeBinaryTree_LC297();
+          String se = serializeAndDeserializeBinaryTree_lc297.serialize(one);
+          TreeNode res = serializeAndDeserializeBinaryTree_lc297.deserialize(se);
 
 
 
