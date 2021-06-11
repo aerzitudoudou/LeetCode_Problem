@@ -55,7 +55,40 @@ public class TaskScheduler {
         return Math.max(tasks.length, (max - 1) * (n + 1) + letterNum);
     }
 
-    //O(n) O(1)
+    //https://leetcode-cn.com/problems/task-scheduler/solution/ren-wu-diao-du-qi-by-leetcode-solution-ur9w/ sol2
+    /*
+   e.g.1 : A A A B B B n = 2
+             n + 1
+            ------
+ maxtimes   |A * *
+            |A * *
+            |A B
+             max count
+
+
+      ans = (maxtime - 1 )* (n + 1) + maxCount
+
+      填的行数不超过n + 1
+          #task < (maxtime - 1 )* (n + 1) + maxCount
+
+
+    e.g.2:  A A A A B B B C C D D F F G  n = 2 #tasks: 14
+
+    A B C
+    A B C
+    A B D       using formula: (4 - 1) * 3 + 1 = 10  actual: 14 take max
+    A F D
+    G F
+
+
+    填的行数超过n + 1
+    A B C D F G
+    A B C D F *
+    A B * * * *
+    A
+
+    #task > (maxtime - 1 )* (n + 1) + maxCount
+    */
     public int leastInterval2(char[] tasks, int n) {
         int[] charNum = new int[26];
         int max = 0;
