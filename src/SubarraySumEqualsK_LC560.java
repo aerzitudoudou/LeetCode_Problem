@@ -18,16 +18,16 @@ count
 for each presum, count += map.get(presum - k)
 
 */
+    //!!!O(n) O(n)
     public int subarraySum(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(0, 1);
         int count = 0;
-        int pre = 0;
+        int presum = 0;
         for(int i = 0; i < nums.length; i++){
-            int cur = nums[i] + pre;
-            pre = cur;
-            count += map.getOrDefault(cur - k, 0);
-            map.put(cur, map.getOrDefault(cur, 0) + 1);
+            presum += nums[i];
+            count += map.getOrDefault(presum - k, 0);
+            map.put(presum, map.getOrDefault(presum, 0) + 1);
         }
 
         return count;
