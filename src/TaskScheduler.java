@@ -1,3 +1,4 @@
+//leetcode 621
 public class TaskScheduler {
     /*
 
@@ -53,4 +54,26 @@ public class TaskScheduler {
         //corner case, AAABBB, n = 0    按照公式 = 4 , 这种情况要和原数组的长度比较，取较大值
         return Math.max(tasks.length, (max - 1) * (n + 1) + letterNum);
     }
+
+    //O(n) O(1)
+    public int leastInterval2(char[] tasks, int n) {
+        int[] charNum = new int[26];
+        int max = 0;
+        for(char ch : tasks){
+            charNum[ch - 'A']++;
+            max = Math.max(charNum[ch - 'A'], max);
+        }
+
+        int maxCount = 0;
+        for(int a : charNum){
+            if(a == max){
+                maxCount++;
+            }
+        }
+
+        return Math.max(tasks.length, (max - 1) * (n + 1) + maxCount);
+
+    }
+
+
 }
