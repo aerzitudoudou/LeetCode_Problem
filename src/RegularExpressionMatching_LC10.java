@@ -57,6 +57,7 @@ public class RegularExpressionMatching_LC10 {
 
 
     */
+    //O(m * n) , O(m * n)
     public boolean isMatch(String s, String p) {
         int m = s.length(), n = p.length();
         boolean[][] dp = new boolean[m + 1][n + 1];
