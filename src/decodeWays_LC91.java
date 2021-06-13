@@ -87,7 +87,7 @@ public class decodeWays_LC91 {
         if(index == n){
             return 1;
         }
-        //mem only
+        //mem only 只在当前层查表。下一层的事，下一层变成当前层自会处理。
         if(mem[index] != -1){
             return mem[index];
         }
