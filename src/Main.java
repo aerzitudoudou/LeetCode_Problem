@@ -652,10 +652,12 @@ public class Main {
 //          String se = serializeAndDeserializeBinaryTree_lc297.serialize(one);
 //          TreeNode res = serializeAndDeserializeBinaryTree_lc297.deserialize(se);
 
-          String a = new String("a");
+          String a = new String("005");
           String b = new String("a");
 
-          System.out.println(a==b);
+          int test = Integer.valueOf(a);
+          System.out.println(test);
+
 
 
 
