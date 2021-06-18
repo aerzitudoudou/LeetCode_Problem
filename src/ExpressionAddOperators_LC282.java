@@ -3,7 +3,71 @@ import java.util.List;
 
 class ExpressionAddOperators_LC282 {
 
-    /*
+
+   /*
+    !!!sol 1:
+       use calculator 的思路， 把前面分成premono 和mono两部分， 其余和sol1.1 一致
+    */
+
+
+    public List<String> addOperators(String num, int target) {
+        List<String> res = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        dfs(num, target, 0, 0, 0, sb, res);
+        return res;
+    }
+
+    private void dfs(String num, int target, int curPos, long preMono, long mono, StringBuilder sb, List<String> res){
+        int l = num.length();
+
+        if(curPos == l){
+            if(preMono + mono == target){
+                res.add(sb.toString());
+            }
+            return;
+        }
+        //012   3  i
+        //123   45 67
+        //1+2*3*45
+
+        //num = 1234567 target=6 curpos =3 preMono=1 mono = 6 sb: 1+2*3   res
+        for(int i = curPos + 1; i <= l; i++){
+
+            String curStr = num.substring(curPos, i);
+            int curLen = curStr.length();
+            if(curLen > 1 && curStr.charAt(0) == '0') break;
+            long curVal = Long.valueOf(curStr);
+
+            if(curPos == 0){
+                sb.append(curStr);
+                dfs(num, target, i, 0, curVal, sb, res);
+                sb.delete(sb.length() - curLen, sb.length());
+            }else{
+                //"+"
+                sb.append("+");
+                sb.append(curStr);
+                dfs(num, target, i, preMono + mono, curVal, sb, res);
+                sb.delete(sb.length() - (curLen + 1), sb.length());
+
+                //"-"
+
+                sb.append("-");
+                sb.append(curStr);
+                dfs(num, target, i, preMono + mono, -curVal, sb, res);
+                sb.delete(sb.length() - (curLen + 1), sb.length());
+
+                //"*"
+
+                sb.append("*");
+                sb.append(curStr);
+                dfs(num, target, i, preMono, mono * curVal, sb, res);
+                sb.delete(sb.length() - (curLen + 1), sb.length());
+            }
+        }
+    }
+
+
+    /*Sol1.1 from hf: https://www.youtube.com/watch?v=EcG4Tg9AjGs
     preStr
     curPos: 当前层
     lastVal: [0, curPos - 1] 最后一个多项式的值
@@ -44,59 +108,59 @@ class ExpressionAddOperators_LC282 {
       another way to think time complexity: how many possible result? 1 _2_ 3_ 4_ 5 have n numbers of "_", where each "_" position can be: +,-,*, ""(connect together). therefore 4^n possible results.
 
     */
-    public List<String> addOperators(String num, int target) {
-        List<String> res = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
-        dfs(num, target, 0, 0, 0, sb, res);
-        return res;
-    }
+     public List<String> addOperators1(String num, int target) {
+         List<String> res = new ArrayList<>();
+         StringBuilder sb = new StringBuilder();
+         dfs(num, target, 0, 0, 0, sb, res);
+         return res;
+     }
 
-    private void dfs(String num, int target, int curPos, long preVal, long lastVal, StringBuilder sb, List<String> res){
-        int l = num.length();
+     private void dfs1(String num, int target, int curPos, long preVal, long lastVal, StringBuilder sb, List<String> res){
+         int l = num.length();
 
-        if(curPos == l){
-            if(preVal == target){
-                res.add(sb.toString());
-            }
-            return;
-        }
+         if(curPos == l){
+             if(preVal == target){
+                 res.add(sb.toString());
+             }
+             return;
+         }
         //012   3  i
         //123   45 67
         //1+2*3*45
 
         //num = 1234567 target=6 curpos =3 preVal =  7 lastVal = 6 sb: 1+2*3   res
-        for(int i = curPos + 1; i <= l; i++){
+         for(int i = curPos + 1; i <= l; i++){
 
-            String curStr = num.substring(curPos, i);
-            int curLen = curStr.length();
-            if(curLen > 1 && curStr.charAt(0) == '0') break;
-            long curVal = Long.valueOf(curStr);
+             String curStr = num.substring(curPos, i);
+             int curLen = curStr.length();
+             if(curLen > 1 && curStr.charAt(0) == '0') break;
+             long curVal = Long.valueOf(curStr);
 
-            if(curPos == 0){
-                sb.append(curStr);
-                dfs(num, target, i, curVal, curVal, sb, res);
-                sb.delete(sb.length() - curLen, sb.length());
-            }else{
-                //"+"
-                sb.append("+");
-                sb.append(curStr);
-                dfs(num, target, i, preVal + curVal, curVal, sb, res);
-                sb.delete(sb.length() - (curLen + 1), sb.length());
+             if(curPos == 0){
+                 sb.append(curStr);
+                 dfs1(num, target, i, curVal, curVal, sb, res);
+                 sb.delete(sb.length() - curLen, sb.length());
+             }else{
+                 //"+"
+                 sb.append("+");
+                 sb.append(curStr);
+                 dfs1(num, target, i, preVal + curVal, curVal, sb, res);
+                 sb.delete(sb.length() - (curLen + 1), sb.length());
 
-                //"-"
+                 //"-"
 
-                sb.append("-");
-                sb.append(curStr);
-                dfs(num, target, i, preVal - curVal, -curVal, sb, res);
-                sb.delete(sb.length() - (curLen + 1), sb.length());
+                 sb.append("-");
+                 sb.append(curStr);
+                 dfs1(num, target, i, preVal - curVal, -curVal, sb, res);
+                 sb.delete(sb.length() - (curLen + 1), sb.length());
 
-                //"*"
+                 //"*"
 
-                sb.append("*");
-                sb.append(curStr);
-                dfs(num, target, i, preVal - lastVal + lastVal * curVal, lastVal * curVal, sb, res);
-                sb.delete(sb.length() - (curLen + 1), sb.length());
-            }
-        }
-    }
+                 sb.append("*");
+                 sb.append(curStr);
+                 dfs1(num, target, i, preVal - lastVal + lastVal * curVal, lastVal * curVal, sb, res);
+                 sb.delete(sb.length() - (curLen + 1), sb.length());
+             }
+         }
+     }
 }
