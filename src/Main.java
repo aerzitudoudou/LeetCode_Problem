@@ -651,12 +651,16 @@ public class Main {
 //          SerializeAndDeserializeBinaryTree_LC297 serializeAndDeserializeBinaryTree_lc297 = new SerializeAndDeserializeBinaryTree_LC297();
 //          String se = serializeAndDeserializeBinaryTree_lc297.serialize(one);
 //          TreeNode res = serializeAndDeserializeBinaryTree_lc297.deserialize(se);
+//
+//          String c = new String("a");
+//          String b = new String("a");
+//
+////          int test = Integer.valueOf(a);
+//          System.out.println(c==b);
 
-          String c = new String("a");
-          String b = new String("a");
-
-//          int test = Integer.valueOf(a);
-          System.out.println(c==b);
+            BasicCalculatorII_LC227 basicCalculatorII_lc227 = new BasicCalculatorII_LC227();
+            String s= "3+2*2";
+            basicCalculatorII_lc227.calculate(s);
 
 
 
