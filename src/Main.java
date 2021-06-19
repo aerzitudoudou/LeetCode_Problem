@@ -1,5 +1,8 @@
 import amazonOA.KClosestPointsToOrigin;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -658,9 +661,9 @@ public class Main {
 ////          int test = Integer.valueOf(a);
 //          System.out.println(c==b);
 
-            BasicCalculatorII_LC227 basicCalculatorII_lc227 = new BasicCalculatorII_LC227();
-            String s= "3+2*2";
-            basicCalculatorII_lc227.calculate(s);
+//            BasicCalculatorII_LC227 basicCalculatorII_lc227 = new BasicCalculatorII_LC227();
+//            String s= "3+2*2";
+//            basicCalculatorII_lc227.calculate(s);
 
 
 
