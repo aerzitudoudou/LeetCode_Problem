@@ -664,9 +664,12 @@ public class Main {
 //            BasicCalculatorII_LC227 basicCalculatorII_lc227 = new BasicCalculatorII_LC227();
 //            String s= "3+2*2";
 //            basicCalculatorII_lc227.calculate(s);
+//
+//            BestTimeToBuyAndSellStock_LC121 bestTimeToBuyAndSellStock_lc121 = new BestTimeToBuyAndSellStock_LC121();
+//            bestTimeToBuyAndSellStock_lc121.maxProfit(new int[]{1,2});
 
-            BestTimeToBuyAndSellStock_LC121 bestTimeToBuyAndSellStock_lc121 = new BestTimeToBuyAndSellStock_LC121();
-            bestTimeToBuyAndSellStock_lc121.maxProfit(new int[]{1,2});
+            HouseRobberII_LC213 houseRobberII_lc213 = new HouseRobberII_LC213();
+            houseRobberII_lc213.rob1(new int[]{0});
 
 
 
