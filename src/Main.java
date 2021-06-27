@@ -1,4 +1,5 @@
 import amazonOA.KClosestPointsToOrigin;
+import amazonOA.NumberOfIslands;
 
 import java.util.Arrays;
 import java.util.List;
@@ -667,9 +668,13 @@ public class Main {
 //
 //            BestTimeToBuyAndSellStock_LC121 bestTimeToBuyAndSellStock_lc121 = new BestTimeToBuyAndSellStock_LC121();
 //            bestTimeToBuyAndSellStock_lc121.maxProfit(new int[]{1,2});
+//
+//            HouseRobberII_LC213 houseRobberII_lc213 = new HouseRobberII_LC213();
+//            houseRobberII_lc213.rob1(new int[]{0});
 
-            HouseRobberII_LC213 houseRobberII_lc213 = new HouseRobberII_LC213();
-            houseRobberII_lc213.rob1(new int[]{0});
+        NumberOfIslands numberOfIslands = new NumberOfIslands();
+        char[][] grid = {{'1','1','1','1','0'},{'1','1','0','1','0'},{'1','1','0','0','0'},{'0','0','0','0','0'}};
+        numberOfIslands.numIslandsDfs(grid);
 
 
 
