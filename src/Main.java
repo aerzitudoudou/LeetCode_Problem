@@ -672,12 +672,27 @@ public class Main {
 //            HouseRobberII_LC213 houseRobberII_lc213 = new HouseRobberII_LC213();
 //            houseRobberII_lc213.rob1(new int[]{0});
 
-        NumberOfIslands numberOfIslands = new NumberOfIslands();
-        char[][] grid = {{'1','1','1','1','0'},{'1','1','0','1','0'},{'1','1','0','0','0'},{'0','0','0','0','0'}};
-        numberOfIslands.numIslandsDfs(grid);
+//        NumberOfIslands numberOfIslands = new NumberOfIslands();
+//        char[][] grid = {{'1','1','1','1','0'},{'1','1','0','1','0'},{'1','1','0','0','0'},{'0','0','0','0','0'}};
+//        numberOfIslands.numIslandsDfs(grid);
 
+        Node one = new Node(1);
+        Node two = new Node(2);
+        Node three = new Node(3);
+        Node four = new Node(4);
+        Node five = new Node(5);
 
+        four.left = two;
+        four.right = five;
+        two.left = one;
+        two.right = three;
 
+        ConvertBinarySearchTreeToSortedDoublyLinkedList_LC426 convertBinarySearchTreeToSortedDoublyLinkedList_lc426 = new ConvertBinarySearchTreeToSortedDoublyLinkedList_LC426();
+        convertBinarySearchTreeToSortedDoublyLinkedList_lc426.treeToDoublyList(four);
+
+//
+//        ExpressionAddOperators_LC282 expressionAddOperators_lc282 = new ExpressionAddOperators_LC282();
+//        expressionAddOperators_lc282.addOperators("1234", 6);
 
 
     }
