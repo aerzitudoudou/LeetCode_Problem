@@ -694,8 +694,25 @@ public class Main {
 //        ExpressionAddOperators_LC282 expressionAddOperators_lc282 = new ExpressionAddOperators_LC282();
 //        expressionAddOperators_lc282.addOperators("1234", 6);
 
-          FBMockInterview_CountSticker fbMockInterview_countSticker = new FBMockInterview_CountSticker();
-          fbMockInterview_countSticker.calculate("boooook");
+//          FBMockInterview_CountSticker fbMockInterview_countSticker = new FBMockInterview_CountSticker();
+////          fbMockInterview_countSticker.calculate("boooook");
+
+        TreeNode ten = new TreeNode(10);
+        TreeNode five = new TreeNode(5);
+        TreeNode fifteen = new TreeNode(15);
+        TreeNode three = new TreeNode(3);
+        TreeNode seven = new TreeNode(7);
+        TreeNode eighteen = new TreeNode(18);
+
+        ten.left = five;
+        ten.right = fifteen;
+        five.left = three;
+        five.right = seven;
+        fifteen.right = eighteen;
+
+        RangeSumOfBST rangeSumOfBST = new RangeSumOfBST();
+        rangeSumOfBST.rangeSumBST(ten, 7, 15);
+
 
 
     }
