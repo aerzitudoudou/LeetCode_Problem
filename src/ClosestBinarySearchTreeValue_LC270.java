@@ -1,8 +1,9 @@
-public class CloestBinarySearchTreeValue_LC270 {
+public class ClosestBinarySearchTreeValue_LC270 {
     //binary search on a binary tree
     //T: O(logn) if balanced tree or O(h),worst case O(n) 
     //S: O(1)
-    public int closestkeyue(TreeNode root, double target) {
+
+    public int closestValue(TreeNode root, double target) {
         int res = root.key;
         TreeNode cur = root;
         while(cur != null){
