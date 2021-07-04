@@ -1,4 +1,4 @@
-public class RangeSumOfBST {
+public class RangeSumOfBST_LC938 {
     //!!!sol2: dfs
     //T: O(logn + number of points between high and low). worst case O(n)
     //S: O(h) h is the height of the tree

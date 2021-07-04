@@ -1,8 +1,7 @@
 import amazonOA.KClosestPointsToOrigin;
 import amazonOA.NumberOfIslands;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -696,7 +695,7 @@ public class Main {
 
 //          FBMockInterview_CountSticker fbMockInterview_countSticker = new FBMockInterview_CountSticker();
 ////          fbMockInterview_countSticker.calculate("boooook");
-
+//
         TreeNode ten = new TreeNode(10);
         TreeNode five = new TreeNode(5);
         TreeNode fifteen = new TreeNode(15);
@@ -710,8 +709,12 @@ public class Main {
         five.right = seven;
         fifteen.right = eighteen;
 
-        RangeSumOfBST rangeSumOfBST = new RangeSumOfBST();
-        rangeSumOfBST.rangeSumBST(ten, 7, 15);
+//        RangeSumOfBST rangeSumOfBST = new RangeSumOfBST();
+//        rangeSumOfBST.rangeSumBST(ten, 7, 15);
+        BinaryTreeVerticalOrderTraversal_LC314 binaryTreeVerticalOrderTraversal_lc314 = new BinaryTreeVerticalOrderTraversal_LC314();
+        binaryTreeVerticalOrderTraversal_lc314.verticalOrder(ten);
+
+
 
 
 
