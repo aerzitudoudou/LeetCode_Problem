@@ -4,7 +4,7 @@ public class LongestPalindromicSubstring_LC5 {
     cbcbbcbd
           j
     */
-    //from huahua, O(n^2), O(1)
+    //from huahua, https://www.youtube.com/watch?v=g3R-pjUNa3k O(n^2), O(1)
     public String longestPalindrome(String s) {
         int start = 0, len = 0;
         for(int i = 0; i < s.length(); i++){
