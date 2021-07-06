@@ -1,6 +1,19 @@
 import java.util.Random;
 
 //from huifeng: https://www.youtube.com/watch?v=nlJ8XSIWLvo
+
+/*
+index  = 0      1       2           3              4        5
+w      = 1      3       4           5              3        2
+presum = 1      4       8           13             16       18
+        [1],[2,3,4],[5,6,7,8],[9,10,11,12,14],[14,15,16],[17,18]   1 + rand.nextInt(18)
+
+        take random number [1,18], first number >= rand in presum array, it's index is the result
+
+
+
+
+*/
 public class RandomPickWithWeight_LC528 {
     int[] presum;
     //O(n), O(n)
