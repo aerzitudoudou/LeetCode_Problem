@@ -696,36 +696,37 @@ public class Main {
 //          FBMockInterview_CountSticker fbMockInterview_countSticker = new FBMockInterview_CountSticker();
 ////          fbMockInterview_countSticker.calculate("boooook");
 //
-        TreeNode ten = new TreeNode(10);
-        TreeNode five = new TreeNode(5);
-        TreeNode fifteen = new TreeNode(15);
-        TreeNode three = new TreeNode(3);
-        TreeNode seven = new TreeNode(7);
-        TreeNode eighteen = new TreeNode(18);
-
-        ten.left = five;
-        ten.right = fifteen;
-        five.left = three;
-        five.right = seven;
-        fifteen.right = eighteen;
+//        TreeNode ten = new TreeNode(10);
+//        TreeNode five = new TreeNode(5);
+//        TreeNode fifteen = new TreeNode(15);
+//        TreeNode three = new TreeNode(3);
+//        TreeNode seven = new TreeNode(7);
+//        TreeNode eighteen = new TreeNode(18);
+//
+//        ten.left = five;
+//        ten.right = fifteen;
+//        five.left = three;
+//        five.right = seven;
+//        fifteen.right = eighteen;
 
 //        RangeSumOfBST rangeSumOfBST = new RangeSumOfBST();
 //        rangeSumOfBST.rangeSumBST(ten, 7, 15);
 //        BinaryTreeVerticalOrderTraversal_LC314 binaryTreeVerticalOrderTraversal_lc314 = new BinaryTreeVerticalOrderTraversal_LC314();
 //        binaryTreeVerticalOrderTraversal_lc314.verticalOrder(ten);
-        DesignAddAndSearchWordsDataStructure_LC211 designAddAndSearchWordsDataStructure_lc211 = new DesignAddAndSearchWordsDataStructure_LC211();
-        designAddAndSearchWordsDataStructure_lc211.addWord("ran");
-        designAddAndSearchWordsDataStructure_lc211.addWord("rune");
-        designAddAndSearchWordsDataStructure_lc211.addWord("runner");
-        designAddAndSearchWordsDataStructure_lc211.addWord("runs");
-        designAddAndSearchWordsDataStructure_lc211.addWord("add");
-        designAddAndSearchWordsDataStructure_lc211.addWord("adds");
-        designAddAndSearchWordsDataStructure_lc211.addWord("adder");
-        designAddAndSearchWordsDataStructure_lc211.addWord("addee");
-
-
-        designAddAndSearchWordsDataStructure_lc211.search("r.n");
-
+//        DesignAddAndSearchWordsDataStructure_LC211 designAddAndSearchWordsDataStructure_lc211 = new DesignAddAndSearchWordsDataStructure_LC211();
+//        designAddAndSearchWordsDataStructure_lc211.addWord("ran");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("rune");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("runner");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("runs");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("add");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("adds");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("adder");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("addee");
+//
+//
+//        designAddAndSearchWordsDataStructure_lc211.search("r.n");
+          AlienDictionary_LC269 alienDictionary_lc269 = new AlienDictionary_LC269();
+          alienDictionary_lc269.alienOrder(new String[]{"wrt","wrf","er","ett","rftt"});
 
 
 
