@@ -711,8 +711,20 @@ public class Main {
 
 //        RangeSumOfBST rangeSumOfBST = new RangeSumOfBST();
 //        rangeSumOfBST.rangeSumBST(ten, 7, 15);
-        BinaryTreeVerticalOrderTraversal_LC314 binaryTreeVerticalOrderTraversal_lc314 = new BinaryTreeVerticalOrderTraversal_LC314();
-        binaryTreeVerticalOrderTraversal_lc314.verticalOrder(ten);
+//        BinaryTreeVerticalOrderTraversal_LC314 binaryTreeVerticalOrderTraversal_lc314 = new BinaryTreeVerticalOrderTraversal_LC314();
+//        binaryTreeVerticalOrderTraversal_lc314.verticalOrder(ten);
+        DesignAddAndSearchWordsDataStructure_LC211 designAddAndSearchWordsDataStructure_lc211 = new DesignAddAndSearchWordsDataStructure_LC211();
+        designAddAndSearchWordsDataStructure_lc211.addWord("ran");
+        designAddAndSearchWordsDataStructure_lc211.addWord("rune");
+        designAddAndSearchWordsDataStructure_lc211.addWord("runner");
+        designAddAndSearchWordsDataStructure_lc211.addWord("runs");
+        designAddAndSearchWordsDataStructure_lc211.addWord("add");
+        designAddAndSearchWordsDataStructure_lc211.addWord("adds");
+        designAddAndSearchWordsDataStructure_lc211.addWord("adder");
+        designAddAndSearchWordsDataStructure_lc211.addWord("addee");
+
+
+        designAddAndSearchWordsDataStructure_lc211.search("r.n");
 
 
 
