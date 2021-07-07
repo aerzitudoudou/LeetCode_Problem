@@ -10,6 +10,9 @@ public class AlienDictionary_LC269 {
      2. run topological sort
 
      */
+    //2021/07/07.
+    //T:O(M * N) m is length of words ary, n is length of each word
+    //S:O(m * n ) --> O(26 ^ 2) 最多26个点每个点有25个边 最多需要26^2的空间在map里
     public String alienOrder(String[] words) {
         Map<Character, Set<Character>> indegree = new HashMap<>();
         Map<Character, Set<Character>> neis = new HashMap<>();
@@ -56,6 +59,7 @@ public class AlienDictionary_LC269 {
         }
 
         StringBuilder sb = new StringBuilder();
+        //graph bfs的时间复杂度由边数决定。 m - 1个边， 所以只是bfs的话时间复杂度是O(m)
         while(!queue.isEmpty()){
             Character cur = queue.pollLast();
             sb.append(cur);
