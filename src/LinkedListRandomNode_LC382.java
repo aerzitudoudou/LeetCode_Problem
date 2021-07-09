@@ -1,5 +1,7 @@
 import java.util.Random;
 
+
+//reservoir sampling, similar to 398, from hf: https://www.youtube.com/watch?v=3dXUj5fGLXI
 public class LinkedListRandomNode_LC382 {
     ListNode head;
 
