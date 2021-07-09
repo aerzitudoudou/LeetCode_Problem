@@ -713,21 +713,24 @@ public class Main {
 //        rangeSumOfBST.rangeSumBST(ten, 7, 15);
 //        BinaryTreeVerticalOrderTraversal_LC314 binaryTreeVerticalOrderTraversal_lc314 = new BinaryTreeVerticalOrderTraversal_LC314();
 //        binaryTreeVerticalOrderTraversal_lc314.verticalOrder(ten);
-
-//        int a = -5 / 3;
-//        int b = 5 / 3;
-//        System.out.println("a: " + a + ",b: " +b);
+//        DesignAddAndSearchWordsDataStructure_LC211 designAddAndSearchWordsDataStructure_lc211 = new DesignAddAndSearchWordsDataStructure_LC211();
+//        designAddAndSearchWordsDataStructure_lc211.addWord("ran");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("rune");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("runner");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("runs");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("add");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("adds");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("adder");
+//        designAddAndSearchWordsDataStructure_lc211.addWord("addee");
 //
 //
-//        int[] ary  = new int[]{2,-1,-2,7};
-//        ContinuousSubarraySum_LC523 continuousSubarraySum_lc523 = new ContinuousSubarraySum_LC523();
-//
-//        System.out.println(continuousSubarraySum_lc523.checkSubarraySum(ary, 4));
+//        designAddAndSearchWordsDataStructure_lc211.search("r.n");
+//          AlienDictionary_LC269 alienDictionary_lc269 = new AlienDictionary_LC269();
+//          alienDictionary_lc269.alienOrder(new String[]{"wrt","wrf","er","ett","rftt"});
+            ExclusiveTimeOfFunctions_LC636 exclusiveTimeOfFunctions_lc636 = new ExclusiveTimeOfFunctions_LC636();
+            List<String> logs = Arrays.asList(new String[]{"0:start:0","1:start:2","1:end:5","0:end:6"});
 
-        RandomPickIndex_LC398 randomPickIndex_lc398 = new RandomPickIndex_LC398(new int[]{1,2,3,3,3});
-        randomPickIndex_lc398.pick(3);
-
-
+            exclusiveTimeOfFunctions_lc636.exclusiveTime(2, logs);
 
 
 
