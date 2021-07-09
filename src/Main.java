@@ -696,23 +696,36 @@ public class Main {
 //          FBMockInterview_CountSticker fbMockInterview_countSticker = new FBMockInterview_CountSticker();
 ////          fbMockInterview_countSticker.calculate("boooook");
 //
-        TreeNode ten = new TreeNode(10);
-        TreeNode five = new TreeNode(5);
-        TreeNode fifteen = new TreeNode(15);
-        TreeNode three = new TreeNode(3);
-        TreeNode seven = new TreeNode(7);
-        TreeNode eighteen = new TreeNode(18);
-
-        ten.left = five;
-        ten.right = fifteen;
-        five.left = three;
-        five.right = seven;
-        fifteen.right = eighteen;
+//        TreeNode ten = new TreeNode(10);
+//        TreeNode five = new TreeNode(5);
+//        TreeNode fifteen = new TreeNode(15);
+//        TreeNode three = new TreeNode(3);
+//        TreeNode seven = new TreeNode(7);
+//        TreeNode eighteen = new TreeNode(18);
+//
+//        ten.left = five;
+//        ten.right = fifteen;
+//        five.left = three;
+//        five.right = seven;
+//        fifteen.right = eighteen;
 
 //        RangeSumOfBST rangeSumOfBST = new RangeSumOfBST();
 //        rangeSumOfBST.rangeSumBST(ten, 7, 15);
-        BinaryTreeVerticalOrderTraversal_LC314 binaryTreeVerticalOrderTraversal_lc314 = new BinaryTreeVerticalOrderTraversal_LC314();
-        binaryTreeVerticalOrderTraversal_lc314.verticalOrder(ten);
+//        BinaryTreeVerticalOrderTraversal_LC314 binaryTreeVerticalOrderTraversal_lc314 = new BinaryTreeVerticalOrderTraversal_LC314();
+//        binaryTreeVerticalOrderTraversal_lc314.verticalOrder(ten);
+
+//        int a = -5 / 3;
+//        int b = 5 / 3;
+//        System.out.println("a: " + a + ",b: " +b);
+//
+//
+//        int[] ary  = new int[]{2,-1,-2,7};
+//        ContinuousSubarraySum_LC523 continuousSubarraySum_lc523 = new ContinuousSubarraySum_LC523();
+//
+//        System.out.println(continuousSubarraySum_lc523.checkSubarraySum(ary, 4));
+
+        RandomPickIndex_LC398 randomPickIndex_lc398 = new RandomPickIndex_LC398(new int[]{1,2,3,3,3});
+        randomPickIndex_lc398.pick(3);
 
 
 
