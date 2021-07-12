@@ -1,7 +1,7 @@
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class MiniMumMovesToMoveABoxToTheirTargetLocation_LC1263 {
+public class MinimumMovesToMoveABoxToTheirTargetLocation_LC1263 {
     class Node{
         int bx;
         int by;
