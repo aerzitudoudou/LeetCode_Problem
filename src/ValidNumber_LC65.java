@@ -17,18 +17,18 @@ public class ValidNumber_LC65 {
             if(Character.isDigit(c)){
                 seenDigit = true;
             }else if(c == '+' || c == '-'){ //can only apprear at index = 0 or after e
-                if(i != 0 && s.charAt(i - 1) != 'e' && s.charAt(i - 1) != 'E') return false;
+                if(i != 0 && s.charAt(i - 1) != 'e' && s.charAt(i - 1) != 'E') return false; //invalid: 23+e or 23e11+
 
             }else if(c == '.'){
-                if(seenDot || seenE) return false;
+                if(seenDot || seenE) return false; //invalid: .432. or 10e0.1 case
                 seenDot = true;
             }else if(c == 'e' || c == 'E'){
-                if(seenE || !seenDigit) return false;
+                if(seenE || !seenDigit) return false; //invalid: ee or e10 case
                 seenE = true;
                 seenDigit = false;
-            }else return false;
+            }else return false; //invalid: gagewg case
         }
 
-        return seenDigit;
+        return seenDigit; //invalid: 10e case
     }
 }
