@@ -727,10 +727,9 @@ public class Main {
 //        designAddAndSearchWordsDataStructure_lc211.search("r.n");
 //          AlienDictionary_LC269 alienDictionary_lc269 = new AlienDictionary_LC269();
 //          alienDictionary_lc269.alienOrder(new String[]{"wrt","wrf","er","ett","rftt"});
-            ExclusiveTimeOfFunctions_LC636 exclusiveTimeOfFunctions_lc636 = new ExclusiveTimeOfFunctions_LC636();
-            List<String> logs = Arrays.asList(new String[]{"0:start:0","1:start:2","1:end:5","0:end:6"});
 
-            exclusiveTimeOfFunctions_lc636.exclusiveTime(2, logs);
+          DivideTwoIntegers_LC29 divideTwoIntegers_lc29 = new DivideTwoIntegers_LC29();
+          divideTwoIntegers_lc29.divide(-2147483648, -1);
 
 
 
