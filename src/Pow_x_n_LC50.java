@@ -13,7 +13,7 @@ other than 0     0                  1
 
 
 */
-    //O(logn) O(logn)
+    //sol1, recursive, my, O(logn) O(logn)
     public double myPow(double x, int n) {
         //corner case: 0 ^ 0 = 1  anything's power of 0 is 1 in this case
         if(n == 0) return 1;
