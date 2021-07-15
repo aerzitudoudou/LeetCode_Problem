@@ -17,20 +17,6 @@ public class DivideTwoIntegers_LC29 {
 
      res: 1<<3 +1<<10 +...
 
-
-     i                    2                 1            0
-
-     8/2= 4     4 = 0b   1                   0           0
-
-     arr      8>=       1*2*2^2            0*2*2^1     0*2*2^0 >= 2
-
-    13/3 = 4   4 = 0b    1                   0           0
-
-                        1*3* 2^2           0*3 *2^1    0* 3*2^0
-      arr     13>=         12                 6             3  >= 3
-
-
-
      */
     //sol1: from acwing:https://www.acwing.com/video/1398/
     public int divide(int x, int y) {

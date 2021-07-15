@@ -728,9 +728,9 @@ public class Main {
 //          AlienDictionary_LC269 alienDictionary_lc269 = new AlienDictionary_LC269();
 //          alienDictionary_lc269.alienOrder(new String[]{"wrt","wrf","er","ett","rftt"});
 
-          DivideTwoIntegers_LC29 divideTwoIntegers_lc29 = new DivideTwoIntegers_LC29();
-          divideTwoIntegers_lc29.divide(-2147483648, -1);
-
+//          DivideTwoIntegers_LC29 divideTwoIntegers_lc29 = new DivideTwoIntegers_LC29();
+//          divideTwoIntegers_lc29.divide(-2147483648, -1);
+            System.out.println(Math.abs(Integer.MIN_VALUE));
 
 
     }
