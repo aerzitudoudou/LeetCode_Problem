@@ -730,8 +730,12 @@ public class Main {
 
 //          DivideTwoIntegers_LC29 divideTwoIntegers_lc29 = new DivideTwoIntegers_LC29();
 //          divideTwoIntegers_lc29.divide(-2147483648, -1);
-            System.out.println(Math.abs(Integer.MIN_VALUE));
-
+//            System.out.println(Math.abs(Integer.MIN_VALUE));
+//
+//            int a = 'c';
+//            System.out.println(a);
+            ShortestDistanceFromAllBuildings_LC317 shortestDistanceFromAllBuildings_lc317 = new ShortestDistanceFromAllBuildings_LC317();
+            shortestDistanceFromAllBuildings_lc317.shortestDistance(new int[][]{{1,0,2,0,1},{0,0,0,0,0,},{0,0,1,0,0}});
 
     }
 
