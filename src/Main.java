@@ -734,9 +734,13 @@ public class Main {
 //
 //            int a = 'c';
 //            System.out.println(a);
-            ShortestDistanceFromAllBuildings_LC317 shortestDistanceFromAllBuildings_lc317 = new ShortestDistanceFromAllBuildings_LC317();
-            shortestDistanceFromAllBuildings_lc317.shortestDistance(new int[][]{{1,0,2,0,1},{0,0,0,0,0,},{0,0,1,0,0}});
-
+//            ShortestDistanceFromAllBuildings_LC317 shortestDistanceFromAllBuildings_lc317 = new ShortestDistanceFromAllBuildings_LC317();
+//            shortestDistanceFromAllBuildings_lc317.shortestDistance(new int[][]{{1,0,2,0,1},{0,0,0,0,0,},{0,0,1,0,0}});
+//            MaxPoints_LC5815_Contest250 maxPoints_lc5815_contest250 = new MaxPoints_LC5815_Contest250();
+//
+//            maxPoints_lc5815_contest250.maxPoints(new int[][]{{1,2,3}, {1,5,1}, {3,1,1}});
+        TrappingRainWater_LC42 trappingRainWater_lc42 = new TrappingRainWater_LC42();
+        trappingRainWater_lc42.trap(new int[]{4,2,0,3,2,5});
     }
 
 
