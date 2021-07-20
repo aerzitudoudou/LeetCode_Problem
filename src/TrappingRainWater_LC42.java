@@ -1,3 +1,6 @@
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class TrappingRainWater_LC42 {
     //sol1, dp, O(n),O(n)
         /*
@@ -8,37 +11,37 @@ public class TrappingRainWater_LC42 {
         dp[i] = Min(maxLeft[i], maxRight[i]) - height[i]
 
         */
-//     public int trap(int[] height) {
+     public int trap(int[] height) {
 
-//         int[] maxLeft = new int[height.length + 1];
-//         int[] maxRight = new int[height.length + 1];
-//         int res = 0;
+         int[] maxLeft = new int[height.length + 1];
+         int[] maxRight = new int[height.length + 1];
+         int res = 0;
 
-//         for(int i = 0; i < height.length; i++){
-//             if(height[i] > maxLeft[i]){
-//                 maxLeft[i + 1] = height[i];
-//             }else{
-//                 maxLeft[i + 1] = maxLeft[i];
-//             }
-//         }
+         for(int i = 0; i < height.length; i++){
+             if(height[i] > maxLeft[i]){
+                 maxLeft[i + 1] = height[i];
+             }else{
+                 maxLeft[i + 1] = maxLeft[i];
+             }
+         }
 
-//         for(int i = height.length - 1; i >= 0; i--){
-//             if(height[i] > maxRight[i + 1]){
-//                 maxRight[i] = height[i];
-//             }else{
-//                 maxRight[i] = maxRight[i + 1];
-//             }
-//         }
+         for(int i = height.length - 1; i >= 0; i--){
+             if(height[i] > maxRight[i + 1]){
+                 maxRight[i] = height[i];
+             }else{
+                 maxRight[i] = maxRight[i + 1];
+             }
+         }
 
-//         for(int i = 0; i < height.length; i++){
-//             int minMax = Math.min(maxLeft[i + 1], maxRight[i]);
-//             if(minMax > height[i]) res+=minMax - height[i];
-//         }
+         for(int i = 0; i < height.length; i++){
+             int minMax = Math.min(maxLeft[i + 1], maxRight[i]);
+             if(minMax > height[i]) res+=minMax - height[i];
+         }
 
-//         return res;
-//     }
+         return res;
+     }
 
-    //sol2, 区间挡板法, O(n), O(1)
+    //!!!!!!!!sol2, 区间挡板法, O(n), O(1)
     /*
       [4,2,0,3,2,5]
          i       j
@@ -60,7 +63,7 @@ public class TrappingRainWater_LC42 {
 
 
     */
-    public int trap(int[] height) {
+    public int trap1(int[] height) {
         if(height == null || height.length == 0){
             return 0;
         }
@@ -82,5 +85,35 @@ public class TrappingRainWater_LC42 {
 
         return res;
 
+    }
+
+
+    //sol3
+     /*
+
+    monotonic stack
+    strictly decreasing monotonic stack
+
+    */
+    public int trap2(int[] height) {
+        //strictly decreasing monotomic stack saving index
+        Deque<Integer> stack = new LinkedList<>();
+        int res = 0;
+        for(int i = 0; i < height.length; i++){
+            Integer peek = stack.peekFirst();
+
+            while(!stack.isEmpty() && height[i] > height[peek]){
+                int top = stack.pollFirst();
+                peek = stack.peekFirst();
+                if(peek != null){
+                    int dist = i - peek - 1;
+                    res += (Math.min(height[i], height[peek]) - height[top]) * dist;
+                }
+            }
+            stack.offerFirst(i);
+
+        }
+
+        return res;
     }
 }
