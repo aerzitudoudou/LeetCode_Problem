@@ -93,6 +93,7 @@ public class TrappingRainWater_LC42 {
 
     monotonic stack
     strictly decreasing monotonic stack
+    from acwing: https://www.acwing.com/video/1364/
 
     */
     public int trap2(int[] height) {
