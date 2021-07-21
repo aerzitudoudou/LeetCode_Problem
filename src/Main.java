@@ -739,8 +739,11 @@ public class Main {
 //            MaxPoints_LC5815_Contest250 maxPoints_lc5815_contest250 = new MaxPoints_LC5815_Contest250();
 //
 //            maxPoints_lc5815_contest250.maxPoints(new int[][]{{1,2,3}, {1,5,1}, {3,1,1}});
-        TrappingRainWater_LC42 trappingRainWater_lc42 = new TrappingRainWater_LC42();
-        trappingRainWater_lc42.trap(new int[]{4,2,0,3,2,5});
+//        TrappingRainWater_LC42 trappingRainWater_lc42 = new TrappingRainWater_LC42();
+//        trappingRainWater_lc42.trap(new int[]{4,2,0,3,2,5});
+
+        LargestRectangleInHistogram_LC84 largestRectangleInHistogram_lc84 = new LargestRectangleInHistogram_LC84();
+        largestRectangleInHistogram_lc84.largestRectangleArea(new int[]{2,1,5,6,2,3});
     }
 
 
