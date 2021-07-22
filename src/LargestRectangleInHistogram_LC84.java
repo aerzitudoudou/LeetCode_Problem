@@ -22,7 +22,7 @@ public class LargestRectangleInHistogram_LC84 {
             stack.offerFirst(i);
         }
 
-        stack = new LinkedList<>();
+        stack.clear();
         for(int i = n - 1; i >= 0; i--){
             while(!stack.isEmpty() && heights[stack.peekFirst()] >= heights[i]) stack.pollFirst();
             if(stack.isEmpty()) {
