@@ -1,8 +1,3 @@
-import amazonOA.KClosestPointsToOrigin;
-import amazonOA.NumberOfIslands;
-
-import java.util.*;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -742,8 +737,11 @@ public class Main {
 //        TrappingRainWater_LC42 trappingRainWater_lc42 = new TrappingRainWater_LC42();
 //        trappingRainWater_lc42.trap(new int[]{4,2,0,3,2,5});
 
-        LargestRectangleInHistogram_LC84 largestRectangleInHistogram_lc84 = new LargestRectangleInHistogram_LC84();
-        largestRectangleInHistogram_lc84.largestRectangleArea(new int[]{2,1,5,6,2,3});
+//        LargestRectangleInHistogram_LC84 largestRectangleInHistogram_lc84 = new LargestRectangleInHistogram_LC84();
+//        largestRectangleInHistogram_lc84.largestRectangleArea(new int[]{2,1,5,6,2,3});
+
+        SumOfDigitsOfStringAfterConvert_LC1945 one = new SumOfDigitsOfStringAfterConvert_LC1945();
+        one.getLucky("a", 1);
     }
 
 
