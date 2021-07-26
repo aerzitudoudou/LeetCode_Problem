@@ -84,7 +84,7 @@ public class WordLadder_LC127 {
     }
 
 
-    //!!!!!sol2.0, my, bfs, T: O(26 * m * n) = O(m * n) , O(m*n)
+    //!!!!!sol2.0, my, bfs, O(26 * m * n) = O(m * n) , O(m*n)
     //m: avg word length, n: dict length
 
     public int ladderLength2(String begin, String end, List<String> dict) {
