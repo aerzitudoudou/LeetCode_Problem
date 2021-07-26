@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -739,9 +742,13 @@ public class Main {
 
 //        LargestRectangleInHistogram_LC84 largestRectangleInHistogram_lc84 = new LargestRectangleInHistogram_LC84();
 //        largestRectangleInHistogram_lc84.largestRectangleArea(new int[]{2,1,5,6,2,3});
-
-        SumOfDigitsOfStringAfterConvert_LC1945 one = new SumOfDigitsOfStringAfterConvert_LC1945();
-        one.getLucky("a", 1);
+//
+//        SumOfDigitsOfStringAfterConvert_LC1945 one = new SumOfDigitsOfStringAfterConvert_LC1945();
+//        one.getLucky("a", 1);
+          WordLadder_LC127 wordLadderLC127 = new WordLadder_LC127();
+          String[] ary = new String[]{"hot","dot","dog","lot","log","cog"};
+          List<String> dict = Arrays.asList(ary);
+          wordLadderLC127.ladderLength2("hit", "dot", dict);
     }
 
 
