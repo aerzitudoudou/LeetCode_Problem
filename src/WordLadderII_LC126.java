@@ -29,7 +29,86 @@ Output: [["git","hit","hot"], ["git","got","hot"]]
 
 import java.util.*;
 
-public class WordLadderII {
+public class WordLadderII_LC126 {
+    //bfs + dfs, acwing, O(mn), O(mn)
+    //m: length of word, n: length of wordList
+    /*
+    * 两种比较构建图的方式
+    * 1. 两两比较字典里的单词看是不是通过一个字母转换得: m*n^2
+    * 2. 一个单词更换每一位上的字母【a - z】查dict: 26mn
+    * mn^2 >= 26mn => n >=26 第二种方法更好
+    *
+    * */
+    public List<List<String>> findLadders3(String begin, String end, List<String> wordList) {
+        List<List<String>> res = new ArrayList<>();
+
+
+        Map<String, Integer> dist = new HashMap<>();//dist to start
+        Deque<String> queue = new LinkedList();
+        Set<String> set = new HashSet<>(wordList);
+
+        if(!set.contains(end)){return res;}
+
+        queue.offerFirst(begin);
+        dist.put(begin, 0);
+        while(!queue.isEmpty()){
+            String pre = queue.pollLast();
+            if(pre.equals(end)){
+                break;
+            }
+            StringBuilder sb = new StringBuilder(pre);
+            for(int i = 0; i < sb.length(); i++){
+                char c = sb.charAt(i);
+                for(char t = 'a'; t <= 'z'; t++){
+                    sb.setCharAt(i, t);
+                    String str = sb.toString();
+                    if(set.contains(str) && !dist.containsKey(str)){
+                        dist.put(str, dist.get(pre) + 1);
+                        queue.offerFirst(str);
+                    }
+                }
+                sb.setCharAt(i, c);
+            }
+        }
+
+
+        List<String> list = new ArrayList<>();
+        list.add(end);
+        set.add(begin);
+        dfs3(begin, end, res, dist, list, set);
+
+        return res;
+
+
+    }
+
+    private void dfs3(String begin, String cur, List<List<String>> res, Map<String, Integer> dist, List<String> list, Set<String> set){
+        if(cur.equals(begin)){
+            List<String> copy = new ArrayList(list);
+            Collections.reverse(copy);
+            res.add(copy);
+            return;
+        }
+        StringBuilder sb = new StringBuilder(cur);
+        for(int i = 0; i < cur.length(); i++){
+            char c = sb.charAt(i);
+            for(char t = 'a'; t <= 'z'; t++){
+                sb.setCharAt(i, t);
+                String str = sb.toString();
+                //!!!some nodes even doesn't have dist e.e.  hot-> dot-> dog begin = hot end = dot bfs stops at dot. dog will not has dist
+                if(set.contains(str) && dist.containsKey(str) && dist.get(str) + 1 == dist.get(cur)){
+                    list.add(str);
+                    dfs3(begin, str, res, dist, list, set);
+                    list.remove(str);
+                }
+            }
+            sb.setCharAt(i, c);
+        }
+
+    }
+
+
+
     //way 1: 定义两个数据结构，一个存每个点的neighbor（NeiFinder）, 另一个存每个点的前序(Tracer)
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         //corner case check
