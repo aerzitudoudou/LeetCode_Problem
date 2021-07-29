@@ -30,7 +30,72 @@ Output: [["git","hit","hot"], ["git","got","hot"]]
 import java.util.*;
 
 public class WordLadderII_LC126 {
-    //bfs + dfs, acwing, O(mn), O(mn)
+    //sol 4. pure bfs from https://leetcode.com/problems/word-ladder-ii/discuss/40434/C%2B%2B-solution-using-standard-BFS-method-no-DFS-or-backtracking
+
+
+
+    //sol 3.
+    //level order traversal, from  https://leetcode.com/problems/word-ladder-ii/discuss/1359027/C%2B%2BPython-BFS-Level-by-Level-with-Picture-Clean-and-Concise
+    //O(mn) O(mn)
+    public List<List<String>> findLadders4(String begin, String end, List<String> wordList) {
+        Map<String, List<List<String>>> level = new HashMap<>();//current level key as endword, their paths from beginword
+        List<List<String>> res = new ArrayList<>();
+        Set<String> set = new HashSet<>(wordList);
+        if(!set.contains(end)){
+            return res;
+        }
+        List<String> preList = new ArrayList<>();
+        preList.add(begin);
+        List<List<String>> preListList = new ArrayList<>();
+        preListList.add(preList);
+        level.put(begin, preListList);
+        set.remove(begin);
+        while(!level.isEmpty()){
+            Map<String, List<List<String>>> newLevel = new HashMap<>();
+            for(Map.Entry<String, List<List<String>>> entry : level.entrySet()){
+                String word = entry.getKey(); //every word
+                if(word.equals(end)) return entry.getValue();
+                for(String nei : getNei(set, word)){
+                    for(List<String> path : entry.getValue()){ //every path
+
+                        path.add(nei);
+                        List<List<String>> paths = newLevel.getOrDefault(nei, new ArrayList<>());
+                        paths.add(path);
+                        newLevel.put(nei, paths);
+                    }
+                }
+
+
+            }
+
+            for(String key : level.keySet()){
+                set.remove(key);
+            }
+            level = newLevel;
+        }
+
+        return res;
+    }
+
+
+    private List<String> getNei(Set<String> set, String word){
+        StringBuilder sb = new StringBuilder(word);
+        List<String> list = new ArrayList<>();
+        for(int i = 0; i < word.length(); i++){
+            char t = word.charAt(i);
+            for(char c = 'a'; c <= 'z'; c++){
+                sb.setCharAt(i, c);
+                if(!sb.toString().equals(word) && set.contains(sb.toString())){
+                    list.add(sb.toString());
+                }
+            }
+            sb.setCharAt(i, t);
+        }
+        return list;
+    }
+
+
+    //!!!!2.0 bfs + dfs, acwing, O(mn), O(mn)
     //m: length of word, n: length of wordList
     /*
     * 两种比较构建图的方式
@@ -109,7 +174,7 @@ public class WordLadderII_LC126 {
 
 
 
-    //way 1: 定义两个数据结构，一个存每个点的neighbor（NeiFinder）, 另一个存每个点的前序(Tracer)
+    // Sol1: from Lai:way 1: 定义两个数据结构，一个存每个点的neighbor（NeiFinder）, 另一个存每个点的前序(Tracer)
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         //corner case check
         List<List<String>> res = new ArrayList<>();
@@ -238,7 +303,7 @@ public class WordLadderII_LC126 {
 
 
 
-    //way 2: 不用辅助类：
+    //Sol 1.1: 不用辅助类：
     public List<List<String>> findLadders2(String beginWord, String endWord, List<String> wordList) {
         List<List<String>> res = new ArrayList<>();
         if(wordList.indexOf(endWord) == -1){
