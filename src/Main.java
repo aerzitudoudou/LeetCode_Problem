@@ -746,12 +746,15 @@ public class Main {
 //        SumOfDigitsOfStringAfterConvert_LC1945 one = new SumOfDigitsOfStringAfterConvert_LC1945();
 //        one.getLucky("a", 1);
 //          WordLadder_LC127 wordLadderLC127 = new WordLadder_LC127();
-          String[] ary = new String[]{"hot","dot","dog","lot","log","cog"};
-          List<String> dict = Arrays.asList(ary);
+//          String[] ary = new String[]{"hot","dot","dog","lot","log","cog"};
+//          List<String> dict = Arrays.asList(ary);
 //          wordLadderLC127.ladderLength2("hit", "dot", dict);
 
-            WordLadderII_LC126 wordLadderII_lc126 = new WordLadderII_LC126();
-            wordLadderII_lc126.findLadders4("hit", "cog", dict);
+//            WordLadderII_LC126 wordLadderII_lc126 = new WordLadderII_LC126();
+//            wordLadderII_lc126.findLadders4("hit", "cog", dict);
+
+        SearchInRotatedSortedArrayII_LC81 searchInRotatedSortedArrayII_lc81 = new SearchInRotatedSortedArrayII_LC81();
+        searchInRotatedSortedArrayII_lc81.search(new int[]{2,5,6,0,0,1,2}, 0);
     }
 
 
