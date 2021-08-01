@@ -20,9 +20,12 @@ public class MedianOfTwoSortedArrays_LC4 {
         if(k == 1){
             return Math.min(ary1[i], ary2[j]);
         }
-
+        //recursion rule
+        //part1 表示ary1能删的数， 删k/2个数，或者m - i 个数（如果ary1s ize不够删k/2个数）
+        //因为一共要考虑k个数， ary2 要删的个数就是k - part1
         int part1 = Math.min(k / 2, m - i), part2 = k - part1;
         if(ary1[i + part1 - 1] < ary2[j + part2 - 1]){
+            //i + part1 表示删完了part1个数， 下一轮的recursion起始index
             return findKth(ary1, i + part1, ary2, j, part2);
         }else{
             return findKth(ary1, i, ary2, j + part2, part1);
