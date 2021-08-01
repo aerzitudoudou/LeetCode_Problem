@@ -1,6 +1,6 @@
 public class MedianOfTwoSortedArrays_LC4 {
     //sol1, from acwing, https://www.acwing.com/video/1316/,47:00 divide and conquer, T: O(log(m + n)) everytime half of elements being valued is discarded，therefore k -> k/2 -> k/4... where k = (m+ n)/ 2
-    // S: O(m+n)
+    // S: O(log(m+n)): no new object created, stack depth = O(log(m + n))
     public double findMedianSortedArrays(int[] ary1, int[] ary2) {
         int m = ary1.length, n = ary2.length;
         int total = m + n;
