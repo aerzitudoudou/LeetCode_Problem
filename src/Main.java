@@ -752,9 +752,12 @@ public class Main {
 
 //            WordLadderII_LC126 wordLadderII_lc126 = new WordLadderII_LC126();
 //            wordLadderII_lc126.findLadders4("hit", "cog", dict);
+//
+//        SearchInRotatedSortedArrayII_LC81 searchInRotatedSortedArrayII_lc81 = new SearchInRotatedSortedArrayII_LC81();
+//        searchInRotatedSortedArrayII_lc81.search(new int[]{2,5,6,0,0,1,2}, 0);
 
-        SearchInRotatedSortedArrayII_LC81 searchInRotatedSortedArrayII_lc81 = new SearchInRotatedSortedArrayII_LC81();
-        searchInRotatedSortedArrayII_lc81.search(new int[]{2,5,6,0,0,1,2}, 0);
+           SpiralMatrix_LC54 spiralMatrix_lc54 = new SpiralMatrix_LC54();
+           spiralMatrix_lc54.spiralOrder2(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
     }
 
 
