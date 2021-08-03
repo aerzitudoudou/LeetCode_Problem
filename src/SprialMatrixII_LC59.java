@@ -1,5 +1,34 @@
 public class SprialMatrixII_LC59 {
 
+    //!!!!!!sol 3, my, 4 directions
+    public int[][] generateMatrix3(int n) {
+        int[][] res = new int[n][n];
+        int left = 0, right = n - 1, up = 0, down = n - 1;
+        int num = 1;
+        while(left < right){
+            for(int i = left; i <= right; i++){
+                res[up][i] = num++;
+            }
+            for(int i = up + 1; i < down; i++){
+                res[i][right] = num++;
+            }
+            for(int i = down; i >= left; i--){
+                res[down][i] = num++;
+            }
+            for(int i = down - 1; i > up; i--){
+                res[i][left] = num++;
+            }
+            left++;
+            right--;
+            up++;
+            down--;
+        }
+        if(left == right){
+            res[left][left] = num;
+        }
+        return res;
+    }
+
     //sol1: my, recursive
     public int[][] generateMatrix1(int n) {
         int[][] res = new int[n][n];
