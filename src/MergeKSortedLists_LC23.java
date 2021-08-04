@@ -59,7 +59,7 @@ public class MergeKSortedLists_LC23 {
         return dummy.next;
     }
 
-    //sol2: binary reduction
+    //sol2: binary reduction， from lai
     /**
      * list 1
      * list 2   ==> 2n
