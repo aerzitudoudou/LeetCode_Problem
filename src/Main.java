@@ -343,26 +343,26 @@ public class Main {
 
 
         //1->2
-
-        ListNode a = new ListNode(1);
-        ListNode b = new ListNode(2);
-        a.next = b;
-
-
-        ListNode c = new ListNode(3);
-        ListNode d = new ListNode(4);
-        c.next = d;
-
-        List<ListNode> list = new ArrayList<>();
-        list.add(a);
-        list.add(c);
-
-        ListNode[] ary = new ListNode[2];
-        ary[0] = a;
-        ary[1] = c;
 //
-        MergeKSortedLists_LC23 mergeKSortedLists = new MergeKSortedLists_LC23();
-        mergeKSortedLists.mergeKLists(ary);
+//        ListNode a = new ListNode(1);
+//        ListNode b = new ListNode(2);
+//        a.next = b;
+//
+//
+//        ListNode c = new ListNode(3);
+//        ListNode d = new ListNode(4);
+//        c.next = d;
+//
+//        List<ListNode> list = new ArrayList<>();
+//        list.add(a);
+//        list.add(c);
+//
+//        ListNode[] ary = new ListNode[2];
+//        ary[0] = a;
+//        ary[1] = c;
+////
+//        MergeKSortedLists_LC23 mergeKSortedLists = new MergeKSortedLists_LC23();
+//        mergeKSortedLists.mergeKLists(ary);
 
 //        List<Integer> list = new ArrayList<>();
 //        list.add(7);
@@ -763,6 +763,9 @@ public class Main {
 
 //           SpiralMatrix_LC54 spiralMatrix_lc54 = new SpiralMatrix_LC54();
 //           spiralMatrix_lc54.spiralOrder2(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
+
+        SqrtX_LC69 sqrtX_lc69 = new SqrtX_LC69();
+        sqrtX_lc69.mySqrt(2147395600);
     }
 
 
