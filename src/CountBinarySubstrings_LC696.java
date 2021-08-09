@@ -3,7 +3,7 @@ public class CountBinarySubstrings_LC696 {
     // my implementaion, O(n), O(1)
     //                                          0011110011
     //group each num consecutive time            2  4 2 2
-    //[2, 4] --> 01, 0011    [4, 2]:10, 1100    [2,2]: 01, 0011
+    //[2, 4]:01, 0011    [4, 2]:10, 1100    [2,2]: 01, 0011
     public int countBinarySubstrings(String s) {
         int pre = 0, cur = 1, res = 0;
         //cur:  # duplicate chars in [starting index of this num, i]
