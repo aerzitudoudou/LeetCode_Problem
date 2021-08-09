@@ -1,5 +1,6 @@
 public class CountBinarySubstrings_LC696 {
-    //!!!sol1.1: from lee, my implementaion, O(n), O(1)
+    //!!!sol1.1: from lee,https://leetcode.com/problems/count-binary-substrings/discuss/108625/JavaC%2B%2BPython-Easy-and-Concise-with-Explanation
+    // my implementaion, O(n), O(1)
     //                                          0011110011
     //group each num consecutive time            2  4 2 2
     //[2, 4] --> 01, 0011    [4, 2]:10, 1100    [2,2]: 01, 0011
