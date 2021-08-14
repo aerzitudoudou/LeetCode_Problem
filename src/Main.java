@@ -767,8 +767,13 @@ public class Main {
 //           SpiralMatrix_LC54 spiralMatrix_lc54 = new SpiralMatrix_LC54();
 //           spiralMatrix_lc54.spiralOrder2(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
 
-        SqrtX_LC69 sqrtX_lc69 = new SqrtX_LC69();
-        sqrtX_lc69.mySqrt(2147395600);
+//        SqrtX_LC69 sqrtX_lc69 = new SqrtX_LC69();
+//        sqrtX_lc69.mySqrt(2147395600);
+
+            TrappingRainWater_LC42 trappingRainWater_lc42 = new TrappingRainWater_LC42();
+            int[] ary = new int[]{0,1,0,2,1,0,1,3,2,1,2,1};
+            trappingRainWater_lc42.trap3(ary);
+
     }
 
 

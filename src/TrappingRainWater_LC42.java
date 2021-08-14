@@ -11,37 +11,60 @@ public class TrappingRainWater_LC42 {
         dp[i] = Min(maxLeft[i], maxRight[i]) - height[i]
 
         */
-     public int trap(int[] height) {
+    public int trap(int[] height) {
 
-         int[] maxLeft = new int[height.length + 1];
-         int[] maxRight = new int[height.length + 1];
-         int res = 0;
+        int[] maxLeft = new int[height.length + 1];
+        int[] maxRight = new int[height.length + 1];
+        int res = 0;
 
-         for(int i = 0; i < height.length; i++){
-             if(height[i] > maxLeft[i]){
-                 maxLeft[i + 1] = height[i];
-             }else{
-                 maxLeft[i + 1] = maxLeft[i];
-             }
-         }
+        for (int i = 0; i < height.length; i++) {
+            if (height[i] > maxLeft[i]) {
+                maxLeft[i + 1] = height[i];
+            } else {
+                maxLeft[i + 1] = maxLeft[i];
+            }
+        }
 
-         for(int i = height.length - 1; i >= 0; i--){
-             if(height[i] > maxRight[i + 1]){
-                 maxRight[i] = height[i];
-             }else{
-                 maxRight[i] = maxRight[i + 1];
-             }
-         }
+        for (int i = height.length - 1; i >= 0; i--) {
+            if (height[i] > maxRight[i + 1]) {
+                maxRight[i] = height[i];
+            } else {
+                maxRight[i] = maxRight[i + 1];
+            }
+        }
 
-         for(int i = 0; i < height.length; i++){
-             int minMax = Math.min(maxLeft[i + 1], maxRight[i]);
-             if(minMax > height[i]) res+=minMax - height[i];
-         }
+        for (int i = 0; i < height.length; i++) {
+            int minMax = Math.min(maxLeft[i + 1], maxRight[i]);
+            if (minMax > height[i]) res += minMax - height[i];
+        }
 
-         return res;
-     }
+        return res;
+    }
+    //!!!!sol2.1, my , 谁小移谁
+    public int trap2_1(int[] height) {
+        int res = 0, i = 0, j = height.length - 1, leftMax = height[i], rightMax = height[j];
+        while(i <= j){
+            leftMax = Math.max(leftMax, height[i]);
+            rightMax = Math.max(rightMax, height[j]);
 
-    //!!!!!!!!sol2, 区间挡板法, O(n), O(1)
+
+            if(height[i] < height[j]){
+                res += leftMax - height[i];
+                i++;
+            }else{
+                res += rightMax - height[j];
+                j--;
+            }
+
+
+        }
+
+        return res;
+
+
+    }
+
+    //sol2.2, 区间挡板法, O(n), O(1)
     /*
       [4,2,0,3,2,5]
          i       j
@@ -64,18 +87,18 @@ public class TrappingRainWater_LC42 {
 
     */
     public int trap1(int[] height) {
-        if(height == null || height.length == 0){
+        if (height == null || height.length == 0) {
             return 0;
         }
         int i = 0, j = height.length - 1;
         int maxLeft = height[i], maxRight = height[j];
         int res = 0;
-        while(i <= j){
-            if(maxLeft < maxRight){
+        while (i <= j) {
+            if (maxLeft < maxRight) {
                 res += Math.max(0, maxLeft - height[i]);
                 maxLeft = maxLeft > height[i] ? maxLeft : height[i];
                 i++;
-            }else{
+            } else {
                 res += Math.max(0, maxRight - height[j]);
                 maxRight = maxRight > height[j] ? maxRight : height[j];
                 j--;
@@ -88,7 +111,7 @@ public class TrappingRainWater_LC42 {
     }
 
 
-    //sol3
+    //!!!sol3
      /*
 
     monotonic stack
@@ -100,21 +123,23 @@ public class TrappingRainWater_LC42 {
         //strictly decreasing monotomic stack saving index
         Deque<Integer> stack = new LinkedList<>();
         int res = 0;
+        //decreasing monotonic stack
         for(int i = 0; i < height.length; i++){
-            Integer peek = stack.peekFirst();
-
-            while(!stack.isEmpty() && height[i] > height[peek]){
-                int top = stack.pollFirst();
-                peek = stack.peekFirst();
-                if(peek != null){
-                    int dist = i - peek - 1;
-                    res += (Math.min(height[i], height[peek]) - height[top]) * dist;
+            while(!stack.isEmpty() && height[i] >= height[stack.peekFirst()]){
+                int cur = height[stack.pollFirst()];
+                if(!stack.isEmpty()){
+                    //pre is left boarder, height[i] right boarder
+                    int pre = height[stack.peekFirst()];
+                    //dist = right - left + 1 - 2 = right - left - 1
+                    res += (Math.min(pre, height[i]) - cur) * (i - stack.peekFirst() - 1);
                 }
+
             }
             stack.offerFirst(i);
-
         }
 
         return res;
     }
+
+
 }
