@@ -225,7 +225,6 @@ public class Main {
 //        System.out.println(d.hashCode());
 
 
-
 //        Set<List<Integer>> set = new HashSet<>();
 //        set.add(aList);
 //        System.out.println(set.contains(bList));
@@ -282,27 +281,10 @@ public class Main {
 //        System.out.println(set);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //        String s1 = String.valueOf(10);
 //        String s2 = String.valueOf(10);
 //        System.out.println(s1.hashCode());
 //        System.out.println(s2.hashCode());
-
-
-
 
 
 //
@@ -770,11 +752,23 @@ public class Main {
 //        SqrtX_LC69 sqrtX_lc69 = new SqrtX_LC69();
 //        sqrtX_lc69.mySqrt(2147395600);
 
-            TrappingRainWater_LC42 trappingRainWater_lc42 = new TrappingRainWater_LC42();
-            int[] ary = new int[]{0,1,0,2,1,0,1,3,2,1,2,1};
-            trappingRainWater_lc42.trap3(ary);
+//            TrappingRainWater_LC42 trappingRainWater_lc42 = new TrappingRainWater_LC42();
+//            int[] ary = new int[]{0,1,0,2,1,0,1,3,2,1,2,1};
+//            trappingRainWater_lc42.trap3(ary);
+
+
+        InsertDeleteGetRandomO1_DuplicatesAllowed_LC381 o1 = new InsertDeleteGetRandomO1_DuplicatesAllowed_LC381();
+        InsertDeleteGetRandomO1_DuplicatesAllowed_LC381.RandomizedCollection2 randomizedCollection2 = o1.new RandomizedCollection2();
+        randomizedCollection2.insert(4);
+        randomizedCollection2.insert(3);
+        randomizedCollection2.insert(4);
+        randomizedCollection2.insert(2);
+        randomizedCollection2.insert(4);
+        randomizedCollection2.remove(4);
+        randomizedCollection2.remove(3);
+        randomizedCollection2.remove(4);
+        randomizedCollection2.remove(4);
+
 
     }
-
-
 }
