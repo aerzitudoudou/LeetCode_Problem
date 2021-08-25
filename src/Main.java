@@ -757,17 +757,20 @@ public class Main {
 //            trappingRainWater_lc42.trap3(ary);
 
 
-        InsertDeleteGetRandomO1_DuplicatesAllowed_LC381 o1 = new InsertDeleteGetRandomO1_DuplicatesAllowed_LC381();
-        InsertDeleteGetRandomO1_DuplicatesAllowed_LC381.RandomizedCollection2 randomizedCollection2 = o1.new RandomizedCollection2();
-        randomizedCollection2.insert(4);
-        randomizedCollection2.insert(3);
-        randomizedCollection2.insert(4);
-        randomizedCollection2.insert(2);
-        randomizedCollection2.insert(4);
-        randomizedCollection2.remove(4);
-        randomizedCollection2.remove(3);
-        randomizedCollection2.remove(4);
-        randomizedCollection2.remove(4);
+//        InsertDeleteGetRandomO1_DuplicatesAllowed_LC381 o1 = new InsertDeleteGetRandomO1_DuplicatesAllowed_LC381();
+//        InsertDeleteGetRandomO1_DuplicatesAllowed_LC381.RandomizedCollection2 randomizedCollection2 = o1.new RandomizedCollection2();
+//        randomizedCollection2.insert(4);
+//        randomizedCollection2.insert(3);
+//        randomizedCollection2.insert(4);
+//        randomizedCollection2.insert(2);
+//        randomizedCollection2.insert(4);
+//        randomizedCollection2.remove(4);
+//        randomizedCollection2.remove(3);
+//        randomizedCollection2.remove(4);
+//        randomizedCollection2.remove(4);
+
+        SubdomainvisitCount_LC811 subdomainvisitCount_lc811 = new SubdomainvisitCount_LC811();
+        subdomainvisitCount_lc811.subdomainVisits(new String[]{"9001 discuss.leetcode.com"});
 
 
     }
