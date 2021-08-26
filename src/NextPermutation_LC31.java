@@ -7,19 +7,22 @@ public class NextPermutation_LC31 {
         while(i >= 1 && nums[i - 1] >= nums[i]){
             i--;
         }
+        //corner case: last in the lexicographical order
         if(i == 0){
             Arrays.sort(nums);
             return;
         }
         i--;
+        //find first number bigger than drop
         int j = nums.length - 1;
         while(j > i && nums[j] <= nums[i]){
             j--;
         }
+
         int tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
-
+        //sort the remaining after to make the remaining least in lexicographical
         Arrays.sort(nums, i + 1, nums.length);
         return;
 
