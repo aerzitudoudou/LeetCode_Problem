@@ -768,9 +768,13 @@ public class Main {
 //        randomizedCollection2.remove(3);
 //        randomizedCollection2.remove(4);
 //        randomizedCollection2.remove(4);
+//
+//        SubdomainvisitCount_LC811 subdomainvisitCount_lc811 = new SubdomainvisitCount_LC811();
+//        subdomainvisitCount_lc811.subdomainVisits(new String[]{"9001 discuss.leetcode.com"});
+        int[] ary = {2,3,1};
+        Arrays.sort(ary, 1, 2);
+        System.out.println(ary);
 
-        SubdomainvisitCount_LC811 subdomainvisitCount_lc811 = new SubdomainvisitCount_LC811();
-        subdomainvisitCount_lc811.subdomainVisits(new String[]{"9001 discuss.leetcode.com"});
 
 
     }
