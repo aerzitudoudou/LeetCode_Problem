@@ -4,7 +4,7 @@ import java.util.Map;
 import static javax.swing.UIManager.put;
 
 public class IntegerToRoman_LC12 {
-    //!!!!!!ol2, from acwing https://www.acwing.com/video/1327/
+    //!!!!!!sol2, from acwing https://www.acwing.com/video/1327/
     public String intToRoman1(int num) {
         StringBuilder sb = new StringBuilder();
         int[] ary = {1,4,5,9,10,40,50,90,100,400,500,900,1000};
