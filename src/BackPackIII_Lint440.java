@@ -1,5 +1,5 @@
 public class BackPackIII_Lint440 {
-    //sol1, from acwing, https://www.acwing.com/video/34/, O(nmk), O(nm)
+    //!!!sol1, from acwing, https://www.acwing.com/video/34/, O(nmk), O(nm)
     public int backPackIII(int[] A, int[] V, int m) {
         if(V == null || A == null || V.length == 0 || A.length == 0 || m == 0){
             return 0;
@@ -16,7 +16,7 @@ public class BackPackIII_Lint440 {
         return dp[A.length][m];
     }
 
-    //sol2: decrease the dimension of dp from sol1, i and i-1 are only 2 states, therefore can use 2 arrays to replace
+    //!!!sol2: decrease the dimension of dp from sol1, i and i-1 are only 2 states, therefore can use 2 arrays to replace
     //O(nmk), O(m)
     public int backPackIII_2(int[] A, int[] V, int m) {
         if(V == null || A == null || V.length == 0 || A.length == 0 || m == 0){
