@@ -16,7 +16,6 @@ public class BackPackII_Lint125 {
         int[][] dp = new int[A.length + 1][m + 1]; //max with first i item having size j
         for(int i = 1; i <= A.length; i++){
             for(int j = 0; j <= m; j++){
-                int s1 = 0, s2 = 0;
                 //not take i
                 dp[i][j] = dp[i - 1][j];
                 //take i

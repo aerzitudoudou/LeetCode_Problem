@@ -1,5 +1,5 @@
 public class BackPackIII_Lint440 {
-    //!!!sol1, from acwing, https://www.acwing.com/video/34/, O(nmk), O(nm)
+    //sol1, from acwing, https://www.acwing.com/video/34/, O(nmk), O(nm)
     public int backPackIII(int[] A, int[] V, int m) {
         if(V == null || A == null || V.length == 0 || A.length == 0 || m == 0){
             return 0;
@@ -43,7 +43,6 @@ public class BackPackIII_Lint440 {
 
     //sol3: rolling array, using one array to store both new and old states.
     //O(nmk), O(m)
-    //TODO: why this is not correct?
     public int backPackIII_3(int[] A, int[] V, int m) {
         if(V == null || A == null || V.length == 0 || A.length == 0 || m == 0){
             return 0;
@@ -65,7 +64,7 @@ public class BackPackIII_Lint440 {
 
 
 
-    //sol4: remove the k time dimension by observation
+    //！！！sol4: remove the k time dimension by observation
     //O(nm), O(nm)
     //f[i][j] =        max(f[i - 1][j], f[i - 1][j - A[i]] + V[i], f[i - 1][j - 2A[i]] + 2V[i], f[i - 1][j - 3A[i]] + 3V[i]....)
     //f[i][j - A[i]] = max(             f[i - 1][j - A[i]],        f[i - 1][j - 2A[i]] + V[i],  f[i - 1][j - 3A[i]] + 2V[i])
@@ -76,9 +75,9 @@ public class BackPackIII_Lint440 {
         }
         int[][] dp = new int[A.length + 1][m + 1]; //old
         for(int i = 1; i <= A.length; i++){
-            for(int j = 0; j <= m; j++){//todo: weisha budui?
-                dp[i][j] = dp[i - 1][j];
-                if(j - A[i - 1] >= 0){
+            for(int j = 0; j <= m; j++){
+                dp[i][j] = dp[i - 1][j]; //没有第i件物品
+                if(j - A[i - 1] >= 0){ //有第i件物品
                     dp[i][j] = Math.max(dp[i][j], dp[i][j - A[i - 1]] + V[i - 1]);
                 }
             }
@@ -87,7 +86,7 @@ public class BackPackIII_Lint440 {
         return dp[A.length][m];
     }
 
-    //sol 5: remove the i in space dimension from sol4
+    //sol 5: remove the i in space dimension from sol4(代码上的等价转化)
     //O(nm), O(m)
     public int backPackIII_5(int[] A, int[] V, int m) {
         if(V == null || A == null || V.length == 0 || A.length == 0 || m == 0){
@@ -97,7 +96,7 @@ public class BackPackIII_Lint440 {
         int[] dp = new int[m + 1]; //old
 
         for(int i = 1; i <= A.length; i++){
-            for(int j = A[i - 1]; j <= m; j++){//todo: weisha budui?
+            for(int j = A[i - 1]; j <= m; j++){
                 dp[j] = Math.max(dp[j], dp[j - A[i - 1]] + V[i - 1]);
 
 
