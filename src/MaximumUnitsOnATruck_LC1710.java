@@ -22,9 +22,9 @@ public class MaximumUnitsOnATruck_LC1710 {
     //O(nlogn + n), O(1)
     public int maximumUnits(int[][] ary, int truckSize) {
         int res = 0;
-        Arrays.sort(ary, (a, b) -> {
-            return b[1] - a[1];
-        });
+        Arrays.sort(ary, (a, b) ->
+             b[1] - a[1]
+        );
 
         int i = 0;
         while(i < ary.length && truckSize > 0){
