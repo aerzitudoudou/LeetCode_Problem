@@ -1,4 +1,5 @@
 public class CuttingARoad_Lint700 {
+    //完全背包问题
     //sol1, my, O(nm), O(nm)
     public int cutting(int[] prices, int n) {
         //dp[i][j] 代表取前i段绳子， size <= j 能取到的最大价值
