@@ -1,2 +1,2 @@
 # LeetCode_Problem
-leetcode problem java solution
+leetcode problem java solutions
