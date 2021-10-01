@@ -1,4 +1,4 @@
-public class CuttingARoad_Lint700 {
+public class CuttingARod_Lint700 {
     //完全背包问题
     //sol1, my, O(nm), O(nm)
     public int cutting(int[] prices, int n) {
