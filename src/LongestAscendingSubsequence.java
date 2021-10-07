@@ -17,7 +17,38 @@ Because [2, 3, 4, 5] is the longest ascending subsequence.
 
 
 public class LongestAscendingSubsequence {
-    //way1: T:O(n ^2) S: O(n)
+
+    //!!!sol1, 2021.10.6, from acwing, O(n^2), O(n)
+    public int lengthOfLIS(int[] nums) {
+        int res = 0;
+        //dp[i]: longest increasing subsequence length when the last item is the ith item in the array
+        int[] dp = new int[nums.length + 1];
+        for(int i = 1; i < nums.length + 1; i++){
+            for(int j = 0; j < i; j++){
+                if(j == 0){
+                    dp[i] = 1;
+                }else if(nums[j - 1] < nums[i - 1]){
+                    dp[i] = Math.max(dp[j] + 1, dp[i]);
+                }
+
+            }
+
+            res = Math.max(res, dp[i]);
+        }
+
+        //!!! 不一定最长序列的结尾是最后一位，可以合并到上一个loop同时更新最大值
+        // for(int i = 1; i < nums.length  + 1; i++){
+        //     res = Math.max(res, dp[i]);
+        // }
+        return res;
+    }
+
+
+    //way2 TODO: T(nlogn) 的做法。不是很懂
+
+
+
+    //sol3: from lai, T:O(n ^2) S: O(n)
     public int longest(int[] array) {
         //dp[i] 表示从[0, i], 包括i, 最长ascending subsequence 的长度
         //maintain 一个globalmax 记录Max(dp[i])
@@ -46,6 +77,4 @@ public class LongestAscendingSubsequence {
         return max;
 
     }
-
-    //way2 TODO: T(nlogn) 的做法。不是很懂
 }
