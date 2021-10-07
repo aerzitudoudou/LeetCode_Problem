@@ -16,7 +16,7 @@ Because [2, 3, 4, 5] is the longest ascending subsequence.
 
 
 
-public class LongestAscendingSubsequence {
+public class LongestAscendingSubsequence_LC300 {
 
     //!!!sol1, 2021.10.6, from acwing, O(n^2), O(n)
     public int lengthOfLIS(int[] nums) {
