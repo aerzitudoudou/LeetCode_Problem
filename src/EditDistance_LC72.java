@@ -42,8 +42,42 @@ exection -> execution (insert 'u')
 * */
 
 
-public class EditDistance {
+public class EditDistance_LC72 {
+    //sol1, my, O(mn), O(mn)
+    //dp[i][j] represent minimum operation taken from first i letter in word1 to first j letter in word2
+    //do nothing: a[i - 1] == b[j - 1] : dp[i][j] = dp[i - 1][j - 1]
+    //insert in word1: dp[i][j] = dp[i][j - 1] + 1
+    //delete in word1: dp[i][j] = dp[i - 1][j] + 1
+    //replace in word1: dp[i][j] = dp[i - 1][j - 1] + 1
+    //dp[i][j] = min(do nothing, insert, delete, replace)
+    public int minDistance(String word1, String word2) {
+        int l1 = word1.length(), l2 = word2.length();
+        int[][] dp = new int[l1 + 1][l2 + 1];
 
+
+        for(int i = 0; i < l1 + 1; i++){
+            for(int j = 0; j < l2 + 1; j++){
+                if(i == 0){
+                    dp[i][j] = j;
+                }else if(j == 0){
+                    dp[i][j] = i;
+                }else{
+                    dp[i][j] = Math.min(dp[i][j - 1] + 1, dp[i - 1][j] + 1);
+                    dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - 1] + 1);
+
+                    if(word1.charAt(i - 1) == word2.charAt(j - 1)){
+                        dp[i][j] = Math.min(dp[i][j], dp[i- 1][j- 1]);
+                    }
+                }
+
+
+            }
+        }
+
+        return dp[l1][l2];
+    }
+
+    //from Lai, O(mn), O(mn)
     public int editDistance(String one, String two) {
      /*
       m[i][j] represents minimum nubmer of operations taken from one.substring(0, i) to two.substring(0,j)
