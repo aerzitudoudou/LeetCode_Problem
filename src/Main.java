@@ -774,9 +774,12 @@ public class Main {
 //        int[] ary = {2,3,1};
 //        Arrays.sort(ary, 1, 2);
 //        System.out.println(ary);
+//
+//        IntegerToRoman_LC12 integerToRoman_lc12 = new IntegerToRoman_LC12();
+//        integerToRoman_lc12.intToRoman(3);
 
-        IntegerToRoman_LC12 integerToRoman_lc12 = new IntegerToRoman_LC12();
-        integerToRoman_lc12.intToRoman(3);
+        BurstBalloons_LC312 burstBalloons_lc312 = new BurstBalloons_LC312();
+        burstBalloons_lc312.maxCoins(new int[]{3,1,5,8});
 
 
 
