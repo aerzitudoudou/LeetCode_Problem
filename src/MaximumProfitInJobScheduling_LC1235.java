@@ -78,9 +78,7 @@ public class MaximumProfitInJobScheduling_LC1235 {
     public int jobScheduling3(int[] startTime, int[] endTime, int[] profit) {
         //sort based on the end time
         /*
-
-        [begin, profit]
-
+        [begin, end, profit]
         */
         int size =  startTime.length;
         int[][] job = new int[size][3];
