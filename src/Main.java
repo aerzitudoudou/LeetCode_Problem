@@ -780,9 +780,11 @@ public class Main {
 
 //        BurstBalloons_LC312 burstBalloons_lc312 = new BurstBalloons_LC312();
 //        burstBalloons_lc312.maxCoins(new int[]{3,1,5,8});
-          MinimumNumberOfArrowsToBurstBalloons_LC452 minimumNumberOfArrowsToBurstBalloons_lc452 = new MinimumNumberOfArrowsToBurstBalloons_LC452();
-          minimumNumberOfArrowsToBurstBalloons_lc452.findMinArrowShots(new int[][]{{-2147483646,-2147483645},{2147483646,2147483647}});
-        System.out.println(-2147483645 - 2147483647);
+//          MinimumNumberOfArrowsToBurstBalloons_LC452 minimumNumberOfArrowsToBurstBalloons_lc452 = new MinimumNumberOfArrowsToBurstBalloons_LC452();
+//        minimumNumberOfArrowsToBurstBalloons_lc452.findMinArrowShots(new int[][]{{-2147483646,-2147483645},{2147483646,2147483647}});
+//        System.out.println(-2147483645 - 2147483647);
+        AllSubSets allSubSets = new AllSubSets();
+        allSubSets.subSets("test");
 
 
 

@@ -2,7 +2,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllSubSets {
+
     public List<String> subSets(String set) {
+        List<String> res = new ArrayList<>();
+        if(set == null) return res;
+        StringBuilder sb = new StringBuilder();
+        dfs(res, sb, 0, set);
+        return res;
+    }
+
+    private void dfs(List<String> res, StringBuilder sb, int index, String set){
+        if(set.length() == 0 || index == set.length()){
+            res.add(sb.toString());
+            return;
+        }
+
+        //add current letter
+        sb.append(set.charAt(index));
+        dfs(res, sb, index + 1, set);
+        sb.deleteCharAt(sb.length() - 1);
+
+        //without current letter
+        dfs(res, sb, index + 1, set);
+    }
+
+    public List<String> subSetsI(String set) {
 
         List<String> res = new ArrayList<>();
         if(set == null){
