@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AllSubSetII {
-    //way1, from lai, O(nlogn + 2^n * n), O(n)
+    //sol1, from lai, O(nlogn + 2^n * n), O(n)
     public List<String> subSets(String set) {
         List<String> res = new ArrayList<>();
         if(set == null) return res;
