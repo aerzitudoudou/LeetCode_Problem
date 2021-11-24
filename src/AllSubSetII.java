@@ -3,37 +3,38 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AllSubSetII {
-    public List<List<Integer>> subsetsWithDup(int[] nums) {
-        //subsetII
-        //加的时候一样加，不加的时候跳过所有的重复，从下一个不重复的字母做起
-        List<List<Integer>> res = new ArrayList<>();
-
-        if(nums == null){
-            return res;
-        }
-
-        Arrays.sort(nums);
-        List<Integer> sb = new ArrayList<>();
-        int index = 0;
-        dfs(sb, res, index, nums);
+    //way1, from lai, O(nlogn + 2^n * n), O(n)
+    public List<String> subSets(String set) {
+        List<String> res = new ArrayList<>();
+        if(set == null) return res;
+        char[] ary = set.toCharArray();
+        Arrays.sort(ary);
+        StringBuilder sb = new StringBuilder();
+        dfs(sb, ary, res, 0);
         return res;
+
     }
 
-    private void dfs(List<Integer> sb, List<List<Integer>> res, int index, int[] nums){
-        if(index == nums.length){
-            res.add(new ArrayList(sb));
+    private void dfs(StringBuilder sb, char[] ary, List<String> res, int index){
+        //base case
+        if(index == ary.length){
+            res.add(sb.toString());
             return;
         }
-        int tmp = nums[index];
-        sb.add(tmp);
-        dfs(sb, res, index + 1, nums);
-        sb.remove(sb.size() - 1);
-        while(index + 1 < nums.length && nums[index] == nums[index + 1]){
+
+        //add
+        sb.append(ary[index]);
+        dfs(sb, ary, res, index + 1);
+        sb.deleteCharAt(sb.length() - 1);
+
+
+
+        //not add
+        index++;
+        while(index < ary.length && ary[index] == ary[index - 1]){
             index++;
         }
-
-        dfs(sb, res, index + 1, nums);
-
+        dfs(sb, ary, res, index);
 
     }
 }
