@@ -35,7 +35,7 @@ import java.util.List;
 
 //T:2^(set.length) * k
 //O(set.length)
-public class AllSubsetsIIOfSizeK_Lai640 {
+public class AllSubsetsIIOfSizeK {
     public List<String> subSetsIIOfSizeK(String set, int k) {
         List<String> res = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
