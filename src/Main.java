@@ -783,8 +783,13 @@ public class Main {
 //          MinimumNumberOfArrowsToBurstBalloons_LC452 minimumNumberOfArrowsToBurstBalloons_lc452 = new MinimumNumberOfArrowsToBurstBalloons_LC452();
 //        minimumNumberOfArrowsToBurstBalloons_lc452.findMinArrowShots(new int[][]{{-2147483646,-2147483645},{2147483646,2147483647}});
 //        System.out.println(-2147483645 - 2147483647);
-        AllSubSets allSubSets = new AllSubSets();
-        allSubSets.subSets("test");
+//        AllSubSets allSubSets = new AllSubSets();
+//        allSubSets.subSets("test");
+
+        Minesweeper_LC529 minesweeper_lc529 = new Minesweeper_LC529();
+        char[][] board = {{'E','E', 'E','E','E'},{'E','E','M','E','E'},{'E','E','E','E','E'},{'E','E','E','E','E'}};
+        int[] click = {3, 0};
+        minesweeper_lc529.updateBoard(board, click);
 
 
 
