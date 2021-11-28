@@ -6,6 +6,7 @@ public class Minesweeper_LC529 {
             board[x][y] = 'X';
             return board;
         }
+        char c = 4;
 
         dfs(board, x, y);
         return board;
