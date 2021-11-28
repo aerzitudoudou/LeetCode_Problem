@@ -1,5 +1,5 @@
 public class Minesweeper_LC529 {
-    //sol1, dfs, acwing, O(m * n), O(Max(m, n))
+    //sol1, dfs, acwing, O(m * n), O(m * n)
     public char[][] updateBoard(char[][] board, int[] click) {
         int x = click[0], y = click[1];
         if(board[x][y] == 'M'){
