@@ -16,7 +16,7 @@ public class RecoverBinarySearchTree_LC99 {
         //in order traversal
         dfs(root.left);
 
-
+        //do something on the current node
         if(lastSeen != null && root.key < lastSeen.key){
             second = root;
             if(first == null){
