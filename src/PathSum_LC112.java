@@ -1,5 +1,5 @@
 public class PathSum_LC112 {
-    //sol1, my, dfs, O(n), O(h)
+    //!!!sol1, my, dfs, O(n), O(h)
      boolean hasSum = false;
      public boolean hasPathSum(TreeNode root, int target) {
          dfs(root, target, 0);
@@ -28,7 +28,7 @@ public class PathSum_LC112 {
      }
 
 
-    //sol2, from https://leetcode.com/problems/path-sum/discuss/36378/AcceptedMy-recursive-solution-in-Java
+    //!!!sol2, from https://leetcode.com/problems/path-sum/discuss/36378/AcceptedMy-recursive-solution-in-Java
     // recursion with return type, O(n), O(h)
     public boolean hasPathSum2(TreeNode root, int target) {
         if(root == null) return false;
