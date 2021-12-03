@@ -1,6 +1,7 @@
 public class RecoverBinarySearchTree_LC99 {
     //in order traversal, find a1 > a2 && a3 > a4. a1 a4 is the node to be switched
     //corner case: only have a1 > a2, switch
+    //
     TreeNode first = null, second = null, lastSeen = null;
     public void recoverTree(TreeNode root) {
 
