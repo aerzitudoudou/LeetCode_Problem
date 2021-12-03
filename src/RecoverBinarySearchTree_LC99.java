@@ -1,5 +1,6 @@
 public class RecoverBinarySearchTree_LC99 {
-    //in order traversal, find a1 > a2 && a3 > a4. a1 a4 is the node to be switched
+    //sol1,from wisdompeak, O(n), O(h)
+    // in order traversal, find a1 > a2 && a3 > a4. a1 a4 is the node to be switched
     //corner case: only have a1 > a2, switch
     //
     TreeNode first = null, second = null, lastSeen = null;
