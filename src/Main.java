@@ -786,12 +786,14 @@ public class Main {
 //        AllSubSets allSubSets = new AllSubSets();
 //        allSubSets.subSets("test");
 
-        Minesweeper_LC529 minesweeper_lc529 = new Minesweeper_LC529();
-        char[][] board = {{'E','E', 'E','E','E'},{'E','E','M','E','E'},{'E','E','E','E','E'},{'E','E','E','E','E'}};
-        int[] click = {3, 0};
-        minesweeper_lc529.updateBoard(board, click);
+//        Minesweeper_LC529 minesweeper_lc529 = new Minesweeper_LC529();
+//        char[][] board = {{'E','E', 'E','E','E'},{'E','E','M','E','E'},{'E','E','E','E','E'},{'E','E','E','E','E'}};
+//        int[] click = {3, 0};
+//        minesweeper_lc529.updateBoard(board, click);
 
-
+        MinimumPathSum_LC64 minimumPathSum_lc64 = new MinimumPathSum_LC64();
+        int[][] testAry = {{1,2,3},{4,5,6}};
+        minimumPathSum_lc64.minPathSum2(testAry);
 
     }
 }
