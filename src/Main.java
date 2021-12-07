@@ -808,7 +808,6 @@ public class Main {
         five.right = seven;
         fifteen.right = eighteen;
         RangeSumOfBST_LC938 rangeSumOfBST_lc938 = new RangeSumOfBST_LC938();
-        rangeSumOfBST_lc938.rangeSumBST2(ten, 7, 15);
 
     }
 }
