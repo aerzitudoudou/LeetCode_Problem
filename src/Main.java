@@ -786,12 +786,28 @@ public class Main {
 //        AllSubSets allSubSets = new AllSubSets();
 //        allSubSets.subSets("test");
 
-        Minesweeper_LC529 minesweeper_lc529 = new Minesweeper_LC529();
-        char[][] board = {{'E','E', 'E','E','E'},{'E','E','M','E','E'},{'E','E','E','E','E'},{'E','E','E','E','E'}};
-        int[] click = {3, 0};
-        minesweeper_lc529.updateBoard(board, click);
+//        Minesweeper_LC529 minesweeper_lc529 = new Minesweeper_LC529();
+//        char[][] board = {{'E','E', 'E','E','E'},{'E','E','M','E','E'},{'E','E','E','E','E'},{'E','E','E','E','E'}};
+//        int[] click = {3, 0};
+//        minesweeper_lc529.updateBoard(board, click);
 
+//        MinimumPathSum_LC64 minimumPathSum_lc64 = new MinimumPathSum_LC64();
+//        int[][] testAry = {{1,2,3},{4,5,6}};
+//        minimumPathSum_lc64.minPathSum2(testAry);
 
+        TreeNode ten = new TreeNode(10);
+        TreeNode five = new TreeNode(5);
+        TreeNode fifteen = new TreeNode(15);
+        TreeNode three = new TreeNode(3);
+        TreeNode seven = new TreeNode(7);
+        TreeNode eighteen = new TreeNode(18);
+
+        ten.left = five;
+        ten.right = fifteen;
+        five.left = three;
+        five.right = seven;
+        fifteen.right = eighteen;
+        RangeSumOfBST_LC938 rangeSumOfBST_lc938 = new RangeSumOfBST_LC938();
 
     }
 }

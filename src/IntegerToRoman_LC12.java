@@ -20,7 +20,7 @@ public class IntegerToRoman_LC12 {
 
     //sol1, my, complecated...
     public String intToRoman(int num) {
-        Map<Integer, String> map = new HashMap<>(){{
+        Map<Integer, String> map = new HashMap<Integer, String>(){{
             put(1, "I");
             put(4, "IV");
             put(5, "V");
