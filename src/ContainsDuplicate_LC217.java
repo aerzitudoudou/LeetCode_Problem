@@ -7,15 +7,13 @@ public class ContainsDuplicate_LC217 {
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for(int i : nums){
-            if(!set.contains(i)){
+            if(set.contains(i)) return true;
+            else{
                 set.add(i);
-            }else{
-                return true;
             }
         }
         return false;
     }
-
     //sol2, O(nlogn), O(1)
     public boolean containsDuplicate1(int[] nums) {
         Arrays.sort(nums);
