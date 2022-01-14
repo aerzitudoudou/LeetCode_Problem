@@ -795,19 +795,22 @@ public class Main {
 //        int[][] testAry = {{1,2,3},{4,5,6}};
 //        minimumPathSum_lc64.minPathSum2(testAry);
 
-        TreeNode ten = new TreeNode(10);
-        TreeNode five = new TreeNode(5);
-        TreeNode fifteen = new TreeNode(15);
-        TreeNode three = new TreeNode(3);
-        TreeNode seven = new TreeNode(7);
-        TreeNode eighteen = new TreeNode(18);
-
-        ten.left = five;
-        ten.right = fifteen;
-        five.left = three;
-        five.right = seven;
-        fifteen.right = eighteen;
-        RangeSumOfBST_LC938 rangeSumOfBST_lc938 = new RangeSumOfBST_LC938();
+//        TreeNode ten = new TreeNode(10);
+//        TreeNode five = new TreeNode(5);
+//        TreeNode fifteen = new TreeNode(15);
+//        TreeNode three = new TreeNode(3);
+//        TreeNode seven = new TreeNode(7);
+//        TreeNode eighteen = new TreeNode(18);
+//
+//        ten.left = five;
+//        ten.right = fifteen;
+//        five.left = three;
+//        five.right = seven;
+//        fifteen.right = eighteen;
+//        RangeSumOfBST_LC938 rangeSumOfBST_lc938 = new RangeSumOfBST_LC938();
+        MergeSort_LAI9 mergeSort_lai9 = new MergeSort_LAI9();
+        int[] array = {1,2,3,4,5};
+        mergeSort_lai9.mergeSort(array);
 
     }
 }

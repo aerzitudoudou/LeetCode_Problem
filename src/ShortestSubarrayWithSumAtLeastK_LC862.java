@@ -14,7 +14,7 @@ public class ShortestSubarrayWithSumAtLeastK_LC862 {
     Monotonic deque: maintains the index of St such that St is strictly increasing, and St inside queue are Si candidate
 
     whenever a St comes in to queue,
-    - for Sk in the deque >= St , those cannot pair with St because St>=Sk+ k given k >= 1
+     - for Sk in the deque >= St , those cannot pair with St because St>=Sk+ k given k >= 1
                                  those also cannot pair with S after St because even it can satisfy S >= Sk+ k, index t is better than index k because t comes later to make the length of subarray shorter
      - therefore all Sk >= St can be removed
 
