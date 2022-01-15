@@ -1,5 +1,5 @@
 public class MergeSort_LAI9 {
-    //O(nlogn), O(n)
+    //sol1, O(nlogn), O(n)
     //divide = 1 + 2 + 4 + ....+ n/2 + n= (1 - n * 2)/(1 - 2) = O(n)
     //conquer = logn * n , level nums = logn, each level does n time's merge
     public int[] mergeSort(int[] array) {
@@ -40,7 +40,5 @@ public class MergeSort_LAI9 {
             array[i] = helper[s++];
         }
     }
-
-
 
 }
