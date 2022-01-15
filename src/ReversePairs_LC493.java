@@ -1,12 +1,9 @@
 public class ReversePairs_LC493 {
-      /*
+      /* sol1, mergesort, O(nlogn), O(n)
          count the number of reverse pairs during merge sort
-         O(nlogn), O(n)
          -on every level: for each node on the recursion tree, find all the reverse pairs between two parts: O(r - l), merge: O(r - l), adding up all the nodes, the time complexity becomes O(n)
          -logn levels on the recursion tree
           1 2 3 4 || 1 3
-
-
     */
 
     public int reversePairs(int[] nums) {
