@@ -808,9 +808,12 @@ public class Main {
 //        five.right = seven;
 //        fifteen.right = eighteen;
 //        RangeSumOfBST_LC938 rangeSumOfBST_lc938 = new RangeSumOfBST_LC938();
-        MergeSort_LAI9 mergeSort_lai9 = new MergeSort_LAI9();
-        int[] array = {1,2,3,4,5};
-        mergeSort_lai9.mergeSort(array);
+//        MergeSort_LAI9 mergeSort_lai9 = new MergeSort_LAI9();
+//        int[] array = {1,2,3,4,5};
+//        mergeSort_lai9.mergeSort(array);
+        ReversePairs_LC493 reversePairs_lc493 = new ReversePairs_LC493();
+        int[] array = {1,1,-1,-1,-1,1};
+        reversePairs_lc493.reversePairs(array);
 
     }
 }
