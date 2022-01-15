@@ -19,8 +19,8 @@ public class MergeSort_LAI9 {
     }
 
     private void merge(int[] array, int l, int r, int mid){
-        int[] helper = new int[array.length];
-        int s = l, left = l, right = mid + 1;
+        int[] helper = new int[r - l + 1];
+        int s = 0, left = l, right = mid + 1;
         while(left <= mid && right <= r){
             if(array[left] < array[right]){
                 helper[s++] = array[left++];
@@ -35,31 +35,12 @@ public class MergeSort_LAI9 {
             helper[s++] = array[left++];
         }
 
+        s = 0;
         for(int i = l; i <= r; i++) {
-            array[i] = helper[i];
+            array[i] = helper[s++];
         }
     }
 
 
-    private void merge1(int[] array, int l, int r, int mid){
-        int[] helper = new int[array.length];
-        for(int i = l; i <= r; i++){
-            helper[i] = array[i];
-        }
-        int s = l, left = l, right = mid + 1;
-        while(left <= mid && right <= r){
-            if(helper[left] < helper[right]){
-                array[s++] = helper[left++];
-            }else{
-                array[s++] = helper[right++];
-            }
-        }
-        while(right <= r){
-            array[s++] = helper[right++];
-        }
-        while(left <= mid){
-            array[s++] = helper[left++];
-        }
 
-    }
 }
