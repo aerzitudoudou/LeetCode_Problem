@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CountOfSmallerNumbersAfterSelf_LC315 {
-    //sol1, my, O(nlogn), O(n)
+    //sol1, my, merge sort, O(nlogn), O(n)
     //similar like 493 but need to store the index of the number along the merge sort, in order to update the res using the index
     public List<Integer> countSmaller(int[] nums) {
         int[] res = new int[nums.length];
