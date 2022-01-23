@@ -21,11 +21,12 @@ public class FindKCloestElements_LC658 {
         }
 
         //r is the smallest number in part2
+        //1 2 3 4 6 9     x = 7   smaller number >= 7 is 9, but closest number to 7 is 6. r represents the closest number index to x
         if(r > 0){
             r = Math.abs(arr[r - 1] - x) <= Math.abs(arr[r] - x) ? r - 1 : r;
         }
         int left = r, right = r, count = k;
-        //(left, right)
+        //range of valid numbers: (left, right)
         count--;
         left--;
         right++;
