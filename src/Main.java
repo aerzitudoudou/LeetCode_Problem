@@ -814,8 +814,11 @@ public class Main {
 //        ReversePairs_LC493 reversePairs_lc493 = new ReversePairs_LC493();
 //        int[] array = {1,1,-1,-1,-1,1};
 //        reversePairs_lc493.reversePairs(array);
-        int[] ary = {2,5,5,2,5};
-        System.out.println(Arrays.binarySearch(ary, 5));
+//        int[] ary = {2,5,5,2,5};
+//        System.out.println(Arrays.binarySearch(ary, 5));
+        char[][] ary = {{'0','0','1','0'},{'0','1','1','0'},{'0','1','0','0'}};
+        SmallestRectangleEnclosingBlackPixels_LC302 smallestRectangleEnclosingBlackPixels_lc302 = new SmallestRectangleEnclosingBlackPixels_LC302();
+        smallestRectangleEnclosingBlackPixels_lc302.minArea(ary, 0, 2);
 
     }
 }
