@@ -819,11 +819,14 @@ public class Main {
 //        char[][] ary = {{'0','0','1','0'},{'0','1','1','0'},{'0','1','0','0'}};
 //        SmallestRectangleEnclosingBlackPixels_LC302 smallestRectangleEnclosingBlackPixels_lc302 = new SmallestRectangleEnclosingBlackPixels_LC302();
 //        smallestRectangleEnclosingBlackPixels_lc302.minArea(ary, 0, 2);
-        int[] ary = {1,1,2,3,3,3,4,6,8,8};
-        int k = 6, x = 1;
-        FindKCloestElements_LC658 findKCloestElements_lc658 = new FindKCloestElements_LC658();
-        findKCloestElements_lc658.findClosestElements(ary, k, x);
+//        int[] ary = {1,1,2,3,3,3,4,6,8,8};
+//        int k = 6, x = 1;
+//        FindKCloestElements_LC658 findKCloestElements_lc658 = new FindKCloestElements_LC658();
+//        findKCloestElements_lc658.findClosestElements(ary, k, x);
 
+        System.out.println(-3%2);
+        System.out.println(-3/2);
+        System.out.println(Math.abs(Integer.MIN_VALUE));
 
     }
 }
