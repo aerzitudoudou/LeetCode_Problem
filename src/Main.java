@@ -823,10 +823,13 @@ public class Main {
 //        int k = 6, x = 1;
 //        FindKCloestElements_LC658 findKCloestElements_lc658 = new FindKCloestElements_LC658();
 //        findKCloestElements_lc658.findClosestElements(ary, k, x);
+//
+//        System.out.println(-3%2);
+//        System.out.println(-3/2);
+//        System.out.println(Math.abs(Integer.MIN_VALUE));
 
-        System.out.println(-3%2);
-        System.out.println(-3/2);
-        System.out.println(Math.abs(Integer.MIN_VALUE));
+        FindMinimumInRotatedSortedArray_LC153 findMinimumInRotatedSortedArray_lc153 = new FindMinimumInRotatedSortedArray_LC153();
+        findMinimumInRotatedSortedArray_lc153.findMin2(new int[]{0,1,2,3,4,5,6,7});
 
     }
 }
