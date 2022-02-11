@@ -827,9 +827,25 @@ public class Main {
 //        System.out.println(-3%2);
 //        System.out.println(-3/2);
 //        System.out.println(Math.abs(Integer.MIN_VALUE));
+//
+//        FindMinimumInRotatedSortedArray_LC153 findMinimumInRotatedSortedArray_lc153 = new FindMinimumInRotatedSortedArray_LC153();
+//        findMinimumInRotatedSortedArray_lc153.findMin2(new int[]{0,1,2,3,4,5,6,7});
+//
+//        FirstBadVersion_LC278 firstBadVersion_lc278 = new FirstBadVersion_LC278();
+//        firstBadVersion_lc278.firstBadVersion1(5);
+//          SearchInRotatedSortedArray_LC33 searchInRotatedSortedArray_lc33 = new SearchInRotatedSortedArray_LC33();
+//          searchInRotatedSortedArray_lc33.search1(new int[]{1},  2);
+        FindPeak_LC162_FollowUp findPeak_mf = new FindPeak_LC162_FollowUp();
+        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{1,3,3,2,4,4,4,1}));
+        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{1,3,3,2,5,1,4,4,3}));
+        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{3,6,6,7,7,2}));
+        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{2,9, 8,4, 4, 4, 4, 4, 3}));
+        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{2, 3, 4, 4, 4, 4,4, 6,  11, 8, 3}));
+        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{2, 3, 4, 4, 4, 4,4, 6,  11}));
+        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{8,5, 5,5,5,4, 4, 4, 4,4, 3, 3,3,3, 2}));
 
-        FindMinimumInRotatedSortedArray_LC153 findMinimumInRotatedSortedArray_lc153 = new FindMinimumInRotatedSortedArray_LC153();
-        findMinimumInRotatedSortedArray_lc153.findMin2(new int[]{0,1,2,3,4,5,6,7});
+
+
 
     }
 }
