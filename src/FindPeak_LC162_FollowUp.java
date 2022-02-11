@@ -56,6 +56,102 @@ class FindPeak_LC162_FollowUp {
         return ary[r];
     }
 
+    //1 3 5 3 2 || 7 5 9 1
+//    public List<Integer> findAllPeaks(int[] ary){
+//
+//    }
+
+
+    //                 1 3 3 2 5 1 4 4 3
+    //left to right:   1 1 1 0 1 0 1 1 0
+    //right to left:   0 1 1 0 1 0 1 1 1
+
+    //flag isStart = true
+    //if (cur > cur  - 1){ istart = false, ---}
+    //           3 3 3 5 2 1
+    //           0 0 0 1 0 0
+    //           1 1 1 0 1 0
+    // index < 0 || index >= length : + infinite
+    public List<Integer> findAllPeaksWithDuplicate(int[] ary){
+        List<Integer> res = new ArrayList<>();
+        boolean isStart = true, isEnd = true;
+        int[] leftToRight = new int[ary.length];
+        int[] rightToLeft = new int[ary.length];
+
+        //left to right
+        for(int i = 0; i < ary.length; i++){
+            if(i == 0) continue;
+            else if(isStart && ary[i] == ary[i - 1]) continue;
+            else{
+                isStart = false;
+                if (ary[i] > ary[i - 1]) {
+                    leftToRight[i] = 1;
+                }else if(ary[i] == ary[i - 1]){
+                    leftToRight[i] = leftToRight[i - 1];
+                }else{
+                    leftToRight[i] = 0;
+                }
+            }
+
+        }
+        for(int i = ary.length - 1; i >= 0; i--){
+            if(i == ary.length - 1) continue;
+            else if(isEnd && ary[i] == ary[i + 1]) continue;
+            else{
+                isEnd = false;
+                if (ary[i] > ary[i + 1]) {
+                    rightToLeft[i] = 1;
+                    if(leftToRight[i] == 1){
+                        res.add(ary[i]);
+                    }
+                }else if(ary[i] == ary[i + 1]){
+                    rightToLeft[i] = rightToLeft[i + 1];
+                    if(rightToLeft[i] == 1 && leftToRight[i] == 1){
+                        res.add(ary[i]);
+                    }
+                }else{
+                    rightToLeft[i] = 0;
+                }
+            }
+
+        }
+
+        return res;
+
+    }
+
+
+    public List<Integer> findAllPeaksWithDuplicate2(int[] ary){
+        List<Integer> res = new ArrayList<>();
+
+        boolean[] leftToRight = new boolean[ary.length];
+        boolean[] rightToLeft = new boolean[ary.length];
+
+        //left to right
+        for(int i = 1; i < ary.length; i++){
+            if(ary[i] > ary[i - 1] || ary[i] == ary[i - 1] && leftToRight[i - 1]){
+                leftToRight[i] = true;
+            }
+
+        }
+        for(int i = ary.length - 2; i >= 0; i--){
+            if(ary[i] > ary[i + 1] || ary[i] == ary[i + 1] && rightToLeft[i + 1]){
+                rightToLeft[i] = true;
+                if(leftToRight[i]) res.add(ary[i]);
+            }
+
+        }
+
+        return res;
+
+
+
+
+
+
+
+    }
+
 
 
 

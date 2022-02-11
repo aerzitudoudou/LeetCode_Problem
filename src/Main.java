@@ -836,13 +836,18 @@ public class Main {
 //          SearchInRotatedSortedArray_LC33 searchInRotatedSortedArray_lc33 = new SearchInRotatedSortedArray_LC33();
 //          searchInRotatedSortedArray_lc33.search1(new int[]{1},  2);
         FindPeak_LC162_FollowUp findPeak_mf = new FindPeak_LC162_FollowUp();
-        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{1,3,3,2,4,4,4,1}));
-        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{1,3,3,2,5,1,4,4,3}));
-        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{3,6,6,7,7,2}));
-        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{2,9, 8,4, 4, 4, 4, 4, 3}));
-        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{2, 3, 4, 4, 4, 4,4, 6,  11, 8, 3}));
-        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{2, 3, 4, 4, 4, 4,4, 6,  11}));
-        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{8,5, 5,5,5,4, 4, 4, 4,4, 3, 3,3,3, 2}));
+//        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{1,3,3,2,4,4,4,1}));
+//        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{1,3,3,2,5,1,4,4,3}));
+//        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{3,6,6,7,7,2}));
+//        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{2,9, 8,4, 4, 4, 4, 4, 3}));
+//        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{2, 3, 4, 4, 4, 4,4, 6,  11, 8, 3}));
+//        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{2, 3, 4, 4, 4, 4,4, 6,  11}));
+//        System.out.println(findPeak_mf.findPeakWithDuplication(new int[]{8,5, 5,5,5,4, 4, 4, 4,4, 3, 3,3,3, 2}));
+
+        System.out.println(findPeak_mf.findAllPeaksWithDuplicate2(new int[]{3,3,3,5,2,1}));
+        System.out.println(findPeak_mf.findAllPeaksWithDuplicate2(new int[]{3,3,3,5,2,4,6,6,6}));
+        System.out.println(findPeak_mf.findAllPeaksWithDuplicate2(new int[]{3,4,3,5,2,4,1,1,6,6,1}));
+
 
 
 
