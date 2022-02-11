@@ -56,22 +56,20 @@ class FindPeak_LC162_FollowUp {
         return ary[r];
     }
 
-    //1 3 5 3 2 || 7 5 9 1
-//    public List<Integer> findAllPeaks(int[] ary){
-//
-//    }
 
 
+    //index < 0 and index >= length - 1的值都是负无穷，求峰值思路（略）：
     //                 1 3 3 2 5 1 4 4 3
     //left to right:   1 1 1 0 1 0 1 1 0
     //right to left:   0 1 1 0 1 0 1 1 1
 
-    //flag isStart = true
-    //if (cur > cur  - 1){ istart = false, ---}
+
+    //index < 0 and index >= length - 1的值都是正无穷，求峰值：
     //           3 3 3 5 2 1
     //           0 0 0 1 0 0
-    //           1 1 1 0 1 0
+    //           0 0 0 1 1 0
     // index < 0 || index >= length : + infinite
+    //sol1, my, O(n), O(n)
     public List<Integer> findAllPeaksWithDuplicate(int[] ary){
         List<Integer> res = new ArrayList<>();
         boolean isStart = true, isEnd = true;
@@ -120,7 +118,7 @@ class FindPeak_LC162_FollowUp {
 
     }
 
-
+    //sol2, from jh, O(n), O(n)
     public List<Integer> findAllPeaksWithDuplicate2(int[] ary){
         List<Integer> res = new ArrayList<>();
 
