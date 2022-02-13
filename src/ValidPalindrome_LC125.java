@@ -3,7 +3,6 @@ public class ValidPalindrome_LC125 {
     //sol1, my, 2022/02/13, O(n), O(1)
     public boolean isPalindrome0(String s) {
         if(s == null) return false;
-        if(s.length() == 0) return true;
         int p1 = 0, p2 = s.length() - 1;
         while(p1 < p2){
             while(p1 < p2 && !Character.isLetterOrDigit(s.charAt(p1))) p1++;
