@@ -1,5 +1,24 @@
 public class ValidPalindrome_LC125 {
 
+    //sol1, my, 2022/02/13, O(n), O(1)
+    public boolean isPalindrome0(String s) {
+        if(s == null) return false;
+        if(s.length() == 0) return true;
+        int p1 = 0, p2 = s.length() - 1;
+        while(p1 < p2){
+            while(p1 < p2 && !Character.isLetterOrDigit(s.charAt(p1))) p1++;
+            while(p1 < p2 && !Character.isLetterOrDigit(s.charAt(p2))) p2--;
+            if(Character.toUpperCase(s.charAt(p1)) != Character.toUpperCase(s.charAt(p2))) return false;
+            else{
+                p1++;
+                p2--;
+            }
+        }
+
+        return true;
+
+    }
+
 
     public boolean isPalindrome2(String s) {
         for(int start = 0, end = s.length() - 1; start < end; start++, end--){
