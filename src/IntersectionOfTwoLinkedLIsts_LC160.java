@@ -44,7 +44,7 @@ public class IntersectionOfTwoLinkedLIsts_LC160 {
     //           ----
     //                b
     //B          ----A-------
-    //Va = Vb, when b finishes, a must be finish the a2 part at B. at this point move b from finish line to starting of a1 garantees A and B are moving from the same position in parallel.
+    //Va = Vb, when b finishes, a must be finish the a2 part at B. at this point move b from finish line to starting of a1 guarantees A and B are moving from the same position in parallel.
     public ListNode getIntersectionNode2(ListNode a, ListNode b) {
         ListNode startA = a, startB = b;
         while(a != b){ //if no intersection, then a == b == null also satisfies
