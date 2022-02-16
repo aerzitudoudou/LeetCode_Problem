@@ -5,7 +5,7 @@ public class ValidPalindromeII_LC680 {
 
    bcab
    */
-    //!!!!!!!!sol1 https://www.youtube.com/watch?v=WQTZQ6LHm0M O(n) O(1)
+    //!!!sol1 https://www.youtube.com/watch?v=WQTZQ6LHm0M O(n) O(1)
     public boolean validPalindrome(String s) {
         //[0, start) is valid
         //(end, s.length() - 1] is valid
@@ -32,7 +32,7 @@ public class ValidPalindromeII_LC680 {
         return true;
 
     }
-    //sol2: without user a helper method
+    //!!!sol2: without user a helper method
 
     public boolean validPalindrome2(String s) {
         for(int start = 0, end = s.length() - 1; start < end; start++, end--){
