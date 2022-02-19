@@ -6,7 +6,6 @@ public class RangeSumOfBST_LC938 {
         if(root == null) return 0;
         if(low > root.key) return rangeSumBST(root.right, low, high);
         if(high < root.key) return rangeSumBST(root.left, low, high);
-
         return root.key + rangeSumBST(root.left, low, high) + rangeSumBST(root.right, low, high);
 
     }
