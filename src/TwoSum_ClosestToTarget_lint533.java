@@ -6,8 +6,7 @@ public class TwoSum_ClosestToTarget_lint533 {
         Arrays.sort(nums);
         int l = 0, r = nums.length - 1, res = Integer.MAX_VALUE;
         while(l < r){
-            if(nums[l] + nums[r] == target) return 0;
-            else if(nums[l] + nums[r] > target){
+            if(nums[l] + nums[r] > target){
                 res = Math.min(res, nums[l] + nums[r] - target);
                 r--;
             }else{
