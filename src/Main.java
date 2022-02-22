@@ -848,9 +848,17 @@ public class Main {
 //        System.out.println(findPeak_mf.findAllPeaksWithDuplicate2(new int[]{3,3,3,5,2,4,6,6,6}));
 //        System.out.println(findPeak_mf.findAllPeaksWithDuplicate2(new int[]{3,4,3,5,2,4,1,1,6,6,1}));
 
-        TwoSum_LessThanOrEqualToTarget_Lint609 twoSum_lessThanOrEqualToTarget_lint609 = new TwoSum_LessThanOrEqualToTarget_Lint609();
-        int[] nums = {1,2,5,6,7,3,5,8,-33,-5,-72,12,-34,100,99};
-        twoSum_lessThanOrEqualToTarget_lint609.twoSum5(nums, -64);
+//        TwoSum_LessThanOrEqualToTarget_Lint609 twoSum_lessThanOrEqualToTarget_lint609 = new TwoSum_LessThanOrEqualToTarget_Lint609();
+//        int[] nums = {1,2,5,6,7,3,5,8,-33,-5,-72,12,-34,100,99};
+//        twoSum_lessThanOrEqualToTarget_lint609.twoSum5(nums, -64);
+//        FourSum_LC18 fourSum_lc18 = new FourSum_LC18();
+//        int[] nums = {1,0,-1,0,-2,2};
+//        fourSum_lc18.fourSum(nums, 0);
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        Integer[] ary =  list.toArray(new Integer[list.size()]);
+        System.out.println(ary[0] + "," + ary[1]);
 
 
 
