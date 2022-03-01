@@ -18,6 +18,7 @@ public class PancakeSorting_LC969 {
     k--
 
    */
+    //!!!sol1, from acwing https://www.acwing.com/video/3256/, O(n^2), O(1)
     public List<Integer> pancakeSort(int[] arr) {
         List<Integer> res = new ArrayList<>();
         for(int k = arr.length - 1; k >= 0; k--){
