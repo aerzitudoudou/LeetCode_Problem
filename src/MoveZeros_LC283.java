@@ -4,7 +4,7 @@ public class MoveZeros_LC283 {
     //        i  j
     // 1 3 12 3 12
     //
-    //
+    //sol1, my, O(n), O(1)
     public void moveZeroes(int[] nums) {
         int i = 0;
         for(int j = 0; j < nums.length; j++){
