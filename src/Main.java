@@ -854,11 +854,14 @@ public class Main {
 //        FourSum_LC18 fourSum_lc18 = new FourSum_LC18();
 //        int[] nums = {1,0,-1,0,-2,2};
 //        fourSum_lc18.fourSum(nums, 0);
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        Integer[] ary =  list.toArray(new Integer[list.size()]);
-        System.out.println(ary[0] + "," + ary[1]);
+//        List<Integer> list = new ArrayList<>();
+//        list.add(1);
+//        list.add(2);
+//        Integer[] ary =  list.toArray(new Integer[list.size()]);
+//        System.out.println(ary[0] + "," + ary[1]);
+        int[] nums = new int[]{2, 7,11, 15};
+        TwoSumII_InputArrayIsSorted_LC167 twoSumII_inputArrayIsSorted_lc167 = new TwoSumII_InputArrayIsSorted_LC167();
+        twoSumII_inputArrayIsSorted_lc167.twoSum(nums, 9);
 
 
 
