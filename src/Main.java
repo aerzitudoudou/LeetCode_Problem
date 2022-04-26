@@ -859,9 +859,10 @@ public class Main {
 //        list.add(2);
 //        Integer[] ary =  list.toArray(new Integer[list.size()]);
 //        System.out.println(ary[0] + "," + ary[1]);
-        SortColorsII_Lint143 sortColorsII_lint143 = new SortColorsII_Lint143();
-        sortColorsII_lint143.sortColors2(new int[] {2,1,1,2,2, 3,4,5,3,3,3,3,4,4,4,4,2,1,5}, 5);
-
+//        SortColorsII_Lint143 sortColorsII_lint143 = new SortColorsII_Lint143();
+//        sortColorsII_lint143.sortColors2(new int[] {2,1,1,2,2, 3,4,5,3,3,3,3,4,4,4,4,2,1,5}, 5);
+        ThreeSum threeSum = new ThreeSum();
+        threeSum.threeSum(new int[]{-1,0,1,2,-1,4});
 
 
 
