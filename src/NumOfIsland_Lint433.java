@@ -11,7 +11,7 @@ class Point{
 }
 
 public class NumOfIsland_Lint433 {
-    //sol1, my, O(m * n), O(min(m,n))
+    //sol1, my, bfs, O(m * n), O(min(m,n))
     public int numIslands(boolean[][] grid) {
 
         //corner case: 二维数组 1. null 2. []有一行但是没有内容: 对应grid.length == 0  3. [0, 1] 但是0 指向一个null value, 对应grid[0] == null
@@ -63,6 +63,42 @@ public class NumOfIsland_Lint433 {
         int n = grid.length, m = grid[0].length;
         return x >= 0 && x < n && y >= 0 && y < m && grid[x][y];
     }
+
+    //sol2, my, dfs, O(m*n), O(m*n)
+    public int numIslands2(boolean[][] grid) {
+        int res = 0;
+        if(grid == null || grid.length == 0 || grid[0] == null) return res;
+        int n = grid.length, m = grid[0].length;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                if(grid[i][j]){
+                    grid[i][j] = false;
+                    dfs(grid, i, j);
+                    res++;
+                }
+            }
+        }
+        return res;
+
+
+    }
+
+    private void dfs(boolean[][] grid, int i, int j){
+        int[] dirX = {0,1,0,-1};
+        int[] dirY = {1,0,-1,0};
+
+        for(int a = 0; a < 4; a++){
+            int x = i + dirX[a];
+            int y = j + dirY[a];
+            if(isValid(grid, x, y)){
+                grid[x][y] = false;
+                dfs(grid, x, y);
+            }
+
+        }
+        //base case: if 4 direction are all invalid, return to the parent level on the recursion tree
+    }
+
 
 
 }
