@@ -12,7 +12,7 @@ public class GraphValidTree_LC261 {
 
  //sol1, from jh, adjancency list + dfs, O(V + E) -> E = V - 1 worse case = O(V), O(V + E) = O(V)
  public boolean validTree(int n, int[][] edges) {
-        if(edges.length > n - 1) return false;
+        if(edges.length != n - 1) return false;
         //build up adjancency list
         List<List<Integer>> graph = new ArrayList<>();
         for(int i = 0; i < n; i++){
