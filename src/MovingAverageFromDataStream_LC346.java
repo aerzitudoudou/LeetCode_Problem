@@ -13,6 +13,7 @@ public class MovingAverageFromDataStream_LC346 {
 
     }
 
+    //T:O(1), S:O(n)
     public double next(int val) {
         if (queue.size() == size) {
             sum -= queue.pollLast();
