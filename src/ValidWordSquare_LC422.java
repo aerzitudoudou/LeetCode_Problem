@@ -7,10 +7,11 @@ public class ValidWordSquare_LC422 {
         for(int i = 0; i < n; i++){
             String word = words.get(i);
             for(int j = 0; j < word.length(); j++){
-                char c1 = word.charAt(j);
-                if(j >= n || i >= words.get(j).length() || words.get(j).charAt(i) != c1) return false;
+                char c1 = word.charAt(j);//char at ith row jth column
+                if(j >= n || i >= words.get(j).length() || words.get(j).charAt(i) != c1) return false;//check if jth row ith column is valid, and if so, if char(ith row jth col) = char(j th row ith col)
             }
         }
+
         return true;
 
     }
