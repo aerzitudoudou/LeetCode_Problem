@@ -26,48 +26,35 @@ public class ValidBinarySearchTree {
     }
 
     //!!!!sol 2: concise recursive way
-    public boolean isValidBST3(TreeNode root) {
-        return helper(root, null, null);
-    }
+     public boolean isValidBST1(TreeNode root) {
+         return isValidBST(root, null, null);
+     }
 
-    private boolean helper(TreeNode cur, Integer min, Integer max){
-        if(cur == null) return true;
-        return (min == null || cur.key > min) && (max == null || cur.key < max) && helper(cur.left, min, cur.key) && helper(cur.right, cur.key, max);
-    }
+     private boolean isValidBST(TreeNode root, TreeNode min, TreeNode max){
+         if(root == null) return true;
+         return (min == null || root.key > min.key) && (max == null || root.key < max.key) && isValidBST(root.left, min, root) && isValidBST(root.right, root, max);
+     }
 
-    //my way T:N S: h
-    public boolean isValidBST(TreeNode root) {
-        boolean[] flag = new boolean[1];
-        flag[0] = true;
-        helper(root, flag);
-        return flag[0];
-    }
-    //Integer[] represent the min and max value of subtree
+    //sol1, my, recursive, O(n), O(h)
+     boolean res = true;
+     public boolean isValidBST(TreeNode root) {
+         if(root == null) return true;
+         //in order traverse monotonic increasing
+         dfs(root);
+         return res;
 
-    private Integer[] helper(TreeNode root, boolean[] flag){
-        if(root == null) return new Integer[]{null, null};
-        Integer[] minMax = {root.key, root.key};
-
-        if(root.left != null){
-            Integer[] leftMinMax = helper(root.left, flag);
-            if(leftMinMax[1] >= minMax[0]){
-                flag[0] = false;
-            }
-            minMax[0] = Math.min(root.key, leftMinMax[0]);
-        }
-
-        if(root.right != null){
-            Integer[] rightMinMax = helper(root.right, flag);
-            if(rightMinMax[0] <= minMax[1]){
-                flag[0] = false;
-            }
-            minMax[1] = Math.max(root.key, rightMinMax[1]);
-        }
-        return minMax;
-
-    }
+     }
 
 
+     private long[] dfs(TreeNode root){
+         if(root == null || !res) return new long[]{Long.MAX_VALUE, Long.MIN_VALUE};
+         long[] l = dfs(root.left), r = dfs(root.right);
+         if(root.key <= l[1] || root.key >= r[0])
+             res = false;
+         long max = Math.max(Math.max(l[1], r[1]), root.key);
+         long min = Math.min(Math.min(l[0], r[0]), root.key);
+         return new long[]{min, max};
+     }
 
 
 

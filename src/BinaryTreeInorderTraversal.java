@@ -8,6 +8,7 @@ public class BinaryTreeInorderTraversal {
     //cur: cur treenode to be added to the stack
     //stack: if treenode has left childnode , push to stack. otherwise pop
 
+    //O(n), O(h)
     public List<Integer> inorderTraversal(TreeNode root) {
 
         Deque<TreeNode> stack = new LinkedList<>();
