@@ -36,24 +36,24 @@ public class Main {
 //        ThreeSum threeSum = new ThreeSum();
 //        int[] array = new int[]{ 2, 2, 0};
 //        threeSum.allTriples(array, 6);
-//        TreeNode a = new TreeNode(1);
-//        TreeNode b = new TreeNode(2);
-//        TreeNode c = new TreeNode(3);
-//
-//        TreeNode d = new TreeNode(4);
-//
-//        TreeNode e = new TreeNode(5);
-//
-//        TreeNode f = new TreeNode(6);
-//
-//        TreeNode g = new TreeNode(7);
-//        a.left = b;
-//        a.right = c;
-////        b.left = d;
-////        b.right = e;
-////        c.left = f;
-////        c.right = g;
-//
+        TreeNode a = new TreeNode(1);
+        TreeNode b = new TreeNode(-5);
+        TreeNode c = new TreeNode(2);
+
+        TreeNode d = new TreeNode(1);
+
+        TreeNode e = new TreeNode(2);
+
+        TreeNode f = new TreeNode(-4);
+
+        TreeNode g = new TreeNode(-5);
+        a.left = b;
+        a.right = c;
+        b.left = d;
+        b.right = e;
+        c.left = f;
+        c.right = g;
+
 //        FlattenBinaryTree flattenBinaryTree = new FlattenBinaryTree();
 //        flattenBinaryTree.flatten(a);
 
@@ -861,8 +861,11 @@ public class Main {
 //        System.out.println(ary[0] + "," + ary[1]);
 //        SortColorsII_Lint143 sortColorsII_lint143 = new SortColorsII_Lint143();
 //        sortColorsII_lint143.sortColors2(new int[] {2,1,1,2,2, 3,4,5,3,3,3,3,4,4,4,4,2,1,5}, 5);
-        ThreeSum threeSum = new ThreeSum();
-        threeSum.threeSum(new int[]{-1,0,1,2,-1,4});
+//        ThreeSum threeSum = new ThreeSum();
+//        threeSum.threeSum(new int[]{-1,0,1,2,-1,4});
+
+        MinimumSubtree_Lint596 minimumSubtree_lint596 = new MinimumSubtree_Lint596();
+        minimumSubtree_lint596.mininumSubtree(a);
 
 
 
