@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 //lc 94
-public class BinaryTreeInorderTraversal {
+public class BinaryTreeInorderTraversal_LC94 {
     //cur: cur treenode to be added to the stack
     //stack: if treenode has left childnode , push to stack. otherwise pop
 
