@@ -17,41 +17,48 @@ public class BinarySearchTreeIterator_LC173 {
      *     }
      * }
      */
-//!!!sol. from huifeng: https://www.youtube.com/watch?v=DQezNhctk-Y O(n), O(h)
+
+
+//!!!sol1. from huifeng: https://www.youtube.com/watch?v=DQezNhctk-Y O(n), O(h)
 
     class BSTIterator {
 
         Deque<TreeNode> stack = new LinkedList<>();
-
+        //O(h), O(h)
         public BSTIterator(TreeNode root) {
-            while(root != null){
-                stack.offerFirst(root);
-                root = root.left;
-            }
-
+            pushLeftBranchNodes(root);
         }
-
+        //amortized Time: O(1), worst case: O(n).
+        //from https://leetcode.com/problems/binary-search-tree-iterator/discuss/52525/My-solutions-in-3-languages-with-Stack:
+        //The average time complexity of next() function is O(1) indeed in your case.
+        // As the next function can be called n times at most, and the number of right nodes in self.pushAll(tmpNode.right) function is maximal n in a tree which has n nodes, so the amortized time complexity is O(1).
+        //Space: O(h)
         public int next() {
-            if(hasNext()) {
+            if(hasNext()){
                 TreeNode cur = stack.pollFirst();
-                TreeNode sub = cur.right;
-                while(sub != null){
-                    stack.offerFirst(sub);
-                    sub = sub.left;
-                }
+                pushLeftBranchNodes(cur.right);
                 return cur.key;
             }
             return -1;
         }
 
+        //O(1), O(h)
         public boolean hasNext() {
             return !stack.isEmpty();
+        }
+        //T: amortized: O(1), worst case : O(n)
+        //S: O(h)
+        private void pushLeftBranchNodes(TreeNode root){
+            while(root != null){
+                stack.offerFirst(root);
+                root = root.left;
+            }
         }
 
 
     }
 
-// //sol2: my, O(n), O(n)
+// //sol2.1: my, O(n), O(n)
 // class BSTIterator {
 
 //     Deque<TreeNode> queue = new LinkedList<>();
@@ -77,7 +84,33 @@ public class BinarySearchTreeIterator_LC173 {
 //     }
 // }
 
+//sol2.2, my, iteratively do in order traverse, O(n), O(n)
+//     Deque<TreeNode> stack = new LinkedList<>();
+//     Deque<TreeNode> queue = new LinkedList<>();
+//     //O(n), O(n)
+//     public BSTIterator(TreeNode root) {
+//         if(root != null){
+//             TreeNode cur = root;
+//             while(cur != null || !stack.isEmpty()){
+//                 while(cur != null){
+//                     stack.offerFirst(cur);
+//                     cur = cur.left;
+//                 }
+//                 TreeNode tmp = stack.pollFirst();
+//                 queue.offerFirst(tmp);
+//                 cur = tmp.right;
+//             }
+//         }
+//     }
+//     //O(1), O(n)
+//     public int next() {
+//         return queue.pollLast().val;
+//     }
 
+//     //O(1), O(n)
+//     public boolean hasNext() {
+//         return !queue.isEmpty();
+//     }
 
 
 /**
