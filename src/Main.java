@@ -36,23 +36,23 @@ public class Main {
 //        ThreeSum threeSum = new ThreeSum();
 //        int[] array = new int[]{ 2, 2, 0};
 //        threeSum.allTriples(array, 6);
-        TreeNode a = new TreeNode(1);
-        TreeNode b = new TreeNode(-5);
-        TreeNode c = new TreeNode(2);
+        TreeNode a = new TreeNode(4);
+        TreeNode b = new TreeNode(2);
+        TreeNode c = new TreeNode(7);
 
         TreeNode d = new TreeNode(1);
 
-        TreeNode e = new TreeNode(2);
+        TreeNode e = new TreeNode(3);
 
-        TreeNode f = new TreeNode(-4);
-
-        TreeNode g = new TreeNode(-5);
+//        TreeNode f = new TreeNode(-4);
+//
+//        TreeNode g = new TreeNode(-5);
         a.left = b;
         a.right = c;
         b.left = d;
         b.right = e;
-        c.left = f;
-        c.right = g;
+//        c.left = f;
+//        c.right = g;
 
 //        FlattenBinaryTree flattenBinaryTree = new FlattenBinaryTree();
 //        flattenBinaryTree.flatten(a);
@@ -864,8 +864,10 @@ public class Main {
 //        ThreeSum threeSum = new ThreeSum();
 //        threeSum.threeSum(new int[]{-1,0,1,2,-1,4});
 
-        MinimumSubtree_Lint596 minimumSubtree_lint596 = new MinimumSubtree_Lint596();
-        minimumSubtree_lint596.mininumSubtree(a);
+//        MinimumSubtree_Lint596 minimumSubtree_lint596 = new MinimumSubtree_Lint596();
+//        minimumSubtree_lint596.mininumSubtree(a);
+        InsertIntoABinaryTree_LC701 insertIntoABinaryTree_lc701 = new InsertIntoABinaryTree_LC701();
+        insertIntoABinaryTree_lc701.insertIntoBST(a, 5);
 
 
 
