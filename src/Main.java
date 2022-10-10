@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -38,21 +39,21 @@ public class Main {
 //        threeSum.allTriples(array, 6);
         TreeNode a = new TreeNode(4);
         TreeNode b = new TreeNode(2);
-        TreeNode c = new TreeNode(7);
+        TreeNode c = new TreeNode(6);
 
         TreeNode d = new TreeNode(1);
 
         TreeNode e = new TreeNode(3);
 
-//        TreeNode f = new TreeNode(-4);
-//
-//        TreeNode g = new TreeNode(-5);
+        TreeNode f = new TreeNode(5);
+
+        TreeNode g = new TreeNode(7);
         a.left = b;
         a.right = c;
         b.left = d;
         b.right = e;
-//        c.left = f;
-//        c.right = g;
+        c.left = f;
+        c.right = g;
 
 //        FlattenBinaryTree flattenBinaryTree = new FlattenBinaryTree();
 //        flattenBinaryTree.flatten(a);
@@ -867,7 +868,19 @@ public class Main {
 //        MinimumSubtree_Lint596 minimumSubtree_lint596 = new MinimumSubtree_Lint596();
 //        minimumSubtree_lint596.mininumSubtree(a);
         InsertIntoABinaryTree_LC701 insertIntoABinaryTree_lc701 = new InsertIntoABinaryTree_LC701();
-        insertIntoABinaryTree_lc701.insertIntoBST(a, 5);
+//        insertIntoABinaryTree_lc701.insertIntoBST(a, 5);
+
+
+//        LinkedList<Integer> res = new LinkedList<>();
+//        res.offerFirst(1);
+//        List<Integer> list = null;
+//        list = res;
+        ClosestBinarySearchTreeValueII_LC272 closestBinarySearchTreeValueII_lc272 = new ClosestBinarySearchTreeValueII_LC272();
+        closestBinarySearchTreeValueII_lc272.closestKValues(a, 3.714286, 2);
+
+
+
+
 
 
 
