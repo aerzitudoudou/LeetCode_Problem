@@ -1,5 +1,6 @@
 import java.util.Collections;
 import java.util.PriorityQueue;
+import java.util.Random;
 
 public class KthLargestElementInAnArray_LC215 {
 
@@ -29,7 +30,7 @@ public class KthLargestElementInAnArray_LC215 {
 
         return minHeap.poll();
     }
-    //sol3, quick select
+    //sol3.1, quick select
     /*
         k
     6 5 4 3 2 1   k = 2 return 1
@@ -75,5 +76,66 @@ public class KthLargestElementInAnArray_LC215 {
         }
         nums[l] = pivot;
         return l;
+    }
+
+
+
+    //!!!!sol3.2, quick select, O(n), O(1),
+// [3,2,1,5,6,4] and k = 2
+// O(n), pivot  3, left: 2 1, right: 5,6,4
+// avg O(n/2) right: 5,6,4 pivot: 5, left 4, right 6
+// return 5
+
+// [3,2,3,1,2,4,5,5,6] and k = 4
+// 4
+// O(n) pivot 3, left 1 2 2  right 3, 4, 5, 5, 6
+// O(n/2)  pivot 3 left: [] right: 4, 5, 5, 6
+//  pivot 4, left:[] right:5,5,6  left_count = k - 1
+// return 4
+
+    // n + n/2 +...n/2^k =  n( 1 + 1/2 + 1/2^k) = n*1*(1 - (1/2)^k)/(1-(1/2)) = 2n
+// O(n)
+    public int findKthLargest_3_2(int[] nums, int k) {
+
+        int targetIndex = nums.length - k; //kth largest element
+        int curIndex = 0;
+        int l = 0, r = nums.length - 1;
+        while(l <= r){
+            curIndex = partition_3_2(nums, l, r);
+            if(curIndex == targetIndex) return nums[curIndex];
+            else if(curIndex < targetIndex){
+                l = curIndex + 1;
+            }else{
+                r = curIndex - 1;
+            }
+        }
+
+        return nums[curIndex];
+    }
+
+    private int partition_3_2(int[] nums, int l, int r){
+        Random rand = new Random();
+        int pivot = l + rand.nextInt(r - l + 1);
+        int i = l, j = r;
+        swap(nums, r, pivot);
+        j--;
+        while(i <= j){
+            if(nums[j] >= nums[r]) j--;
+            else if(nums[i] < nums[r]) i++;
+            else{
+                swap(nums, i , j);
+                i++;
+                j--;
+            }
+        }
+
+        swap(nums, i, r);
+        return i;
+    }
+
+    private void swap(int[] ary, int i, int j){
+        int tmp = ary[i];
+        ary[i] = ary[j];
+        ary[j] = tmp;
     }
 }
