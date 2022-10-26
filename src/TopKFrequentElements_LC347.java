@@ -110,7 +110,6 @@ public class TopKFrequentElements_LC347 {
     int[] ary;
     Map<Integer, Integer> map;
     public int[] topKFrequent2_2(int[] nums, int k) {
-        int[] res = new int[k];
         //find the number where it falls to index = size - k
         //calculate the frequency of each number
         map = new HashMap<>();
